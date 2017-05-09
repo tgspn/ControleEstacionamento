@@ -16,5 +16,10 @@ namespace ControleEstacionamento.Visao.Funcionario
         {
             InitializeComponent();
         }
+
+        private void btnAdicionar_Click(object sender, EventArgs e)
+        {
+            //new FormFuncionarioCrud().funcionario;
+        }
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ControleEstacionamento.Modelos;
 
 namespace ControleEstacionamento.Visao.Funcionario
 {
@@ -17,7 +18,32 @@ namespace ControleEstacionamento.Visao.Funcionario
             InitializeComponent();
         }
 
-        public FormFuncionarioCrud (/*passar modelo como parametro*/Object modelo):this()
+        public FuncionarioModelo funcionario;//remover o public no final do teste
+
+        public FormFuncionarioCrud (FuncionarioModelo funcionario):this()
+        {
+            this.funcionario = funcionario;
+        }
+
+        public void GetInfo()
+        {
+            if(funcionario == null)
+            {
+                funcionario = new FuncionarioModelo();
+            }
+            if (!string.IsNullOrEmpty(txtNomeFuncionario.Text))
+                funcionario.Celular = long.Parse(txtNomeFuncionario.Text);
+            else
+            {
+                MessageBox.Show("Test");
+                return;
+            }
+
+            //funcionario.Cpf = long.Parse()
+
+        }
+
+        private void btnSalvarFuncionario_Click(object sender, EventArgs e)
         {
 
         }
