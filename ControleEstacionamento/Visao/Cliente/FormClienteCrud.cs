@@ -13,5 +13,10 @@ namespace ControleEstacionamento.Visao.Cliente {
         public FormClienteCrud() {
             InitializeComponent();
         }
+        
+        public FormClienteCrud(/*passar modelo como parametro*/Object modelo):this()
+        {
+
+        }
     }
 }
