@@ -25,6 +25,12 @@ namespace ControleEstacionamento
         private void tsbFuncionarios_Click(object sender, EventArgs e)
         {
             //TODO:Inserir o código para iniciar a visão de listagem de todos os funcionários cadastrados.
+
+            Visao.Funcionario.FormFuncionarioListar form = new Visao.Funcionario.FormFuncionarioListar();
+            form.MdiParent = this;
+            form.Show();
+
+        
         }
     }
 }
