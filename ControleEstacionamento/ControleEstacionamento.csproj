@@ -79,6 +79,18 @@
     <Compile Include="Visao\Funcionario\FormFuncionarioListar.Designer.cs">
       <DependentUpon>FormFuncionarioListar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Visao\Veiculo\FormVeiculoCrud.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\Veiculo\FormVeiculoCrud.Designer.cs">
+      <DependentUpon>FormVeiculoCrud.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visao\Veiculo\FormVeiculoListar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\Veiculo\FormVeiculoListar.Designer.cs">
+      <DependentUpon>FormVeiculoListar.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </EmbeddedResource>
@@ -97,6 +109,12 @@
     <EmbeddedResource Include="Visao\Funcionario\FormFuncionarioListar.resx">
       <DependentUpon>FormFuncionarioListar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Visao\Veiculo\FormVeiculoCrud.resx">
+      <DependentUpon>FormVeiculoCrud.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\Veiculo\FormVeiculoListar.resx">
+      <DependentUpon>FormVeiculoListar.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -114,7 +132,6 @@
     <Folder Include="Controlers\" />
     <Folder Include="Visao\Ocupa\" />
     <Folder Include="Visao\Vaga\" />
-    <Folder Include="Visao\Veiculo\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,0 +1,242 @@
+﻿namespace ControleEstacionamento.Visao.Veiculo
+{
+    partial class FormVeiculoCrud
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.lblNome = new System.Windows.Forms.Label();
+            this.lblCpf = new System.Windows.Forms.Label();
+            this.lblEndereco = new System.Windows.Forms.Label();
+            this.lblTelefone = new System.Windows.Forms.Label();
+            this.lblSalario = new System.Windows.Forms.Label();
+            this.txtNomeFuncionario = new System.Windows.Forms.TextBox();
+            this.txtCpfFuncionario = new System.Windows.Forms.TextBox();
+            this.txtEnderecoFuncionario = new System.Windows.Forms.TextBox();
+            this.txtTelefoneFuncionario = new System.Windows.Forms.TextBox();
+            this.btnSalvarFuncionario = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // lblNome
+            // 
+            this.lblNome.AutoSize = true;
+            this.lblNome.Location = new System.Drawing.Point(21, 34);
+            this.lblNome.Name = "lblNome";
+            this.lblNome.Size = new System.Drawing.Size(40, 13);
+            this.lblNome.TabIndex = 0;
+            this.lblNome.Text = "Marca:";
+            // 
+            // lblCpf
+            // 
+            this.lblCpf.AutoSize = true;
+            this.lblCpf.Location = new System.Drawing.Point(21, 76);
+            this.lblCpf.Name = "lblCpf";
+            this.lblCpf.Size = new System.Drawing.Size(45, 13);
+            this.lblCpf.TabIndex = 1;
+            this.lblCpf.Text = "Modelo:";
+            // 
+            // lblEndereco
+            // 
+            this.lblEndereco.AutoSize = true;
+            this.lblEndereco.Location = new System.Drawing.Point(21, 120);
+            this.lblEndereco.Name = "lblEndereco";
+            this.lblEndereco.Size = new System.Drawing.Size(29, 13);
+            this.lblEndereco.TabIndex = 2;
+            this.lblEndereco.Text = "Ano:";
+            // 
+            // lblTelefone
+            // 
+            this.lblTelefone.AutoSize = true;
+            this.lblTelefone.Location = new System.Drawing.Point(21, 164);
+            this.lblTelefone.Name = "lblTelefone";
+            this.lblTelefone.Size = new System.Drawing.Size(37, 13);
+            this.lblTelefone.TabIndex = 3;
+            this.lblTelefone.Text = "Placa:";
+            // 
+            // lblSalario
+            // 
+            this.lblSalario.AutoSize = true;
+            this.lblSalario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSalario.Location = new System.Drawing.Point(141, 27);
+            this.lblSalario.Name = "lblSalario";
+            this.lblSalario.Size = new System.Drawing.Size(321, 25);
+            this.lblSalario.TabIndex = 5;
+            this.lblSalario.Text = "{0} de veículos para o cliente {1}";
+            // 
+            // txtNomeFuncionario
+            // 
+            this.txtNomeFuncionario.Location = new System.Drawing.Point(102, 31);
+            this.txtNomeFuncionario.Name = "txtNomeFuncionario";
+            this.txtNomeFuncionario.Size = new System.Drawing.Size(275, 20);
+            this.txtNomeFuncionario.TabIndex = 6;
+            // 
+            // txtCpfFuncionario
+            // 
+            this.txtCpfFuncionario.Location = new System.Drawing.Point(102, 73);
+            this.txtCpfFuncionario.Name = "txtCpfFuncionario";
+            this.txtCpfFuncionario.Size = new System.Drawing.Size(275, 20);
+            this.txtCpfFuncionario.TabIndex = 7;
+            // 
+            // txtEnderecoFuncionario
+            // 
+            this.txtEnderecoFuncionario.Location = new System.Drawing.Point(102, 117);
+            this.txtEnderecoFuncionario.Name = "txtEnderecoFuncionario";
+            this.txtEnderecoFuncionario.Size = new System.Drawing.Size(275, 20);
+            this.txtEnderecoFuncionario.TabIndex = 8;
+            // 
+            // txtTelefoneFuncionario
+            // 
+            this.txtTelefoneFuncionario.Location = new System.Drawing.Point(102, 161);
+            this.txtTelefoneFuncionario.Name = "txtTelefoneFuncionario";
+            this.txtTelefoneFuncionario.Size = new System.Drawing.Size(275, 20);
+            this.txtTelefoneFuncionario.TabIndex = 9;
+            // 
+            // btnSalvarFuncionario
+            // 
+            this.btnSalvarFuncionario.Location = new System.Drawing.Point(493, 16);
+            this.btnSalvarFuncionario.Name = "btnSalvarFuncionario";
+            this.btnSalvarFuncionario.Size = new System.Drawing.Size(75, 23);
+            this.btnSalvarFuncionario.TabIndex = 12;
+            this.btnSalvarFuncionario.Text = "Salvar";
+            this.btnSalvarFuncionario.UseVisualStyleBackColor = true;
+            this.btnSalvarFuncionario.Click += new System.EventHandler(this.btnSalvarFuncionario_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(574, 16);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 13;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.lblSalario);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(661, 89);
+            this.panel1.TabIndex = 14;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.groupBox1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 89);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(661, 355);
+            this.panel2.TabIndex = 15;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel3.Controls.Add(this.btnSalvarFuncionario);
+            this.panel3.Controls.Add(this.btnCancelar);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 393);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(661, 51);
+            this.panel3.TabIndex = 16;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 59);
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lblNome);
+            this.groupBox1.Controls.Add(this.txtCpfFuncionario);
+            this.groupBox1.Controls.Add(this.lblCpf);
+            this.groupBox1.Controls.Add(this.txtEnderecoFuncionario);
+            this.groupBox1.Controls.Add(this.lblEndereco);
+            this.groupBox1.Controls.Add(this.txtNomeFuncionario);
+            this.groupBox1.Controls.Add(this.lblTelefone);
+            this.groupBox1.Controls.Add(this.txtTelefoneFuncionario);
+            this.groupBox1.Location = new System.Drawing.Point(108, 32);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(413, 224);
+            this.groupBox1.TabIndex = 10;
+            this.groupBox1.TabStop = false;
+            // 
+            // FormVeiculoCrud
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(661, 444);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
+            this.Name = "FormVeiculoCrud";
+            this.Text = "Cadastro Veículo";
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Label lblNome;
+        private System.Windows.Forms.Label lblCpf;
+        private System.Windows.Forms.Label lblEndereco;
+        private System.Windows.Forms.Label lblTelefone;
+        private System.Windows.Forms.Label lblSalario;
+        private System.Windows.Forms.TextBox txtNomeFuncionario;
+        private System.Windows.Forms.TextBox txtCpfFuncionario;
+        private System.Windows.Forms.TextBox txtEnderecoFuncionario;
+        private System.Windows.Forms.TextBox txtTelefoneFuncionario;
+        private System.Windows.Forms.Button btnSalvarFuncionario;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.GroupBox groupBox1;
+    }
+}
