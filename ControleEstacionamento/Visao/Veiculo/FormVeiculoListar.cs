@@ -19,7 +19,7 @@ namespace ControleEstacionamento.Visao.Veiculo
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            //new FormFuncionarioCrud().funcionario;
+            new Veiculo.FormVeiculoCrud().Show();
         }
     }
 }
