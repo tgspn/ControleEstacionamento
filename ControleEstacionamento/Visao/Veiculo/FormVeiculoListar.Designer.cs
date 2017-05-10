@@ -80,6 +80,7 @@
             this.btnDetalhesVeiculo.TabIndex = 3;
             this.btnDetalhesVeiculo.Text = "Detalhes";
             this.btnDetalhesVeiculo.UseVisualStyleBackColor = true;
+            this.btnDetalhesVeiculo.Click += new System.EventHandler(this.btnDetalhesVeiculo_Click);
             // 
             // btnEditarVeiculo
             // 
