@@ -52,6 +52,7 @@
     <Compile Include="FormPrincipal.Designer.cs">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modelos\ClienteModelo.cs" />
     <Compile Include="Modelos\FuncionarioModelo.cs" />
     <Compile Include="Modelos\VeiculoModelo.cs" />
     <Compile Include="Program.cs" />
@@ -104,6 +105,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Visao\Cliente\FormClienteCrud.resx">
+      <DependentUpon>FormClienteCrud.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\Cliente\FormClienteListar.resx">
+      <DependentUpon>FormClienteListar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Visao\Funcionario\FormFuncionarioCrud.resx">
       <DependentUpon>FormFuncionarioCrud.cs</DependentUpon>
     </EmbeddedResource>
