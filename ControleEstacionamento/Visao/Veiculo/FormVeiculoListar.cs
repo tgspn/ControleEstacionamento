@@ -24,8 +24,8 @@ namespace ControleEstacionamento.Visao.Veiculo
 
         private void btnDetalhesVeiculo_Click(object sender, EventArgs e)
         {
-            (ve)dgvFuncionario.SelectedRows[0].DataBoundItem
-            new Veiculo.FormVeiculoCrud()
+            var modelo = (Modelos.VeiculoModelo)dgvFuncionario.SelectedRows[0].DataBoundItem;
+            new Veiculo.FormVeiculoCrud(modelo).Show();
         }
     }
 }
