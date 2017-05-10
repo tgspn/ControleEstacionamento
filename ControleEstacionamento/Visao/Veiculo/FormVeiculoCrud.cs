@@ -18,21 +18,22 @@ namespace ControleEstacionamento.Visao.Veiculo
             InitializeComponent();
         }
 
-        public FuncionarioModelo funcionario;//remover o public no final do teste
+        VeiculoModelo veiculo;//remover o public no final do teste
 
-        public FormVeiculoCrud (FuncionarioModelo funcionario):this()
+        public FormVeiculoCrud(VeiculoModelo veiculo) : this()
         {
-            this.funcionario = funcionario;
+            this.veiculo = veiculo;
         }
 
         public void GetInfo()
         {
-            if(funcionario == null)
+            if (veiculo == null)
             {
-                funcionario = new FuncionarioModelo();
+                veiculo = new VeiculoModelo();
             }
             if (!string.IsNullOrEmpty(txtNomeFuncionario.Text))
-                funcionario.Celular = long.Parse(txtNomeFuncionario.Text);
+            {
+            }
             else
             {
                 MessageBox.Show("Test");
@@ -42,7 +43,10 @@ namespace ControleEstacionamento.Visao.Veiculo
             //funcionario.Cpf = long.Parse()
 
         }
+        public void SetInfo(VeiculoModelo modelo)
+        {
 
+        }
         private void btnSalvarFuncionario_Click(object sender, EventArgs e)
         {
 

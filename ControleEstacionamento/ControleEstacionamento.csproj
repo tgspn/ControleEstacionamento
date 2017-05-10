@@ -53,6 +53,7 @@
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="Modelos\FuncionarioModelo.cs" />
+    <Compile Include="Modelos\VeiculoModelo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Visao\Cliente\FormClienteCrud.cs">

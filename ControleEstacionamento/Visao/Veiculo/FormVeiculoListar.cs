@@ -19,7 +19,13 @@ namespace ControleEstacionamento.Visao.Veiculo
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            //new FormFuncionarioCrud().funcionario;
+            new Veiculo.FormVeiculoCrud().Show();
+        }
+
+        private void btnDetalhesVeiculo_Click(object sender, EventArgs e)
+        {
+            (ve)dgvFuncionario.SelectedRows[0].DataBoundItem
+            new Veiculo.FormVeiculoCrud()
         }
     }
 }
