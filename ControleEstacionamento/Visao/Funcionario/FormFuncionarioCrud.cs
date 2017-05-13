@@ -18,34 +18,88 @@ namespace ControleEstacionamento.Visao.Funcionario
             InitializeComponent();
         }
 
-        public FuncionarioModelo funcionario;//remover o public no final do teste
+        public FuncionarioModelo modelo; //voltar privado depois do teste
 
-        public FormFuncionarioCrud (FuncionarioModelo funcionario):this()
+        public bool IsEdit { get; set; }
+
+        public FormFuncionarioCrud(FuncionarioModelo modelo) : this()
         {
-            this.funcionario = funcionario;
+            this.modelo = modelo;
         }
 
-        public void GetInfo()
+        private void GetInfo()
         {
-            if(funcionario == null)
+            if (modelo == null)
             {
-                funcionario = new FuncionarioModelo();
+                modelo = new FuncionarioModelo();
             }
-            if (!string.IsNullOrEmpty(txtNomeFuncionario.Text))
-                funcionario.Celular = long.Parse(txtNomeFuncionario.Text);
+            if (Validar())
+            {
+                modelo.Nome = txtNome.Text;
+                modelo.Cpf = long.Parse(txtCpf.Text);
+                modelo.Endereco = txtEndereco.Text;
+                modelo.Telefone = long.Parse(txtTelefone.Text);
+                modelo.Celular = long.Parse(txtCelular.Text);
+                modelo.Salario = decimal.Parse(txtSalario.Text);
+            }
             else
             {
-                MessageBox.Show("Test");
+                MessageBox.Show("Existem campos obrigatórios não preenchidos!");
                 return;
             }
+        }
 
-            //funcionario.Cpf = long.Parse()
+        private bool Validar()
+        {
+            if (!string.IsNullOrEmpty(txtNome.Text))
+                if (!string.IsNullOrEmpty(txtCpf.Text))
+                    if (!string.IsNullOrEmpty(txtCelular.Text))
+                        if (!string.IsNullOrEmpty(txtSalario.Text))
+                            return true;
 
+            return false;
+        }
+
+        private void SetInfo(FuncionarioModelo modelo)
+        {
+            txtNome.Text = modelo.Nome;
+            txtCpf.Text = modelo.Cpf.ToString();
+            txtEndereco.Text = modelo.Endereco;
+            txtTelefone.Text = modelo.Telefone.ToString();
+            txtCelular.Text = modelo.Celular.ToString();
+            txtSalario.Text = modelo.Salario.ToString();
+
+            if(!IsEdit)
+            {
+                txtNome.ReadOnly = true;
+                txtCpf.ReadOnly = true;
+                txtEndereco.ReadOnly= true;
+                txtTelefone.ReadOnly = true;
+                txtCelular.ReadOnly = true;
+                txtSalario.ReadOnly = true;
+
+                btnSalvarFuncionario.Visible = false;
+                btnCancelar.Text = "Fechar";
+            }
         }
 
         private void btnSalvarFuncionario_Click(object sender, EventArgs e)
         {
+            GetInfo();
+            this.Close();
+        }
 
+        private void FormFuncionarioCrud_Load(object sender, EventArgs e)
+        {
+            if (modelo != null)
+            {
+                SetInfo(modelo);
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
