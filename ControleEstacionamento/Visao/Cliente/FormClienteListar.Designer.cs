@@ -111,9 +111,13 @@
             // 
             // dgvCliente
             // 
+            this.dgvCliente.AllowUserToAddRows = false;
+            this.dgvCliente.AllowUserToDeleteRows = false;
             this.dgvCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCliente.Location = new System.Drawing.Point(1, 0);
             this.dgvCliente.Name = "dgvCliente";
+            this.dgvCliente.ReadOnly = true;
+            this.dgvCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCliente.Size = new System.Drawing.Size(726, 363);
             this.dgvCliente.TabIndex = 3;
             // 
@@ -178,6 +182,7 @@
             this.btnAdicionarCliente.TabIndex = 7;
             this.btnAdicionarCliente.Text = "Adicionar";
             this.btnAdicionarCliente.UseVisualStyleBackColor = true;
+            this.btnAdicionarCliente.Click += new System.EventHandler(this.btnAdicionar_Click);
             // 
             // btnDetalhesCliente
             // 
@@ -187,6 +192,7 @@
             this.btnDetalhesCliente.TabIndex = 8;
             this.btnDetalhesCliente.Text = "Detalhes";
             this.btnDetalhesCliente.UseVisualStyleBackColor = true;
+            this.btnDetalhesCliente.Click += new System.EventHandler(this.btnDetalhesVeiculo_Click);
             // 
             // btnExcluirCliente
             // 
@@ -196,6 +202,7 @@
             this.btnExcluirCliente.TabIndex = 10;
             this.btnExcluirCliente.Text = "Excluir";
             this.btnExcluirCliente.UseVisualStyleBackColor = true;
+            this.btnExcluirCliente.Click += new System.EventHandler(this.btnExcluirVeiculo_Click);
             // 
             // btnEditarCliente
             // 
@@ -205,6 +212,7 @@
             this.btnEditarCliente.TabIndex = 9;
             this.btnEditarCliente.Text = "Editar";
             this.btnEditarCliente.UseVisualStyleBackColor = true;
+            this.btnEditarCliente.Click += new System.EventHandler(this.btnEditarVeiculo_Click);
             // 
             // FormClienteListar
             // 

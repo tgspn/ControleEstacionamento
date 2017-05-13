@@ -37,5 +37,11 @@ namespace ControleEstacionamento
         {
 
         }
+
+        private void tsbCliente_Click(object sender, EventArgs e) {
+            Visao.Cliente.FormClienteListar form = new Visao.Cliente.FormClienteListar();
+            form.MdiParent = this;
+            form.Show();
+        }
     }
 }

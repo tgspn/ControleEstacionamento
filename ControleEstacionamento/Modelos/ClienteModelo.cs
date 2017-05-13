@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ControleEstacionamento.Modelos {
 
-    class ClienteModelo {
+    public class ClienteModelo {
         public int Id { get; set; }
         public String Nome { get; set; }
         public String Endereco { get; set; }
