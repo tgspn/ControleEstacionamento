@@ -8,5 +8,6 @@ namespace ControleEstacionamento.Modelos
 {
     public class VeiculoModelo
     {
+
     }
 }
