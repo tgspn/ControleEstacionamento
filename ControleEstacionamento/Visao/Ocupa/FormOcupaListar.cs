@@ -39,5 +39,22 @@ namespace ControleEstacionamento.Visao.Ocupa
         {
             MessageBox.Show("Deseja excluir?", "Confirmação", MessageBoxButtons.YesNo);
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            if (label1.Text == "Livre")
+            {
+                new FormOcupaFechamento ().ShowDialog();
+                pictureBox1.Image = Properties.Resources.num1_red;
+                pictureBox1.Update();
+                label1.Text = "Ocupado";
+            }
+            else
+            {
+                new FormOcupaCrud().ShowDialog();
+                pictureBox1.Image = Properties.Resources.num1;
+                label1.Text = "Livre";
+            }
+        }
     }
 }

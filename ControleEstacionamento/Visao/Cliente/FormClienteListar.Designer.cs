@@ -36,7 +36,6 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.btnFecharCliente = new System.Windows.Forms.Button();
-            this.btnFecharVeiculo = new System.Windows.Forms.Button();
             this.btnAdicionarCliente = new System.Windows.Forms.Button();
             this.btnDetalhesCliente = new System.Windows.Forms.Button();
             this.btnExcluirCliente = new System.Windows.Forms.Button();
@@ -55,14 +54,16 @@
             this.panel1.Controls.Add(this.lbBuscarCliente);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(-1, -1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(727, 77);
+            this.panel1.Size = new System.Drawing.Size(728, 72);
             this.panel1.TabIndex = 0;
             // 
             // btnBuscarCliente
             // 
-            this.btnBuscarCliente.Location = new System.Drawing.Point(417, 27);
+            this.btnBuscarCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBuscarCliente.Location = new System.Drawing.Point(650, 27);
             this.btnBuscarCliente.Name = "btnBuscarCliente";
             this.btnBuscarCliente.Size = new System.Drawing.Size(75, 23);
             this.btnBuscarCliente.TabIndex = 5;
@@ -71,9 +72,11 @@
             // 
             // txtBuscarCliente
             // 
+            this.txtBuscarCliente.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBuscarCliente.Location = new System.Drawing.Point(56, 29);
             this.txtBuscarCliente.Name = "txtBuscarCliente";
-            this.txtBuscarCliente.Size = new System.Drawing.Size(336, 20);
+            this.txtBuscarCliente.Size = new System.Drawing.Size(588, 20);
             this.txtBuscarCliente.TabIndex = 4;
             // 
             // lbBuscarCliente
@@ -104,9 +107,10 @@
             this.panel4.Controls.Add(this.dgvCliente);
             this.panel4.Controls.Add(this.panel6);
             this.panel4.Controls.Add(this.panel5);
-            this.panel4.Location = new System.Drawing.Point(0, 77);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(0, 72);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(727, 363);
+            this.panel4.Size = new System.Drawing.Size(728, 371);
             this.panel4.TabIndex = 1;
             // 
             // dgvCliente
@@ -115,11 +119,12 @@
             this.dgvCliente.AllowUserToDeleteRows = false;
             this.dgvCliente.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCliente.Location = new System.Drawing.Point(1, 0);
+            this.dgvCliente.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvCliente.Location = new System.Drawing.Point(0, 0);
             this.dgvCliente.Name = "dgvCliente";
             this.dgvCliente.ReadOnly = true;
             this.dgvCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCliente.Size = new System.Drawing.Size(726, 363);
+            this.dgvCliente.Size = new System.Drawing.Size(728, 371);
             this.dgvCliente.TabIndex = 3;
             // 
             // panel6
@@ -147,19 +152,20 @@
             // panel8
             // 
             this.panel8.Controls.Add(this.btnFecharCliente);
-            this.panel8.Controls.Add(this.btnFecharVeiculo);
             this.panel8.Controls.Add(this.btnAdicionarCliente);
             this.panel8.Controls.Add(this.btnDetalhesCliente);
             this.panel8.Controls.Add(this.btnExcluirCliente);
             this.panel8.Controls.Add(this.btnEditarCliente);
-            this.panel8.Location = new System.Drawing.Point(2, 440);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel8.Location = new System.Drawing.Point(0, 443);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(725, 74);
+            this.panel8.Size = new System.Drawing.Size(728, 74);
             this.panel8.TabIndex = 2;
             // 
             // btnFecharCliente
             // 
-            this.btnFecharCliente.Location = new System.Drawing.Point(621, 30);
+            this.btnFecharCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFecharCliente.Location = new System.Drawing.Point(639, 42);
             this.btnFecharCliente.Name = "btnFecharCliente";
             this.btnFecharCliente.Size = new System.Drawing.Size(75, 23);
             this.btnFecharCliente.TabIndex = 12;
@@ -167,20 +173,11 @@
             this.btnFecharCliente.UseVisualStyleBackColor = true;
             this.btnFecharCliente.Click += new System.EventHandler(this.btnFecharCliente_Click);
             // 
-            // btnFecharVeiculo
-            // 
-            this.btnFecharVeiculo.Location = new System.Drawing.Point(777, 30);
-            this.btnFecharVeiculo.Name = "btnFecharVeiculo";
-            this.btnFecharVeiculo.Size = new System.Drawing.Size(75, 23);
-            this.btnFecharVeiculo.TabIndex = 11;
-            this.btnFecharVeiculo.Text = "Fechar";
-            this.btnFecharVeiculo.UseVisualStyleBackColor = true;
-            // 
             // btnAdicionarCliente
             // 
-            this.btnAdicionarCliente.Location = new System.Drawing.Point(9, 30);
+            this.btnAdicionarCliente.Location = new System.Drawing.Point(10, 18);
             this.btnAdicionarCliente.Name = "btnAdicionarCliente";
-            this.btnAdicionarCliente.Size = new System.Drawing.Size(75, 23);
+            this.btnAdicionarCliente.Size = new System.Drawing.Size(75, 47);
             this.btnAdicionarCliente.TabIndex = 7;
             this.btnAdicionarCliente.Text = "Adicionar";
             this.btnAdicionarCliente.UseVisualStyleBackColor = true;
@@ -188,9 +185,9 @@
             // 
             // btnDetalhesCliente
             // 
-            this.btnDetalhesCliente.Location = new System.Drawing.Point(90, 30);
+            this.btnDetalhesCliente.Location = new System.Drawing.Point(90, 18);
             this.btnDetalhesCliente.Name = "btnDetalhesCliente";
-            this.btnDetalhesCliente.Size = new System.Drawing.Size(75, 23);
+            this.btnDetalhesCliente.Size = new System.Drawing.Size(75, 47);
             this.btnDetalhesCliente.TabIndex = 8;
             this.btnDetalhesCliente.Text = "Detalhes";
             this.btnDetalhesCliente.UseVisualStyleBackColor = true;
@@ -198,7 +195,7 @@
             // 
             // btnExcluirCliente
             // 
-            this.btnExcluirCliente.Location = new System.Drawing.Point(252, 30);
+            this.btnExcluirCliente.Location = new System.Drawing.Point(252, 42);
             this.btnExcluirCliente.Name = "btnExcluirCliente";
             this.btnExcluirCliente.Size = new System.Drawing.Size(75, 23);
             this.btnExcluirCliente.TabIndex = 10;
@@ -208,9 +205,9 @@
             // 
             // btnEditarCliente
             // 
-            this.btnEditarCliente.Location = new System.Drawing.Point(171, 30);
+            this.btnEditarCliente.Location = new System.Drawing.Point(171, 18);
             this.btnEditarCliente.Name = "btnEditarCliente";
-            this.btnEditarCliente.Size = new System.Drawing.Size(75, 23);
+            this.btnEditarCliente.Size = new System.Drawing.Size(75, 47);
             this.btnEditarCliente.TabIndex = 9;
             this.btnEditarCliente.Text = "Editar";
             this.btnEditarCliente.UseVisualStyleBackColor = true;
@@ -221,8 +218,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(728, 517);
-            this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel1);
             this.Name = "FormClienteListar";
             this.panel1.ResumeLayout(false);
@@ -250,7 +247,6 @@
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.DataGridView dgvCliente;
         private System.Windows.Forms.Button btnFecharCliente;
-        private System.Windows.Forms.Button btnFecharVeiculo;
         private System.Windows.Forms.Button btnAdicionarCliente;
         private System.Windows.Forms.Button btnDetalhesCliente;
         private System.Windows.Forms.Button btnExcluirCliente;

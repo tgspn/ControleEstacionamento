@@ -59,14 +59,14 @@
             // 
             this.txtBuscar.Location = new System.Drawing.Point(62, 21);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(466, 20);
+            this.txtBuscar.Size = new System.Drawing.Size(712, 20);
             this.txtBuscar.TabIndex = 1;
             // 
             // btnAdicionar
             // 
-            this.btnAdicionar.Location = new System.Drawing.Point(12, 12);
+            this.btnAdicionar.Location = new System.Drawing.Point(14, 11);
             this.btnAdicionar.Name = "btnAdicionar";
-            this.btnAdicionar.Size = new System.Drawing.Size(75, 23);
+            this.btnAdicionar.Size = new System.Drawing.Size(75, 36);
             this.btnAdicionar.TabIndex = 2;
             this.btnAdicionar.Text = "Adicionar";
             this.btnAdicionar.UseVisualStyleBackColor = true;
@@ -74,9 +74,9 @@
             // 
             // btnDetalhes
             // 
-            this.btnDetalhes.Location = new System.Drawing.Point(93, 12);
+            this.btnDetalhes.Location = new System.Drawing.Point(95, 11);
             this.btnDetalhes.Name = "btnDetalhes";
-            this.btnDetalhes.Size = new System.Drawing.Size(75, 23);
+            this.btnDetalhes.Size = new System.Drawing.Size(75, 36);
             this.btnDetalhes.TabIndex = 3;
             this.btnDetalhes.Text = "Detalhes";
             this.btnDetalhes.UseVisualStyleBackColor = true;
@@ -84,9 +84,9 @@
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(174, 12);
+            this.btnEditar.Location = new System.Drawing.Point(176, 11);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(75, 23);
+            this.btnEditar.Size = new System.Drawing.Size(75, 36);
             this.btnEditar.TabIndex = 4;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
@@ -94,7 +94,7 @@
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(255, 12);
+            this.btnExcluir.Location = new System.Drawing.Point(257, 24);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
             this.btnExcluir.TabIndex = 5;
@@ -113,7 +113,7 @@
             this.dgvFuncionario.Name = "dgvFuncionario";
             this.dgvFuncionario.ReadOnly = true;
             this.dgvFuncionario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFuncionario.Size = new System.Drawing.Size(867, 432);
+            this.dgvFuncionario.Size = new System.Drawing.Size(867, 373);
             this.dgvFuncionario.TabIndex = 6;
             // 
             // panel1
@@ -122,7 +122,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 60);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(867, 432);
+            this.panel1.Size = new System.Drawing.Size(867, 373);
             this.panel1.TabIndex = 7;
             // 
             // panel2
@@ -133,14 +133,16 @@
             this.panel2.Controls.Add(this.btnExcluir);
             this.panel2.Controls.Add(this.btnEditar);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 444);
+            this.panel2.Location = new System.Drawing.Point(0, 433);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(867, 48);
+            this.panel2.Size = new System.Drawing.Size(867, 59);
             this.panel2.TabIndex = 8;
             // 
             // btnFechar
             // 
-            this.btnFechar.Location = new System.Drawing.Point(780, 12);
+            this.btnFechar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFechar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnFechar.Location = new System.Drawing.Point(780, 22);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(75, 23);
             this.btnFechar.TabIndex = 6;
@@ -160,7 +162,8 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(534, 19);
+            this.btnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBuscar.Location = new System.Drawing.Point(780, 19);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 2;
@@ -172,8 +175,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(867, 492);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
             this.Name = "FormFuncionarioListar";
             this.Text = "Veiculos";

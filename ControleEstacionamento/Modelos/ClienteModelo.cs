@@ -14,6 +14,8 @@ namespace ControleEstacionamento.Modelos {
         public long Telefone { get; set; }
         public long Celular { get; set; }
 
+        public FuncionarioModelo Funcionario { get; set; }
+
         public ClienteModelo() {
 
         }

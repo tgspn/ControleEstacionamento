@@ -8,6 +8,11 @@ namespace ControleEstacionamento.Modelos
 {
     public class VeiculoModelo
     {
+        public string Marca { get; set; }
+        public string Modelo { get; set; }
+        public string Ano { get; set; }
+        public string Placa { get; set; }
 
+        public ClienteModelo Cliente { get; set; }
     }
 }
