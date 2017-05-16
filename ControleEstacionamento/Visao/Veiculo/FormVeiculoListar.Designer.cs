@@ -37,9 +37,9 @@
             this.dgvFuncionario = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnFecharVeiculo = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnBuscarVeiculo = new System.Windows.Forms.Button();
-            this.btnFecharVeiculo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -131,6 +131,16 @@
             this.panel2.Size = new System.Drawing.Size(867, 48);
             this.panel2.TabIndex = 8;
             // 
+            // btnFecharVeiculo
+            // 
+            this.btnFecharVeiculo.Location = new System.Drawing.Point(780, 12);
+            this.btnFecharVeiculo.Name = "btnFecharVeiculo";
+            this.btnFecharVeiculo.Size = new System.Drawing.Size(75, 23);
+            this.btnFecharVeiculo.TabIndex = 6;
+            this.btnFecharVeiculo.Text = "Fechar";
+            this.btnFecharVeiculo.UseVisualStyleBackColor = true;
+            this.btnFecharVeiculo.Click += new System.EventHandler(this.btnFecharVeiculo_Click);
+            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.btnBuscarVeiculo);
@@ -150,15 +160,6 @@
             this.btnBuscarVeiculo.TabIndex = 2;
             this.btnBuscarVeiculo.Text = "Buscar";
             this.btnBuscarVeiculo.UseVisualStyleBackColor = true;
-            // 
-            // btnFecharVeiculo
-            // 
-            this.btnFecharVeiculo.Location = new System.Drawing.Point(780, 12);
-            this.btnFecharVeiculo.Name = "btnFecharVeiculo";
-            this.btnFecharVeiculo.Size = new System.Drawing.Size(75, 23);
-            this.btnFecharVeiculo.TabIndex = 6;
-            this.btnFecharVeiculo.Text = "Fechar";
-            this.btnFecharVeiculo.UseVisualStyleBackColor = true;
             // 
             // FormVeiculoListar
             // 
