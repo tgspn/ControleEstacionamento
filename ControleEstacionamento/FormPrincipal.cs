@@ -33,11 +33,6 @@ namespace ControleEstacionamento
 
         }
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void tsbCliente_Click(object sender, EventArgs e)
         {
             Visao.Cliente.FormClienteListar form = new Visao.Cliente.FormClienteListar();
@@ -51,6 +46,12 @@ namespace ControleEstacionamento
             {
                 MdiParent = this,
             }.Show();
+        }
+
+        private void tsbVeiculo_Click(object sender, EventArgs e) {
+            Visao.Veiculo.FormVeiculoListar form = new Visao.Veiculo.FormVeiculoListar();
+            form.MdiParent = this;
+            form.Show();
         }
     }
 }

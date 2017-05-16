@@ -146,6 +146,7 @@
             this.btnFecharVeiculo.TabIndex = 6;
             this.btnFecharVeiculo.Text = "Fechar";
             this.btnFecharVeiculo.UseVisualStyleBackColor = true;
+            this.btnFecharVeiculo.Click += new System.EventHandler(this.btnFecharVeiculo_Click);
             // 
             // panel3
             // 
