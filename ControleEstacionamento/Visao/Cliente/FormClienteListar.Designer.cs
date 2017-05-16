@@ -164,6 +164,7 @@
             this.btnFecharCliente.TabIndex = 12;
             this.btnFecharCliente.Text = "Fechar";
             this.btnFecharCliente.UseVisualStyleBackColor = true;
+            this.btnFecharCliente.Click += new System.EventHandler(this.btnFecharCliente_Click);
             // 
             // btnFecharVeiculo
             // 
@@ -223,7 +224,6 @@
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
             this.Name = "FormClienteListar";
-            this.Text = "Clientes";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel4.ResumeLayout(false);

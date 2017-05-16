@@ -27,5 +27,9 @@ namespace ControleEstacionamento.Visao.Veiculo
             var modelo = (Modelos.VeiculoModelo)dgvFuncionario.SelectedRows[0].DataBoundItem;
             new Veiculo.FormVeiculoCrud(modelo).Show();
         }
+
+        private void btnFecharVeiculo_Click(object sender, EventArgs e) {
+            this.Close();
+        }
     }
 }

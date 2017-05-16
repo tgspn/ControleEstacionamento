@@ -42,5 +42,9 @@ namespace ControleEstacionamento.Visao.Cliente {
         private void btnExcluirVeiculo_Click(object sender, EventArgs e) {
             MessageBox.Show("Deseja excluir?", "Confirmação", MessageBoxButtons.YesNo);
         }
+
+        private void btnFecharCliente_Click(object sender, EventArgs e) {
+            this.Close();
+        }
     }
 }
