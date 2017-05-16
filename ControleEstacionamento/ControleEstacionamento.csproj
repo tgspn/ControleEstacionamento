@@ -82,6 +82,12 @@
     <Compile Include="Visao\Funcionario\FormFuncionarioListar.Designer.cs">
       <DependentUpon>FormFuncionarioListar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Visao\Funcionario\FormFuncionarioRelatorio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\Funcionario\FormFuncionarioRelatorio.Designer.cs">
+      <DependentUpon>FormFuncionarioRelatorio.cs</DependentUpon>
+    </Compile>
     <Compile Include="Visao\Ocupa\FormOcupaCrud.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +147,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\Funcionario\FormFuncionarioListar.resx">
       <DependentUpon>FormFuncionarioListar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\Funcionario\FormFuncionarioRelatorio.resx">
+      <DependentUpon>FormFuncionarioRelatorio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\Ocupa\FormOcupaCrud.resx">
       <DependentUpon>FormOcupaCrud.cs</DependentUpon>

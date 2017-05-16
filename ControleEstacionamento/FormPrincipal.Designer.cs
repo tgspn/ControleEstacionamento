@@ -35,9 +35,14 @@
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbFuncionarios = new System.Windows.Forms.ToolStripButton();
+            this.tsbVeiculo = new System.Windows.Forms.ToolStripButton();
             this.tsbCliente = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.tsbVeiculo = new System.Windows.Forms.ToolStripButton();
+            this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fúncionariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.veiculosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vagasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -45,7 +50,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.arquivoToolStripMenuItem});
+            this.arquivoToolStripMenuItem,
+            this.relatóriosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(573, 24);
@@ -95,6 +101,15 @@
             this.tsbFuncionarios.Text = "Funcionários";
             this.tsbFuncionarios.Click += new System.EventHandler(this.tsbFuncionarios_Click);
             // 
+            // tsbVeiculo
+            // 
+            this.tsbVeiculo.Image = ((System.Drawing.Image)(resources.GetObject("tsbVeiculo.Image")));
+            this.tsbVeiculo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbVeiculo.Name = "tsbVeiculo";
+            this.tsbVeiculo.Size = new System.Drawing.Size(66, 22);
+            this.tsbVeiculo.Text = "Veiculo";
+            this.tsbVeiculo.Click += new System.EventHandler(this.tsbVeiculo_Click);
+            // 
             // tsbCliente
             // 
             this.tsbCliente.Image = ((System.Drawing.Image)(resources.GetObject("tsbCliente.Image")));
@@ -109,18 +124,44 @@
             this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(52, 22);
+            this.toolStripButton2.Size = new System.Drawing.Size(53, 22);
             this.toolStripButton2.Text = "Vaga";
             this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
-            // tsbVeiculo
+            // relatóriosToolStripMenuItem
             // 
-            this.tsbVeiculo.Image = ((System.Drawing.Image)(resources.GetObject("tsbVeiculo.Image")));
-            this.tsbVeiculo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbVeiculo.Name = "tsbVeiculo";
-            this.tsbVeiculo.Size = new System.Drawing.Size(65, 22);
-            this.tsbVeiculo.Text = "Veiculo";
-            this.tsbVeiculo.Click += new System.EventHandler(this.tsbVeiculo_Click);
+            this.relatóriosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fúncionariosToolStripMenuItem,
+            this.veiculosToolStripMenuItem,
+            this.vagasToolStripMenuItem,
+            this.clientesToolStripMenuItem});
+            this.relatóriosToolStripMenuItem.Name = "relatóriosToolStripMenuItem";
+            this.relatóriosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.relatóriosToolStripMenuItem.Text = "Relatórios";
+            // 
+            // fúncionariosToolStripMenuItem
+            // 
+            this.fúncionariosToolStripMenuItem.Name = "fúncionariosToolStripMenuItem";
+            this.fúncionariosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.fúncionariosToolStripMenuItem.Text = "Fúncionarios";
+            // 
+            // veiculosToolStripMenuItem
+            // 
+            this.veiculosToolStripMenuItem.Name = "veiculosToolStripMenuItem";
+            this.veiculosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.veiculosToolStripMenuItem.Text = "Veiculos";
+            // 
+            // vagasToolStripMenuItem
+            // 
+            this.vagasToolStripMenuItem.Name = "vagasToolStripMenuItem";
+            this.vagasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.vagasToolStripMenuItem.Text = "Vagas";
+            // 
+            // clientesToolStripMenuItem
+            // 
+            this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.clientesToolStripMenuItem.Text = "Clientes";
             // 
             // FormPrincipal
             // 
@@ -155,6 +196,11 @@
         private System.Windows.Forms.ToolStripButton tsbCliente;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.ToolStripButton tsbVeiculo;
+        private System.Windows.Forms.ToolStripMenuItem relatóriosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fúncionariosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem veiculosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem vagasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
     }
 }
 
