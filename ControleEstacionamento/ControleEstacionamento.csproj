@@ -54,6 +54,7 @@
     </Compile>
     <Compile Include="Modelos\ClienteModelo.cs" />
     <Compile Include="Modelos\FuncionarioModelo.cs" />
+    <Compile Include="Modelos\VagaModelo.cs" />
     <Compile Include="Modelos\VeiculoModelo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -80,6 +81,18 @@
     </Compile>
     <Compile Include="Visao\Funcionario\FormFuncionarioListar.Designer.cs">
       <DependentUpon>FormFuncionarioListar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visao\Vaga\FormVagaCrud.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\Vaga\FormVagaCrud.Designer.cs">
+      <DependentUpon>FormVagaCrud.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visao\Vaga\FormVagaListar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\Vaga\FormVagaListar.Designer.cs">
+      <DependentUpon>FormVagaListar.cs</DependentUpon>
     </Compile>
     <Compile Include="Visao\Veiculo\FormVeiculoCrud.cs">
       <SubType>Form</SubType>
@@ -117,6 +130,12 @@
     <EmbeddedResource Include="Visao\Funcionario\FormFuncionarioListar.resx">
       <DependentUpon>FormFuncionarioListar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Visao\Vaga\FormVagaCrud.resx">
+      <DependentUpon>FormVagaCrud.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\Vaga\FormVagaListar.resx">
+      <DependentUpon>FormVagaListar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Visao\Veiculo\FormVeiculoCrud.resx">
       <DependentUpon>FormVeiculoCrud.cs</DependentUpon>
     </EmbeddedResource>
@@ -139,7 +158,6 @@
   <ItemGroup>
     <Folder Include="Controlers\" />
     <Folder Include="Visao\Ocupa\" />
-    <Folder Include="Visao\Vaga\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
