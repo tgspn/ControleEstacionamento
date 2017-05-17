@@ -54,6 +54,7 @@
     </Compile>
     <Compile Include="Modelos\ClienteModelo.cs" />
     <Compile Include="Modelos\FuncionarioModelo.cs" />
+    <Compile Include="Modelos\OcupaModelo.cs" />
     <Compile Include="Modelos\VagaModelo.cs" />
     <Compile Include="Modelos\VeiculoModelo.cs" />
     <Compile Include="Program.cs" />
@@ -81,6 +82,30 @@
     </Compile>
     <Compile Include="Visao\Funcionario\FormFuncionarioListar.Designer.cs">
       <DependentUpon>FormFuncionarioListar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visao\Funcionario\FormFuncionarioRelatorio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\Funcionario\FormFuncionarioRelatorio.Designer.cs">
+      <DependentUpon>FormFuncionarioRelatorio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visao\Ocupa\FormOcupaFechamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\Ocupa\FormOcupaFechamento.Designer.cs">
+      <DependentUpon>FormOcupaFechamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visao\Ocupa\FormOcupaCrud.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\Ocupa\FormOcupaCrud.Designer.cs">
+      <DependentUpon>FormOcupaCrud.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visao\Ocupa\FormOcupaListar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\Ocupa\FormOcupaListar.Designer.cs">
+      <DependentUpon>FormOcupaListar.cs</DependentUpon>
     </Compile>
     <Compile Include="Visao\Vaga\FormVagaCrud.cs">
       <SubType>Form</SubType>
@@ -117,6 +142,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Visao\Cliente\FormClienteCrud.resx">
       <DependentUpon>FormClienteCrud.cs</DependentUpon>
@@ -129,6 +155,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\Funcionario\FormFuncionarioListar.resx">
       <DependentUpon>FormFuncionarioListar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\Funcionario\FormFuncionarioRelatorio.resx">
+      <DependentUpon>FormFuncionarioRelatorio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\Ocupa\FormOcupaFechamento.resx">
+      <DependentUpon>FormOcupaFechamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\Ocupa\FormOcupaCrud.resx">
+      <DependentUpon>FormOcupaCrud.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\Ocupa\FormOcupaListar.resx">
+      <DependentUpon>FormOcupaListar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\Vaga\FormVagaCrud.resx">
       <DependentUpon>FormVagaCrud.cs</DependentUpon>
@@ -157,7 +195,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controlers\" />
-    <Folder Include="Visao\Ocupa\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\num1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\num1.red.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

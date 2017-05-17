@@ -131,6 +131,7 @@
             // 
             // btnSalvarFuncionario
             // 
+            this.btnSalvarFuncionario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSalvarFuncionario.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnSalvarFuncionario.Location = new System.Drawing.Point(493, 16);
             this.btnSalvarFuncionario.Name = "btnSalvarFuncionario";
@@ -142,6 +143,7 @@
             // 
             // btnCancelar
             // 
+            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.Location = new System.Drawing.Point(574, 16);
             this.btnCancelar.Name = "btnCancelar";
@@ -181,6 +183,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.groupBox1.Controls.Add(this.txtSalario);
             this.groupBox1.Controls.Add(this.txtCelular);
             this.groupBox1.Controls.Add(this.lblSalario);

@@ -17,7 +17,6 @@ namespace ControleEstacionamento.Visao.Cliente {
 
         BindingList<Modelos.ClienteModelo> list = new BindingList<Modelos.ClienteModelo>();
 
-
         private void btnAdicionar_Click(object sender, EventArgs e) {
             FormClienteCrud form = new FormClienteCrud();
             //form.MdiParent = this.MdiParent;
