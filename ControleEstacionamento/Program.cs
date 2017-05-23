@@ -17,8 +17,11 @@ namespace ControleEstacionamento
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            
-            Application.Run(new FormPrincipal());
+            FormLogin login = new FormLogin();
+            Application.Run(login);
+            if(login.DialogResult == DialogResult.OK){
+                 Application.Run(new FormPrincipal());
+            }
         }
     }
 }

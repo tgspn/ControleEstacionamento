@@ -31,9 +31,11 @@ namespace ControleEstacionamento
             if (Validar())
             {
                 this.DialogResult = DialogResult.OK;
+                this.Close();
             }
             else
             {
+                MessageBox.Show("Usuario ou senha inválido");
                 this.DialogResult = DialogResult.Cancel;
                 txtUser.Text = "";
                 txtPasswd.Text = "";

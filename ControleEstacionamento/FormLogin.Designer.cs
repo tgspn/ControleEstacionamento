@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.gbLogin = new System.Windows.Forms.GroupBox();
@@ -74,9 +75,9 @@
             // 
             // btnLogar
             // 
-            this.btnLogar.Location = new System.Drawing.Point(388, 22);
+            this.btnLogar.Location = new System.Drawing.Point(376, 27);
             this.btnLogar.Name = "btnLogar";
-            this.btnLogar.Size = new System.Drawing.Size(105, 61);
+            this.btnLogar.Size = new System.Drawing.Size(105, 56);
             this.btnLogar.TabIndex = 13;
             this.btnLogar.Text = "Login";
             this.btnLogar.UseVisualStyleBackColor = true;
@@ -84,7 +85,7 @@
             // 
             // txtPasswd
             // 
-            this.txtPasswd.Location = new System.Drawing.Point(135, 63);
+            this.txtPasswd.Location = new System.Drawing.Point(143, 63);
             this.txtPasswd.Name = "txtPasswd";
             this.txtPasswd.PasswordChar = '*';
             this.txtPasswd.Size = new System.Drawing.Size(227, 20);
@@ -92,7 +93,7 @@
             // 
             // txtUser
             // 
-            this.txtUser.Location = new System.Drawing.Point(136, 27);
+            this.txtUser.Location = new System.Drawing.Point(144, 27);
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(226, 20);
             this.txtUser.TabIndex = 11;
@@ -100,26 +101,31 @@
             // lblLoginPasswd
             // 
             this.lblLoginPasswd.AutoSize = true;
+            this.lblLoginPasswd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLoginPasswd.Location = new System.Drawing.Point(76, 66);
             this.lblLoginPasswd.Name = "lblLoginPasswd";
-            this.lblLoginPasswd.Size = new System.Drawing.Size(53, 13);
+            this.lblLoginPasswd.Size = new System.Drawing.Size(61, 13);
             this.lblLoginPasswd.TabIndex = 10;
             this.lblLoginPasswd.Text = "Password";
             // 
             // lblLoginUser
             // 
             this.lblLoginUser.AutoSize = true;
+            this.lblLoginUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLoginUser.Location = new System.Drawing.Point(100, 30);
             this.lblLoginUser.Name = "lblLoginUser";
-            this.lblLoginUser.Size = new System.Drawing.Size(29, 13);
+            this.lblLoginUser.Size = new System.Drawing.Size(33, 13);
             this.lblLoginUser.TabIndex = 9;
             this.lblLoginUser.Text = "User";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(105, 13);
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(376, 173);
+            this.pictureBox1.Size = new System.Drawing.Size(593, 195);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -131,7 +137,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "FormLogin";
-            this.Text = "FormLogin";
+            this.Text = "Login";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.gbLogin.ResumeLayout(false);
