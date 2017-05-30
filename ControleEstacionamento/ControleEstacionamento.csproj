@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +137,9 @@
     <Compile Include="Visao\Veiculo\FormVeiculoListar.Designer.cs">
       <DependentUpon>FormVeiculoListar.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </EmbeddedResource>
@@ -195,6 +204,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controlers\" />
+    <Folder Include="Visao\Login\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\num1.png" />

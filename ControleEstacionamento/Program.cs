@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ControleEstacionamento;
 using System.Windows.Forms;
 
 namespace ControleEstacionamento
@@ -16,7 +17,11 @@ namespace ControleEstacionamento
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormPrincipal());
+            FormLogin login = new FormLogin();
+            Application.Run(login);
+            if(login.DialogResult == DialogResult.OK){
+                 Application.Run(new FormPrincipal());
+            }
         }
     }
 }
