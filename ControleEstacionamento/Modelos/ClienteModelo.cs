@@ -19,5 +19,6 @@ namespace ControleEstacionamento.Modelos {
         public ClienteModelo() {
 
         }
+        
     }
 }
