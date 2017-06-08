@@ -51,9 +51,9 @@
             this.lblBuscarVeiculo.AutoSize = true;
             this.lblBuscarVeiculo.Location = new System.Drawing.Point(16, 24);
             this.lblBuscarVeiculo.Name = "lblBuscarVeiculo";
-            this.lblBuscarVeiculo.Size = new System.Drawing.Size(40, 13);
+            this.lblBuscarVeiculo.Size = new System.Drawing.Size(43, 13);
             this.lblBuscarVeiculo.TabIndex = 0;
-            this.lblBuscarVeiculo.Text = "Buscar";
+            this.lblBuscarVeiculo.Text = "Buscar:";
             // 
             // txtBuscarVeiculo
             // 
@@ -96,9 +96,9 @@
             // 
             // btnExcluirVeiculo
             // 
-            this.btnExcluirVeiculo.Location = new System.Drawing.Point(255, 22);
+            this.btnExcluirVeiculo.Location = new System.Drawing.Point(255, 3);
             this.btnExcluirVeiculo.Name = "btnExcluirVeiculo";
-            this.btnExcluirVeiculo.Size = new System.Drawing.Size(75, 23);
+            this.btnExcluirVeiculo.Size = new System.Drawing.Size(75, 42);
             this.btnExcluirVeiculo.TabIndex = 5;
             this.btnExcluirVeiculo.Text = "Excluir";
             this.btnExcluirVeiculo.UseVisualStyleBackColor = true;
