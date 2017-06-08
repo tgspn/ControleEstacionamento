@@ -36,8 +36,6 @@ namespace ControleEstacionamento.Visao.Cliente {
                 MessageBox.Show("Existem campos obrigatórios não preenchidos");
                 return;
             }
-
-
         }
         private bool Validar() {
             if (!string.IsNullOrEmpty(txtNome.Text))

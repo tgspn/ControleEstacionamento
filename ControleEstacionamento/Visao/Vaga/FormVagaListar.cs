@@ -50,5 +50,9 @@ namespace ControleEstacionamento.Visao.Vaga
         {
             MessageBox.Show("Deseja excluir?", "Confirmação", MessageBoxButtons.YesNo);
         }
+
+        private void btnFecharVeiculo_Click(object sender, EventArgs e) {
+            this.Close();
+        }
     }
 }

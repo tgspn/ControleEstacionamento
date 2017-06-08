@@ -17,7 +17,6 @@ namespace ControleEstacionamento.Visao.Cliente {
 
         BindingList<Modelos.ClienteModelo> list = new BindingList<Modelos.ClienteModelo>();
 
-
         private void btnAdicionar_Click(object sender, EventArgs e) {
             FormClienteCrud form = new FormClienteCrud();
             //form.MdiParent = this.MdiParent;
@@ -42,6 +41,10 @@ namespace ControleEstacionamento.Visao.Cliente {
 
         private void btnExcluirVeiculo_Click(object sender, EventArgs e) {
             MessageBox.Show("Deseja excluir?", "Confirmação", MessageBoxButtons.YesNo);
+        }
+
+        private void btnFecharCliente_Click(object sender, EventArgs e) {
+            this.Close();
         }
     }
 }
