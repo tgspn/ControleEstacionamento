@@ -146,9 +146,6 @@
     <Compile Include="Visao\Veiculo\FormVeiculoListar.Designer.cs">
       <DependentUpon>FormVeiculoListar.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FormLogin.resx">
-      <DependentUpon>FormLogin.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </EmbeddedResource>
@@ -209,11 +206,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controlers\" />
-    <Folder Include="Visao\Login\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\num1.png" />
