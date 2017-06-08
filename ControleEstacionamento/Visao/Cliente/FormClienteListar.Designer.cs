@@ -63,7 +63,7 @@
             // btnBuscarCliente
             // 
             this.btnBuscarCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBuscarCliente.Location = new System.Drawing.Point(650, 27);
+            this.btnBuscarCliente.Location = new System.Drawing.Point(639, 27);
             this.btnBuscarCliente.Name = "btnBuscarCliente";
             this.btnBuscarCliente.Size = new System.Drawing.Size(75, 23);
             this.btnBuscarCliente.TabIndex = 5;
@@ -76,7 +76,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBuscarCliente.Location = new System.Drawing.Point(56, 29);
             this.txtBuscarCliente.Name = "txtBuscarCliente";
-            this.txtBuscarCliente.Size = new System.Drawing.Size(588, 20);
+            this.txtBuscarCliente.Size = new System.Drawing.Size(577, 20);
             this.txtBuscarCliente.TabIndex = 4;
             // 
             // lbBuscarCliente
@@ -84,9 +84,9 @@
             this.lbBuscarCliente.AutoSize = true;
             this.lbBuscarCliente.Location = new System.Drawing.Point(13, 32);
             this.lbBuscarCliente.Name = "lbBuscarCliente";
-            this.lbBuscarCliente.Size = new System.Drawing.Size(40, 13);
+            this.lbBuscarCliente.Size = new System.Drawing.Size(43, 13);
             this.lbBuscarCliente.TabIndex = 3;
-            this.lbBuscarCliente.Text = "Buscar";
+            this.lbBuscarCliente.Text = "Buscar:";
             // 
             // panel3
             // 
@@ -110,7 +110,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 72);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(728, 371);
+            this.panel4.Size = new System.Drawing.Size(728, 360);
             this.panel4.TabIndex = 1;
             // 
             // dgvCliente
@@ -124,7 +124,7 @@
             this.dgvCliente.Name = "dgvCliente";
             this.dgvCliente.ReadOnly = true;
             this.dgvCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCliente.Size = new System.Drawing.Size(728, 371);
+            this.dgvCliente.Size = new System.Drawing.Size(728, 360);
             this.dgvCliente.TabIndex = 3;
             // 
             // panel6
@@ -157,7 +157,7 @@
             this.panel8.Controls.Add(this.btnExcluirCliente);
             this.panel8.Controls.Add(this.btnEditarCliente);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel8.Location = new System.Drawing.Point(0, 443);
+            this.panel8.Location = new System.Drawing.Point(0, 432);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(728, 74);
             this.panel8.TabIndex = 2;
@@ -175,6 +175,7 @@
             // 
             // btnAdicionarCliente
             // 
+            this.btnAdicionarCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAdicionarCliente.Location = new System.Drawing.Point(10, 18);
             this.btnAdicionarCliente.Name = "btnAdicionarCliente";
             this.btnAdicionarCliente.Size = new System.Drawing.Size(75, 47);
@@ -185,6 +186,7 @@
             // 
             // btnDetalhesCliente
             // 
+            this.btnDetalhesCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnDetalhesCliente.Location = new System.Drawing.Point(90, 18);
             this.btnDetalhesCliente.Name = "btnDetalhesCliente";
             this.btnDetalhesCliente.Size = new System.Drawing.Size(75, 47);
@@ -195,9 +197,10 @@
             // 
             // btnExcluirCliente
             // 
-            this.btnExcluirCliente.Location = new System.Drawing.Point(252, 42);
+            this.btnExcluirCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnExcluirCliente.Location = new System.Drawing.Point(252, 18);
             this.btnExcluirCliente.Name = "btnExcluirCliente";
-            this.btnExcluirCliente.Size = new System.Drawing.Size(75, 23);
+            this.btnExcluirCliente.Size = new System.Drawing.Size(75, 47);
             this.btnExcluirCliente.TabIndex = 10;
             this.btnExcluirCliente.Text = "Excluir";
             this.btnExcluirCliente.UseVisualStyleBackColor = true;
@@ -205,6 +208,7 @@
             // 
             // btnEditarCliente
             // 
+            this.btnEditarCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnEditarCliente.Location = new System.Drawing.Point(171, 18);
             this.btnEditarCliente.Name = "btnEditarCliente";
             this.btnEditarCliente.Size = new System.Drawing.Size(75, 47);
@@ -217,11 +221,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(728, 517);
+            this.ClientSize = new System.Drawing.Size(728, 506);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel1);
             this.Name = "FormClienteListar";
+            this.Text = "Lista de Clientes";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel4.ResumeLayout(false);

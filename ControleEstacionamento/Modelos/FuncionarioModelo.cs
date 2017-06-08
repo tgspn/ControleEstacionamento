@@ -15,10 +15,5 @@ namespace ControleEstacionamento.Modelos
         public long Telefone { get; set; }
         public long Celular { get; set; }
         public decimal Salario { get; set; }
-
-        public FuncionarioModelo()
-        {
-            
-        }
     }
 }
