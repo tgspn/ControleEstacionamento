@@ -8,6 +8,7 @@ namespace ControleEstacionamento.Modelos
 {
     public class VagaModelo
     {
+        public int Id { get; set; }
         public string NumeroVaga { get;  set; }
         public bool TemAcessibilidade { get;  set; }
     }
