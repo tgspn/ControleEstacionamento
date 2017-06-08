@@ -68,5 +68,10 @@ namespace ControleEstacionamento
         {
             new ControleEstacionamento.Visao.Ocupa.FormOcupaListar() { MdiParent = this, WindowState = FormWindowState.Maximized }.Show();
         }
+
+        private void veiculosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new Relatorio.FormRelatorio().ShowDialog();
+        }
     }
 }
