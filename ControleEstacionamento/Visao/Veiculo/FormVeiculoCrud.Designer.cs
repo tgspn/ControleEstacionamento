@@ -91,11 +91,11 @@
             // 
             this.lblSalario.AutoSize = true;
             this.lblSalario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSalario.Location = new System.Drawing.Point(141, 27);
+            this.lblSalario.Location = new System.Drawing.Point(137, 34);
             this.lblSalario.Name = "lblSalario";
-            this.lblSalario.Size = new System.Drawing.Size(217, 25);
+            this.lblSalario.Size = new System.Drawing.Size(203, 25);
             this.lblSalario.TabIndex = 5;
-            this.lblSalario.Text = "Cadastro de Veículos";
+            this.lblSalario.Text = "Cadastro de veículo";
             // 
             // txtNomeFuncionario
             // 
@@ -128,7 +128,7 @@
             // btnSalvarFuncionario
             // 
             this.btnSalvarFuncionario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSalvarFuncionario.Location = new System.Drawing.Point(493, 16);
+            this.btnSalvarFuncionario.Location = new System.Drawing.Point(267, 16);
             this.btnSalvarFuncionario.Name = "btnSalvarFuncionario";
             this.btnSalvarFuncionario.Size = new System.Drawing.Size(75, 23);
             this.btnSalvarFuncionario.TabIndex = 12;
@@ -139,7 +139,7 @@
             // btnCancelar
             // 
             this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancelar.Location = new System.Drawing.Point(574, 16);
+            this.btnCancelar.Location = new System.Drawing.Point(348, 16);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 13;
@@ -154,7 +154,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(661, 89);
+            this.panel1.Size = new System.Drawing.Size(435, 89);
             this.panel1.TabIndex = 14;
             // 
             // pictureBox1
@@ -171,12 +171,11 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 89);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(661, 355);
+            this.panel2.Size = new System.Drawing.Size(435, 273);
             this.panel2.TabIndex = 15;
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.groupBox1.Controls.Add(this.lblNome);
             this.groupBox1.Controls.Add(this.txtCpfFuncionario);
             this.groupBox1.Controls.Add(this.lblCpf);
@@ -185,9 +184,9 @@
             this.groupBox1.Controls.Add(this.txtNomeFuncionario);
             this.groupBox1.Controls.Add(this.lblTelefone);
             this.groupBox1.Controls.Add(this.txtTelefoneFuncionario);
-            this.groupBox1.Location = new System.Drawing.Point(108, 32);
+            this.groupBox1.Location = new System.Drawing.Point(12, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(413, 224);
+            this.groupBox1.Size = new System.Drawing.Size(413, 207);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             // 
@@ -197,16 +196,16 @@
             this.panel3.Controls.Add(this.btnSalvarFuncionario);
             this.panel3.Controls.Add(this.btnCancelar);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 393);
+            this.panel3.Location = new System.Drawing.Point(0, 311);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(661, 51);
+            this.panel3.Size = new System.Drawing.Size(435, 51);
             this.panel3.TabIndex = 16;
             // 
             // FormVeiculoCrud
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(661, 444);
+            this.ClientSize = new System.Drawing.Size(435, 362);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);

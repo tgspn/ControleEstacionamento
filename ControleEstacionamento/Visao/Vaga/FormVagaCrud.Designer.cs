@@ -171,7 +171,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "FormVagaCrud";
-            this.Text = "Cadastro de Vaga";
+            this.Text = "Cadastro Vaga";
             this.Load += new System.EventHandler(this.FormVagaCrud_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

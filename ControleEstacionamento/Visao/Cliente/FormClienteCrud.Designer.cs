@@ -50,22 +50,22 @@
             // 
             // txtEndereco
             // 
-            this.txtEndereco.Location = new System.Drawing.Point(72, 186);
+            this.txtEndereco.Location = new System.Drawing.Point(104, 100);
             this.txtEndereco.Name = "txtEndereco";
-            this.txtEndereco.Size = new System.Drawing.Size(356, 20);
+            this.txtEndereco.Size = new System.Drawing.Size(273, 20);
             this.txtEndereco.TabIndex = 25;
             // 
             // txtNome
             // 
-            this.txtNome.Location = new System.Drawing.Point(72, 65);
+            this.txtNome.Location = new System.Drawing.Point(104, 24);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(356, 20);
+            this.txtNome.Size = new System.Drawing.Size(273, 20);
             this.txtNome.TabIndex = 23;
             // 
             // lblEndereco
             // 
             this.lblEndereco.AutoSize = true;
-            this.lblEndereco.Location = new System.Drawing.Point(13, 189);
+            this.lblEndereco.Location = new System.Drawing.Point(23, 103);
             this.lblEndereco.Name = "lblEndereco";
             this.lblEndereco.Size = new System.Drawing.Size(56, 13);
             this.lblEndereco.TabIndex = 22;
@@ -74,7 +74,7 @@
             // lblCelular
             // 
             this.lblCelular.AutoSize = true;
-            this.lblCelular.Location = new System.Drawing.Point(237, 145);
+            this.lblCelular.Location = new System.Drawing.Point(23, 188);
             this.lblCelular.Name = "lblCelular";
             this.lblCelular.Size = new System.Drawing.Size(42, 13);
             this.lblCelular.TabIndex = 21;
@@ -83,7 +83,7 @@
             // lblTelefone
             // 
             this.lblTelefone.AutoSize = true;
-            this.lblTelefone.Location = new System.Drawing.Point(13, 145);
+            this.lblTelefone.Location = new System.Drawing.Point(23, 145);
             this.lblTelefone.Name = "lblTelefone";
             this.lblTelefone.Size = new System.Drawing.Size(52, 13);
             this.lblTelefone.TabIndex = 20;
@@ -92,7 +92,7 @@
             // lblCPF
             // 
             this.lblCPF.AutoSize = true;
-            this.lblCPF.Location = new System.Drawing.Point(13, 104);
+            this.lblCPF.Location = new System.Drawing.Point(23, 65);
             this.lblCPF.Name = "lblCPF";
             this.lblCPF.Size = new System.Drawing.Size(30, 13);
             this.lblCPF.TabIndex = 19;
@@ -101,7 +101,7 @@
             // lblNome
             // 
             this.lblNome.AutoSize = true;
-            this.lblNome.Location = new System.Drawing.Point(13, 68);
+            this.lblNome.Location = new System.Drawing.Point(23, 27);
             this.lblNome.Name = "lblNome";
             this.lblNome.Size = new System.Drawing.Size(38, 13);
             this.lblNome.TabIndex = 18;
@@ -111,14 +111,13 @@
             // 
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 97);
+            this.panel1.Location = new System.Drawing.Point(0, 91);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(729, 309);
+            this.panel1.Size = new System.Drawing.Size(435, 239);
             this.panel1.TabIndex = 2;
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.groupBox1.Controls.Add(this.txtCelular);
             this.groupBox1.Controls.Add(this.txtTelefone);
             this.groupBox1.Controls.Add(this.txtCpf);
@@ -129,31 +128,31 @@
             this.groupBox1.Controls.Add(this.lblTelefone);
             this.groupBox1.Controls.Add(this.lblCPF);
             this.groupBox1.Controls.Add(this.lblNome);
-            this.groupBox1.Location = new System.Drawing.Point(173, 6);
+            this.groupBox1.Location = new System.Drawing.Point(12, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(434, 273);
+            this.groupBox1.Size = new System.Drawing.Size(408, 223);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
             // txtCelular
             // 
-            this.txtCelular.Location = new System.Drawing.Point(282, 142);
+            this.txtCelular.Location = new System.Drawing.Point(104, 185);
             this.txtCelular.Name = "txtCelular";
-            this.txtCelular.Size = new System.Drawing.Size(146, 20);
+            this.txtCelular.Size = new System.Drawing.Size(273, 20);
             this.txtCelular.TabIndex = 31;
             // 
             // txtTelefone
             // 
-            this.txtTelefone.Location = new System.Drawing.Point(68, 142);
+            this.txtTelefone.Location = new System.Drawing.Point(104, 142);
             this.txtTelefone.Name = "txtTelefone";
-            this.txtTelefone.Size = new System.Drawing.Size(163, 20);
+            this.txtTelefone.Size = new System.Drawing.Size(273, 20);
             this.txtTelefone.TabIndex = 30;
             // 
             // txtCpf
             // 
-            this.txtCpf.Location = new System.Drawing.Point(69, 101);
+            this.txtCpf.Location = new System.Drawing.Point(104, 62);
             this.txtCpf.Name = "txtCpf";
-            this.txtCpf.Size = new System.Drawing.Size(360, 20);
+            this.txtCpf.Size = new System.Drawing.Size(273, 20);
             this.txtCpf.TabIndex = 29;
             // 
             // panel2
@@ -162,15 +161,16 @@
             this.panel2.Controls.Add(this.btnCancelar);
             this.panel2.Controls.Add(this.btnSalvarCliente);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 406);
+            this.panel2.Location = new System.Drawing.Point(0, 330);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(729, 47);
+            this.panel2.Size = new System.Drawing.Size(435, 47);
             this.panel2.TabIndex = 3;
             // 
             // btnCancelar
             // 
+            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(642, 12);
+            this.btnCancelar.Location = new System.Drawing.Point(348, 12);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 32;
@@ -180,8 +180,9 @@
             // 
             // btnSalvarCliente
             // 
+            this.btnSalvarCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSalvarCliente.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnSalvarCliente.Location = new System.Drawing.Point(560, 12);
+            this.btnSalvarCliente.Location = new System.Drawing.Point(266, 12);
             this.btnSalvarCliente.Name = "btnSalvarCliente";
             this.btnSalvarCliente.Size = new System.Drawing.Size(75, 23);
             this.btnSalvarCliente.TabIndex = 31;
@@ -197,14 +198,14 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(729, 97);
+            this.panel3.Size = new System.Drawing.Size(435, 91);
             this.panel3.TabIndex = 4;
             // 
             // ptbLogo
             // 
-            this.ptbLogo.Location = new System.Drawing.Point(34, 12);
+            this.ptbLogo.Location = new System.Drawing.Point(12, 12);
             this.ptbLogo.Name = "ptbLogo";
-            this.ptbLogo.Size = new System.Drawing.Size(100, 70);
+            this.ptbLogo.Size = new System.Drawing.Size(100, 59);
             this.ptbLogo.TabIndex = 7;
             this.ptbLogo.TabStop = false;
             // 
@@ -212,7 +213,7 @@
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(157, 32);
+            this.lblTitulo.Location = new System.Drawing.Point(143, 34);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(198, 25);
             this.lblTitulo.TabIndex = 6;
@@ -222,7 +223,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(729, 453);
+            this.ClientSize = new System.Drawing.Size(435, 377);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);

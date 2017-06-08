@@ -38,11 +38,11 @@
             this.ptbLogo = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.tmHoraEntrada = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).BeginInit();
@@ -144,6 +144,24 @@
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(104, 33);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(118, 13);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "dd/MM/yyyy HH:mm:ss";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(26, 34);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(56, 13);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "Hora atual";
+            // 
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
@@ -171,24 +189,6 @@
             this.panel3.Size = new System.Drawing.Size(661, 51);
             this.panel3.TabIndex = 16;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 34);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 13);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "Hora atual";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(104, 33);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(118, 13);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "dd/MM/yyyy HH:mm:ss";
-            // 
             // tmHoraEntrada
             // 
             this.tmHoraEntrada.Enabled = true;
@@ -204,7 +204,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "FormOcupaFechamento";
-            this.Text = "Cadastro Funcionário";
+            this.Text = "Cadastro Ocupa";
             this.Load += new System.EventHandler(this.FormFuncionarioCrud_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
