@@ -36,10 +36,10 @@ namespace ControleEstacionamento.Visao.Funcionario
             if (Validar())
             {
                 modelo.Nome = txtNome.Text;
-                modelo.Cpf = long.Parse(txtCpf.Text);
+                modelo.Cpf = txtCpf.Text;
                 modelo.Endereco = txtEndereco.Text;
-                modelo.Telefone = long.Parse(txtTelefone.Text);
-                modelo.Celular = long.Parse(txtCelular.Text);
+                modelo.Telefone = txtTelefone.Text;
+                modelo.Celular = txtCelular.Text;
                 modelo.Salario = decimal.Parse(txtSalario.Text);
             }
             else
