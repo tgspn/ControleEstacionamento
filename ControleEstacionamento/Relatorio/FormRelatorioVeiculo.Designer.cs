@@ -1,6 +1,6 @@
 ﻿namespace ControleEstacionamento.Relatorio
 {
-    partial class FormRelatorio
+    partial class FormRelatorioVeiculo
     {
         /// <summary>
         /// Required designer variable.

@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controlers\VeiculoControler.cs" />
     <Compile Include="DAO\Conexao.cs" />
     <Compile Include="DAO\FuncionarioDAO.cs" />
     <Compile Include="DAO\VagaDAO.cs" />
@@ -83,11 +84,17 @@
     <Compile Include="Modelos\VeiculoModelo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Relatorio\FormRelatorio.cs">
+    <Compile Include="Relatorio\FormRelatorioVeiculoAvancado.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Relatorio\FormRelatorio.Designer.cs">
-      <DependentUpon>FormRelatorio.cs</DependentUpon>
+    <Compile Include="Relatorio\FormRelatorioVeiculoAvancado.Designer.cs">
+      <DependentUpon>FormRelatorioVeiculoAvancado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorio\FormRelatorioVeiculo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Relatorio\FormRelatorioVeiculo.Designer.cs">
+      <DependentUpon>FormRelatorioVeiculo.cs</DependentUpon>
     </Compile>
     <Compile Include="Relatorio\rptVeiculos.cs">
       <AutoGen>True</AutoGen>
@@ -184,8 +191,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Relatorio\FormRelatorio.resx">
-      <DependentUpon>FormRelatorio.cs</DependentUpon>
+    <EmbeddedResource Include="Relatorio\FormRelatorioVeiculo.resx">
+      <DependentUpon>FormRelatorioVeiculo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatorio\FormRelatorioVeiculoAvancado.resx">
+      <DependentUpon>FormRelatorioVeiculoAvancado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Relatorio\rptVeiculos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -243,9 +253,7 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controlers\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\num1.png" />
   </ItemGroup>

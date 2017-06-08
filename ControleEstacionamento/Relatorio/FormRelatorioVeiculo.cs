@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace ControleEstacionamento.Relatorio
 {
-    public partial class FormRelatorio : Form
+    public partial class FormRelatorioVeiculo : Form
     {
-        public FormRelatorio()
+        public FormRelatorioVeiculo()
         {
             InitializeComponent();
             var list = new List<Modelos.VeiculoModelo>(new Modelos.VeiculoModelo[] { new Modelos.VeiculoModelo() { Marca = "Chevrolet" }, new Modelos.VeiculoModelo { Marca = "Fiat" } });
