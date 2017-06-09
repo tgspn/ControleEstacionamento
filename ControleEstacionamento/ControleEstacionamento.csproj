@@ -58,9 +58,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controlers\VeiculoControler.cs" />
     <Compile Include="DAO\Conexao.cs" />
     <Compile Include="DAO\FuncionarioDAO.cs" />
+    <Compile Include="DAO\OcupaDAO.cs" />
     <Compile Include="DAO\VagaDAO.cs" />
     <Compile Include="DAO\VeiculoDAO.cs" />
     <Compile Include="Interfaces\IConexao.cs" />
