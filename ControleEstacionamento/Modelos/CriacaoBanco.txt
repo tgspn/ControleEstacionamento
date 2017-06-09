@@ -38,7 +38,7 @@ create table veiculo (
 
 create table vaga (
 	id int not null auto_increment,
-    nro int,
+    nro varchar(10),
     acessibilidade bool,
     primary key(id)
 );
