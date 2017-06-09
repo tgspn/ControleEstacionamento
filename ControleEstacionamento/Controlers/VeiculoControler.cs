@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+
 using System.Text;
 using System.Threading.Tasks;
 
@@ -22,11 +23,12 @@ namespace ControleEstacionamento.Controlers
             veiculoDao.Atualizar(modelo);
         }
         public bool Excluir(Modelos.VeiculoModelo modelo)
-        {
-           return veiculoDao.Remover(modelo);
+        {          
+            return veiculoDao.Remover(modelo);
         }
         public Modelos.VeiculoModelo Buscar(int id)
         {
+
             return veiculoDao.ProcurarPorId(id);
         }
     }
