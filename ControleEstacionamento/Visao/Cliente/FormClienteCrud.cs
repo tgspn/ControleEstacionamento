@@ -27,9 +27,9 @@ namespace ControleEstacionamento.Visao.Cliente {
             }
             if (Validar()) {
                 cliente.Nome = txtNome.Text;
-                cliente.Cpf = long.Parse(txtCpf.Text);
-                cliente.Telefone = long.Parse(txtTelefone.Text);
-                cliente.Celular = long.Parse(txtCelular.Text);
+                cliente.Cpf = txtCpf.Text;
+                cliente.Telefone =txtTelefone.Text;
+                cliente.Celular = txtCelular.Text;
                 cliente.Endereco = txtEndereco.Text;
 
             } else {
