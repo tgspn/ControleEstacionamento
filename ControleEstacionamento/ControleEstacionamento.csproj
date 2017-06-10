@@ -58,6 +58,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controlers\ClienteController.cs" />
+    <Compile Include="Controlers\OcupaController.cs" />
+    <Compile Include="Controlers\VeiculoControler.cs" />
+    <Compile Include="DAO\ClienteDAO.cs" />
     <Compile Include="DAO\Conexao.cs" />
     <Compile Include="DAO\FuncionarioDAO.cs" />
     <Compile Include="DAO\OcupaDAO.cs" />
