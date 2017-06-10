@@ -20,7 +20,7 @@ namespace ControleEstacionamento.DAO
         public VeiculoDAO(Interfaces.IConexao conexao)
         {
             this.conexao = conexao;
-            this.tableName = "veiculo";
+            this.tableName = "C";
         }
         public void Atualizar(VeiculoModelo model)
         {
