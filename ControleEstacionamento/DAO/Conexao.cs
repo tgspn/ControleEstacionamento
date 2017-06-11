@@ -16,12 +16,24 @@ namespace ControleEstacionamento.DAO
             var connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
             Connection = new MySqlConnection(connectionString);
+            conexao = this;
             Abrir();
 
         }
+
         public Conexao(Conexao conexao)
         {
             this.Connection = conexao.Connection;
+        }
+        private static IConexao conexao;
+        public static IConexao Instancia
+        {
+            get
+            {
+                if (conexao == null)
+                    conexao = new Conexao();
+                return conexao;
+            }
         }
         private MySqlCommand command;
         public MySqlCommand Command
