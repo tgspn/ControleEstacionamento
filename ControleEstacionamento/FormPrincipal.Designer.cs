@@ -95,13 +95,13 @@
             // 
             this.fúncionariosToolStripMenuItem.Name = "fúncionariosToolStripMenuItem";
             this.fúncionariosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.fúncionariosToolStripMenuItem.Text = "Fúncionarios";
+            this.fúncionariosToolStripMenuItem.Text = "Funcionários";
             // 
             // veiculosToolStripMenuItem
             // 
             this.veiculosToolStripMenuItem.Name = "veiculosToolStripMenuItem";
             this.veiculosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.veiculosToolStripMenuItem.Text = "Veiculos";
+            this.veiculosToolStripMenuItem.Text = "Veículos";
             this.veiculosToolStripMenuItem.Click += new System.EventHandler(this.veiculosToolStripMenuItem_Click);
             // 
             // vagasToolStripMenuItem
