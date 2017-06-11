@@ -227,6 +227,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "FormClienteListar";
             this.Text = "Lista de Clientes";
+            this.Load += new System.EventHandler(this.FormClienteListar_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel4.ResumeLayout(false);

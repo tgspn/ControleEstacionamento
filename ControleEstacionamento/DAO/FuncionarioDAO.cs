@@ -39,6 +39,7 @@ namespace ControleEstacionamento.DAO
 
         }
 
+       
         public FuncionarioModelo Inserir(FuncionarioModelo model)
         {
 
@@ -123,6 +124,16 @@ namespace ControleEstacionamento.DAO
 
             return Ler();
         }
+        internal FuncionarioModelo BuscarPorUsuarioId(int id)
+        {
+            var command = conexao.Command;
+
+            command.CommandText = $"SELECT * FROM  {tableName} WHERE usuario_id =@id";
+            command.Parameters.AddWithValue("@id", id);
+
+            return Ler().FirstOrDefault();
+        }
+
         public void Dispose()
         {
             this.conexao.Dispose();
