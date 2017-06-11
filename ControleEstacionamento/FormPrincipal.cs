@@ -71,7 +71,7 @@ namespace ControleEstacionamento
 
         private void veiculosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new Relatorio.FormRelatorioVeiculo().ShowDialog();
+            new Relatorio.FormRelatorioVeiculoAvancado().ShowDialog();
         }
     }
 }

@@ -47,13 +47,13 @@
             this.crystalReportViewer1.TabIndex = 1;
             this.crystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
-            // FormRelatorio
+            // FormRelatorioVeiculo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(949, 670);
             this.Controls.Add(this.crystalReportViewer1);
-            this.Name = "FormRelatorio";
+            this.Name = "FormRelatorioVeiculo";
             this.Text = "FormRelatorioVeiculosPorDia";
             this.ResumeLayout(false);
 

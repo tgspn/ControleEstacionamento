@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,17 @@ namespace ControleEstacionamento.Relatorio
         public FormRelatorioVeiculoAvancado()
         {
             InitializeComponent();
+        }
+
+        private void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            var list = new List<Modelos.VeiculoModelo>(new Modelos.VeiculoModelo[] { new Modelos.VeiculoModelo() { Marca = "Chevrolet",Modelo="Corsa Classic",Ano="2004" }, new Modelos.VeiculoModelo { Marca = "Fiat", Modelo="Uno",Ano="2017" } });
+            // rptVeiculos1.SetDataSource(list);
+
+            ReportDocument rpt = new ReportDocument();
+            rpt.Load("Relatorio\\rptVeiculosAvancado.rpt");
+            rpt.SetDataSource(list);
+            crystalReportViewer1.ReportSource = rpt;
         }
     }
 }
