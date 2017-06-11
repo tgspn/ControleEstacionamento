@@ -53,3 +53,20 @@ create table ocupa (
     foreign key(id_veiculo) references veiculo(id),
     foreign key(id_vaga) references vaga(id)
 );
+
+create table usuario 
+(
+	id int not null primary key auto_increment,
+    usuario varchar(50),
+    senha varchar(200)
+)
+
+ALTER TABLE `estacionamento`.`funcionario` 
+ADD COLUMN `usuario_id` INT(11) NULL AFTER `salario`,
+ADD INDEX `id_idx` (`usuario_id` ASC);
+ALTER TABLE `estacionamento`.`funcionario` 
+ADD CONSTRAINT `id`
+  FOREIGN KEY (`usuario_id`)
+  REFERENCES `estacionamento`.`usuario` (`id`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
