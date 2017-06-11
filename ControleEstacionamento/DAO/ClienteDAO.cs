@@ -35,7 +35,7 @@ namespace ControleEstacionamento.DAO
             command.Parameters.AddWithValue("@cel", model.Celular);
             command.Parameters.AddWithValue("@funcionario", model.Funcionario);
 
-            model.Id = int.Parse(command.ExecuteScalar().ToString());
+            model.Id = (int)command.LastInsertedId;
 
             return model;
         }
@@ -75,7 +75,7 @@ namespace ControleEstacionamento.DAO
             return Ler();
         }
 
-        public ClienteModelo ProcurarPorId(int id)
+        public ClienteModelo BuscarPorId(int id)
         {
             var command = conexao.Command;
 
@@ -99,29 +99,36 @@ namespace ControleEstacionamento.DAO
 
         public List<ClienteModelo> Ler()
         {
-            var reader = conexao.Command.ExecuteReader();
-            List<ClienteModelo> list = new List<ClienteModelo>();
-            while (reader.NextResult())
+            try
             {
-                list.Add(new ClienteModelo()
+                var reader = conexao.Command.ExecuteReader();
+                List<ClienteModelo> list = new List<ClienteModelo>();
+                while (reader.NextResult())
                 {
-                    Nome = reader.GetString("nome"),
-                    Funcionario = new FuncionarioModelo()
+                    list.Add(new ClienteModelo()
                     {
-                        Id = reader.GetInt32("id_funcionario")
-                    },
-                    Id = reader.GetInt32("id"),
-                    Cpf = reader.GetString("cpf"),
-                    Endereco = reader.GetString("endereco"),
-                    Telefone = reader.GetString("telefone"),
-                    Celular = reader.GetString("celular")
-                });
-            }
-            foreach (var item in list)
-            {
+                        Nome = reader.GetString("nome"),
+                        Funcionario = new FuncionarioModelo()
+                        {
+                            Id = reader.GetInt32("id_funcionario")
+                        },
+                        Id = reader.GetInt32("id"),
+                        Cpf = reader.GetString("cpf"),
+                        Endereco = reader.GetString("endereco"),
+                        Telefone = reader.GetString("telefone"),
+                        Celular = reader.GetString("celular")
+                    });
+                }
 
+                return list;
+            }catch(Exception ex)
+            {
+                throw ex;
             }
-            return list;
+            finally
+            {
+                conexao.Fechar();
+            }
         }
 
         public void Dispose()

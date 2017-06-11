@@ -32,6 +32,7 @@ namespace ControleEstacionamento.DAO
             {
                 if (conexao == null)
                     conexao = new Conexao();
+                conexao.Abrir();
                 return conexao;
             }
         }
@@ -40,6 +41,7 @@ namespace ControleEstacionamento.DAO
         {
             get
             {
+                Abrir();
                 if (command == null)
                     command = Connection.CreateCommand();
                 return command;

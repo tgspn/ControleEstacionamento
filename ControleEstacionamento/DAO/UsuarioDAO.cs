@@ -31,7 +31,8 @@ namespace ControleEstacionamento.DAO
             command.Parameters.AddWithValue("@usuario", model.Usuario);
             command.Parameters.AddWithValue("@senha", model.Senha);
 
-            model.Id = int.Parse(command.ExecuteScalar().ToString());
+            model.Id =(int) command.LastInsertedId;
+
 
             return model;
         }
@@ -68,11 +69,11 @@ namespace ControleEstacionamento.DAO
             return Ler();
         }
 
-        public UsuarioModelo ProcurarPorId(int id)
+        public UsuarioModelo BuscarPorId(int id)
         {
             var command = conexao.Command;
 
-            command.CommandText = $"SELECT * FROM  {tableName} WHERE id =@id";
+            command.CommandText = $"SELECT * FROM  {tableName} INNER JOIN funcionario ON usuario_id = usuario.id WHERE usuario.id = @id";
             command.Parameters.AddWithValue("@id", id);
 
             return Ler().FirstOrDefault();
@@ -92,21 +93,49 @@ namespace ControleEstacionamento.DAO
 
         public List<UsuarioModelo> Ler()
         {
-            var reader = conexao.Command.ExecuteReader();
-            List<UsuarioModelo> list = new List<UsuarioModelo>();
-            while (reader.NextResult())
+            try
             {
-                list.Add(new UsuarioModelo()
+                var reader = conexao.Command.ExecuteReader();
+                List<UsuarioModelo> list = new List<UsuarioModelo>();
+                while (reader.NextResult())
                 {
-                    Usuario = reader.GetString("usuario"),
-
-                    Id = reader.GetInt32("id"),
-                    Senha = reader.GetString("senha"),
-                });
+                    list.Add(new UsuarioModelo()
+                    {
+                        Usuario = reader.GetString("usuario"),
+                        Id = reader.GetInt32("id"),
+                        Senha = reader.GetString("senha"),
+                        Funcionario = LerFuncionario(reader),
+                    });
+                }
+                return list;
             }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conexao.Fechar();
 
-            return list;
+            }
+            
         }
+
+        private FuncionarioModelo LerFuncionario(MySqlDataReader reader)
+        {
+            return new FuncionarioModelo()
+            {
+                Celular = reader.GetString("cel"),
+                Cpf = reader.GetString("cpf"),
+                Endereco = reader.GetString("endereco"),
+                Id = reader.GetInt32("id"),
+                Nome = reader.GetString("nome"),
+                Salario = reader.GetDecimal("salario"),
+                Telefone = reader.GetString("tel")
+            };
+
+        }
+
         public UsuarioModelo Logar(UsuarioModelo modelo)
         {
 
@@ -122,7 +151,7 @@ namespace ControleEstacionamento.DAO
 
             return null;
 
-                    
+
         }
         public void Dispose()
         {

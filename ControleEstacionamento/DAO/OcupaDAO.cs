@@ -52,38 +52,47 @@ namespace ControleEstacionamento.DAO
             command.Parameters.AddWithValue("@dh_entrada", model.dhEntrada);
             command.Parameters.AddWithValue("@dh_saida", model.dhSaida);
 
+            model.Id = (int)command.LastInsertedId;
+
             return model;
         }
 
         public List<OcupaModelo> Ler()
         {
-            var reader = conexao.Command.ExecuteReader();
-            List<OcupaModelo> list = new List<OcupaModelo>();
-            while (reader.NextResult())
+            try
             {
-                list.Add(new OcupaModelo()
+                var reader = conexao.Command.ExecuteReader();
+                List<OcupaModelo> list = new List<OcupaModelo>();
+                while (reader.NextResult())
                 {
-                    Funcionario = new FuncionarioModelo
+                    list.Add(new OcupaModelo()
                     {
-                        Id = reader.GetInt32("id_funcionario")
-                    },
-                    Veiculo = new VeiculoModelo
-                    {
-                        Id = reader.GetInt32("id_veiculo")
-                    },
-                    Vaga = new VagaModelo
-                    {
-                        Id = reader.GetInt32("id_vaga")
-                    },
-                    dhEntrada = reader.GetDateTime("dh_entrada"),
-                    dhSaida = reader.GetDateTime("dh_saida")
-                });
-            }
-            foreach (var item in list)
-            {
+                        Funcionario = new FuncionarioModelo
+                        {
+                            Id = reader.GetInt32("id_funcionario")
+                        },
+                        Veiculo = new VeiculoModelo
+                        {
+                            Id = reader.GetInt32("id_veiculo")
+                        },
+                        Vaga = new VagaModelo
+                        {
+                            Id = reader.GetInt32("id_vaga")
+                        },
+                        dhEntrada = reader.GetDateTime("dh_entrada"),
+                        dhSaida = reader.GetDateTime("dh_saida")
+                    });
+                }
 
+                return list;
+            }catch(Exception ex)
+            {
+                throw ex;
             }
-            return list;
+            finally
+            {
+                conexao.Fechar();
+            }
         }
 
         public List<OcupaModelo> ListarPorId(params int[] id)
@@ -106,7 +115,7 @@ namespace ControleEstacionamento.DAO
             return Ler();
         }
 
-        public OcupaModelo ProcurarPorId(int id)
+        public OcupaModelo BuscarPorId(int id)
         {
             var command = conexao.Command;
 
