@@ -153,5 +153,26 @@ namespace ControleEstacionamento.DAO
         {
             this.conexao.Dispose();
         }
+
+        public List<ClienteModelo> ListarPorNome(string nome)
+        {
+            if (nome == null)
+                return null;
+
+            var command = conexao.Command;
+            command.CommandText = $"SELECT * FROM CLIENTE WHERE NOME LIKE @nome";
+            command.Parameters.AddWithValue("@nome", nome);
+            return Ler();
+        }
+        public List<ClienteModelo> ListarPorCpf(string cpf)
+        {
+            if (cpf == null)
+                return null;
+
+            var command = conexao.Command;
+            command.CommandText = $"SELECT * FROM CLIENTE WHERE cpf LIKE @cpf";
+            command.Parameters.AddWithValue("@cpf", cpf);
+            return Ler();
+        }
     }
 }

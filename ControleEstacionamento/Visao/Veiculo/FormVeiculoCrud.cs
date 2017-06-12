@@ -22,8 +22,6 @@ namespace ControleEstacionamento.Visao.Veiculo
         VeiculoModelo veiculo;//remover o public no final do teste
         private Controlers.VeiculoControler controler;
 
-        public bool IsEdit { get; set; }
-
         public bool IsEdit { get; internal set; }
 
         public FormVeiculoCrud(VeiculoModelo veiculo) : this()
@@ -84,6 +82,22 @@ namespace ControleEstacionamento.Visao.Veiculo
         }
         private void btnSalvarFuncionario_Click(object sender, EventArgs e)
         {
+            if (GetInfo())
+            {
+                if (IsEdit)
+                    controler.Atualizar(veiculo);
+                else
+                    controler.Criar(veiculo);
+
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
 
         }
     }
