@@ -13,6 +13,7 @@ namespace ControleEstacionamento.DAO
     {
         private IConexao conexao;
         private string tableName;
+        private string viewName;
         public OcupaDAO() : this(new DAO.Conexao())
         {
 
@@ -21,12 +22,13 @@ namespace ControleEstacionamento.DAO
         {
             this.conexao = conexao;
             this.tableName = "ocupa";
+            this.viewName = "view_ocupa";
         }
         public void Atualizar(OcupaModelo model)
         {
             var command = conexao.Command;
             command.CommandText = $"UPDATE {tableName} SET id_funcionario=@id_func, id_veiculo=@id_veiculo, id_vaga=@id_vaga, dh_entrada=@dh_entrada, dh_saida=@dh_saida";
-
+            command.Parameters.Clear();
             command.Parameters.AddWithValue("@id_func", model.Funcionario);
             command.Parameters.AddWithValue("@id_veiculo", model.Veiculo);
             command.Parameters.AddWithValue("@id_vaga", model.Vaga);
@@ -45,16 +47,62 @@ namespace ControleEstacionamento.DAO
         {
             var command = conexao.Command;
             command.CommandText = $"INSERT INTO {tableName} (id_funcionario, id_veiculo, id_vaga, dh_entrada, dh_saida) VALUES (@id_func, @id_veiculo, @id_vaga, @dh_entrada, @dh_saida)";
-
+            command.Parameters.Clear();
             command.Parameters.AddWithValue("@id_func", model.Funcionario);
             command.Parameters.AddWithValue("@id_veiculo", model.Veiculo);
             command.Parameters.AddWithValue("@id_vaga", model.Vaga);
             command.Parameters.AddWithValue("@dh_entrada", model.dhEntrada);
             command.Parameters.AddWithValue("@dh_saida", model.dhSaida);
 
+            command.ExecuteNonQuery();
             model.Id = (int)command.LastInsertedId;
 
             return model;
+        }
+
+
+        public List<OcupaModelo> ListarPorId(params int[] id)
+        {
+            if (id == null || id.Length == 0)
+                return null;
+
+            var command = conexao.Command;
+
+            command.CommandText = $"SELECT * FROM {viewName} WHERE id IN ({string.Join(",", id)})";
+
+            return Ler();
+        }
+
+        public List<OcupaModelo> ListarTodos()
+        {
+            var command = conexao.Command;
+            command.CommandText = $"SELECT * FROM {viewName}";
+
+            return Ler();
+        }
+
+        public OcupaModelo BuscarPorId(int id)
+        {
+            var command = conexao.Command;
+
+            command.CommandText = $"SELECT * FROM {viewName} WHERE id=@id";
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@id", id);
+
+            return Ler().FirstOrDefault();
+        }
+
+        public bool Remover(OcupaModelo model)
+        {
+            var command = conexao.Command;
+            command.CommandText = $"DELETE FROM {tableName} WHERE id_funcionario=@id_funcionario and id_veiculo=@id_veiculo and vaga=@id_vaga";
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@id_funcionario", model.Funcionario);
+            command.Parameters.AddWithValue("@id_veiculo", model.Veiculo);
+            command.Parameters.AddWithValue("@id_vaga", model.Vaga);
+
+            return command.ExecuteNonQuery() > 0;
+
         }
 
         public List<OcupaModelo> Ler()
@@ -67,25 +115,17 @@ namespace ControleEstacionamento.DAO
                 {
                     list.Add(new OcupaModelo()
                     {
-                        Funcionario = new FuncionarioModelo
-                        {
-                            Id = reader.GetInt32("id_funcionario")
-                        },
-                        Veiculo = new VeiculoModelo
-                        {
-                            Id = reader.GetInt32("id_veiculo")
-                        },
-                        Vaga = new VagaModelo
-                        {
-                            Id = reader.GetInt32("id_vaga")
-                        },
+                        Funcionario = LerFuncionario(reader),
+                        Veiculo = LerVeiculo(reader),
+                        Vaga = LerVaga(reader),
                         dhEntrada = reader.GetDateTime("dh_entrada"),
                         dhSaida = reader.GetDateTime("dh_saida")
                     });
                 }
 
                 return list;
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -95,47 +135,64 @@ namespace ControleEstacionamento.DAO
             }
         }
 
-        public List<OcupaModelo> ListarPorId(params int[] id)
+        private VagaModelo LerVaga(MySqlDataReader reader)
         {
-            if (id == null || id.Length == 0)
+            if (string.IsNullOrEmpty(reader["vaga_id"].ToString()))
                 return null;
-
-            var command = conexao.Command;
-
-            command.CommandText = $"SELECT * FROM {tableName} WHERE id IN ({string.Join(",", id)})";
-
-            return Ler();
+            return new VagaModelo()
+            {
+                Id=reader.GetInt32("vaga_id"),
+                NumeroVaga= reader.GetString("nro"),
+                TemAcessibilidade= reader.GetBoolean("acessibilidade"),
+            };
         }
 
-        public List<OcupaModelo> ListarTodos()
+        private VeiculoModelo LerVeiculo(MySqlDataReader reader)
         {
-            var command = conexao.Command;
-            command.CommandText = $"SELECT * FROM {tableName}";
-
-            return Ler();
+            if (string.IsNullOrEmpty(reader["veiculo_id"].ToString()))
+                return null;
+            return new VeiculoModelo()
+            {
+                Id = reader.GetInt32("veiculo_id"),
+                Ano = reader.GetString("ano"),
+                Cliente = LerCliente(reader),
+                Marca = reader.GetString("marca"),
+                Modelo = reader.GetString("modelo"),
+                Placa = reader.GetString("placa"),
+            };
         }
 
-        public OcupaModelo BuscarPorId(int id)
+        private ClienteModelo LerCliente(MySqlDataReader reader)
         {
-            var command = conexao.Command;
+            if (string.IsNullOrEmpty(reader["cliente_id"].ToString()))
+                return null;
+            return new ClienteModelo()
+            {
 
-            command.CommandText = $"SELECT * FROM {tableName} WHERE id=@id";
-            command.Parameters.AddWithValue("@id", id);
-
-            return Ler().FirstOrDefault();
+                Nome = reader.GetString("cliente_nome"),
+                Funcionario = LerFuncionario(reader),
+                Id = reader.GetInt32("cliente_id"),
+                Cpf = reader.GetString("cliente_cpf"),
+                Endereco = reader.GetString("cliente_endereco"),
+                Telefone = reader.GetString("cliente_telefone"),
+                Celular = reader.GetString("cliente_celular")
+            };
         }
 
-        public bool Remover(OcupaModelo model)
+
+        private FuncionarioModelo LerFuncionario(MySqlDataReader reader)
         {
-            var command = conexao.Command;
-            command.CommandText = $"DELETE FROM {tableName} WHERE id_funcionario=@id_funcionario and id_veiculo=@id_veiculo and vaga=@id_vaga";
-
-            command.Parameters.AddWithValue("@id_funcionario", model.Funcionario);
-            command.Parameters.AddWithValue("@id_veiculo", model.Veiculo);
-            command.Parameters.AddWithValue("@id_vaga", model.Vaga);
-
-            return command.ExecuteNonQuery() > 0;
-
+            if (string.IsNullOrEmpty(reader["funcionario_id"].ToString()))
+                return null;
+            return new FuncionarioModelo
+            {
+                Celular = reader.GetString("funcionario_celular"),
+                Cpf = reader.GetString("funcionario_cpf"),
+                Endereco = reader.GetString("funcionario_endereco"),
+                Id = reader.GetInt32("funcionario_id"),
+                Nome = reader.GetString("funcionario_nome"),
+                Telefone = reader.GetString("funcionario_telefone")
+            };
         }
     }
 }

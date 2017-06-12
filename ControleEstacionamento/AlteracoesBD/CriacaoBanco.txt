@@ -94,3 +94,77 @@ SELECT `cliente`.`id`,
      `funcionario`.`usuario_id`
 from cliente 
 left join funcionario on cliente.id_funcionario=funcionario.id;
+
+--Criação da view_ocupa
+
+USE `estacionamento`;
+CREATE  OR REPLACE VIEW `view_ocupa` AS
+SELECT `ocupa`.`dh_entrada`,
+    `ocupa`.`dh_saida`,
+    `funcionario`.`id` as funcionario_id,
+    `funcionario`.`nome` as funcionario_nome,
+    `funcionario`.`endereco` as funcionario_endereco,
+    `funcionario`.`cpf` as funcionario_cpf,
+    `funcionario`.`tel` as funcionario_telefone,
+    `funcionario`.`cel` as funcionario_celular,
+    `funcionario`.`usuario_id`,
+    `vaga`.`id` as vaga_id,
+    `vaga`.`nro`,
+    `vaga`.`acessibilidade`,
+    `veiculo`.`id` as veiculo_id,
+    `veiculo`.`marca`,
+    `veiculo`.`modelo`,
+    `veiculo`.`ano`,
+    `veiculo`.`placa`,
+    `cliente`.`id` as cliente_id,
+    `cliente`.`nome` as cliente_nome,
+    `cliente`.`endereco` as cliente_endereco,
+    `cliente`.`cpf` as cliente_cpf,
+    `cliente`.`tel` as cliente_telefone,
+    `cliente`.`cel` as cliente_celular
+FROM `estacionamento`.`ocupa`
+INNER JOIN `estacionamento`.`funcionario` ON ocupa.id_funcionario=funcionario.id
+INNER JOIN `estacionamento`.`vaga` ON ocupa.id_vaga=vaga.id
+INNER JOIN `estacionamento`.`veiculo` ON veiculo.id=ocupa.id_veiculo
+INNER JOIN `estacionamento`.`cliente` ON cliente.id=veiculo.id_cliente;
+
+--Criacao da view_veiculo
+
+USE `estacionamento`;
+CREATE  OR REPLACE VIEW `view_veiculo` AS
+SELECT  `veiculo`.`id`,
+    `veiculo`.`marca`,
+    `veiculo`.`modelo`,
+    `veiculo`.`ano`,
+    `veiculo`.`placa`,
+    `cliente`.`id` as cliente_id,
+    `cliente`.`nome` as cliente_nome,
+    `cliente`.`endereco` as cliente_endereco,
+    `cliente`.`cpf` as cliente_cpf,
+    `cliente`.`tel` as cliente_telefone,
+    `cliente`.`cel` as cliente_celular,
+	`funcionario`.`id` as funcionario_id,
+    `funcionario`.`nome` as funcionario_nome,
+    `funcionario`.`endereco` as funcionario_endereco,
+    `funcionario`.`cpf` as funcionario_cpf,
+    `funcionario`.`tel` as funcionario_telefone,
+    `funcionario`.`cel` as funcionario_celular
+FROM veiculo
+INNER JOIN `estacionamento`.`cliente` ON cliente.id=veiculo.id_cliente
+INNER JOIN `estacionamento`.`funcionario` ON cliente.id_funcionario=funcionario.id;
+
+--Criacao da view_usuario
+
+CREATE  OR REPLACE VIEW `view_usuario` AS
+SELECT `usuario`.`id`,
+    `usuario`.`usuario`,
+    `usuario`.`senha`,
+    `funcionario`.`id` as funcionario_id,
+    `funcionario`.`nome`,
+    `funcionario`.`endereco`,
+    `funcionario`.`cpf`,
+    `funcionario`.`tel`,
+    `funcionario`.`cel`,
+    `funcionario`.`salario`
+FROM usuario
+            LEFT JOIN funcionario ON usuario_id = usuario.id;

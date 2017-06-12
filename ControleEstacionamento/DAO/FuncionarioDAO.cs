@@ -26,7 +26,7 @@ namespace ControleEstacionamento.DAO
         {
             var command = conexao.Command;
             command.CommandText = $"UPDATE {tableName} SET nome=@nome, endereco=@endereco, cpf=@cpf, telefone=@telefone, celular=@celular, salario=@salario, usuario_id=@usuario_id WHERE id=@id";
-
+            command.Parameters.Clear();
             command.Parameters.AddWithValue("@nome", model.Nome);
             command.Parameters.AddWithValue("@endereco", model.Endereco);
             command.Parameters.AddWithValue("@cpf", model.Cpf);
@@ -49,6 +49,7 @@ namespace ControleEstacionamento.DAO
             var command = conexao.Command;
             command.CommandText = $"INSERT INTO {tableName} (nome,endereco,cpf,telefone,celular,salario,usuario_id) VALUES (@nome,@endereco,@cpf,@telefone,@celular,@salario,@usuario_id)";
 
+            command.Parameters.Clear();
             command.Parameters.AddWithValue("@nome", model.Nome);
             command.Parameters.AddWithValue("@endereco", model.Endereco);
             command.Parameters.AddWithValue("@cpf", model.Cpf);
@@ -61,7 +62,7 @@ namespace ControleEstacionamento.DAO
             else
                 command.Parameters.AddWithValue("@usuario_id", null);
 
-            model.Id = int.Parse(command.ExecuteScalar().ToString());
+            model.Id = (int)command.LastInsertedId;
 
             return model;
         }
@@ -72,7 +73,7 @@ namespace ControleEstacionamento.DAO
 
             var command = conexao.Command;
             command.CommandText = $"DELETE FROM {tableName} WHERE id=@id";
-
+            command.Parameters.Clear();
             command.Parameters.AddWithValue("@id", model.Id);
 
             return command.ExecuteNonQuery() > 0;
@@ -88,6 +89,40 @@ namespace ControleEstacionamento.DAO
             return Ler();
         }
 
+      
+        public FuncionarioModelo BuscarPorId(int id)
+        {
+            var command = conexao.Command;
+
+            command.CommandText = $"SELECT * FROM  {tableName} WHERE id =@id";
+
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@id", id);
+
+            return Ler().FirstOrDefault();
+        }
+        public List<FuncionarioModelo> ListarPorId(params int[] id)
+        {
+            if (id == null || id.Length == 0)
+                return null;
+
+            var command = conexao.Command;
+
+            command.CommandText = $"SELECT * FROM  {tableName} WHERE id IN ({string.Join(",", id)})";
+
+            return Ler();
+        }
+        internal FuncionarioModelo BuscarPorUsuarioId(int id)
+        {
+            var command = conexao.Command;
+
+            command.CommandText = $"SELECT * FROM  {tableName} WHERE usuario_id =@id";
+
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@id", id);
+
+            return Ler().FirstOrDefault();
+        }
         public List<FuncionarioModelo> Ler()
         {
             try
@@ -110,7 +145,8 @@ namespace ControleEstacionamento.DAO
                 }
 
                 return list;
-            }catch(Exception ex )
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -119,36 +155,6 @@ namespace ControleEstacionamento.DAO
                 conexao.FecharLeitor();
             }
         }
-        public FuncionarioModelo BuscarPorId(int id)
-        {
-            var command = conexao.Command;
-
-            command.CommandText = $"SELECT * FROM  {tableName} WHERE id =@id";
-            command.Parameters.AddWithValue("@id", id);
-
-            return Ler().FirstOrDefault();
-        }
-        public List<FuncionarioModelo> ListarPorId(params int[] id)
-        {
-            if (id == null || id.Length == 0)
-                return null;
-
-            var command = conexao.Command;
-
-            command.CommandText = $"SELECT * FROM  {tableName} WHERE id IN ({string.Join(",", id)})";
-
-            return Ler();
-        }
-        internal FuncionarioModelo BuscarPorUsuarioId(int id)
-        {
-            var command = conexao.Command;
-
-            command.CommandText = $"SELECT * FROM  {tableName} WHERE usuario_id =@id";
-            command.Parameters.AddWithValue("@id", id);
-
-            return Ler().FirstOrDefault();
-        }
-
         public void Dispose()
         {
             this.conexao.Dispose();

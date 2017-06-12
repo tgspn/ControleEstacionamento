@@ -14,6 +14,7 @@ namespace ControleEstacionamento.DAO
     {
         private IConexao conexao;
         private string tableName;
+        private string viewName;
         public UsuarioDAO() : this(Conexao.Instancia)
         {
 
@@ -22,12 +23,15 @@ namespace ControleEstacionamento.DAO
         {
             this.conexao = conexao;
             this.tableName = "usuario";
+            this.viewName = "view_usuario";
         }
 
         public UsuarioModelo Inserir(UsuarioModelo model)
         {
             var command = conexao.Command;
             command.CommandText = $"INSERT INTO {tableName} (usuario, senha) VALUES (@usuario,md5( @senha))";
+
+            command.Parameters.Clear();
             command.Parameters.AddWithValue("@usuario", model.Usuario);
             command.Parameters.AddWithValue("@senha", model.Senha);
 
@@ -42,6 +46,7 @@ namespace ControleEstacionamento.DAO
             var command = conexao.Command;
             command.CommandText = $"UPDATE {tableName} SET usuario = @usuario, senha =md5( @senha) WHERE id=@id";
 
+            command.Parameters.Clear();
             command.Parameters.AddWithValue("@usuario", model.Usuario);
             command.Parameters.AddWithValue("@senha", model.Senha);
             command.Parameters.AddWithValue("@id", model.Id);
@@ -55,6 +60,7 @@ namespace ControleEstacionamento.DAO
             var command = conexao.Command;
             command.CommandText = $"DELETE FROM {tableName} WHERE id=@id";
 
+            command.Parameters.Clear();
             command.Parameters.AddWithValue("@id", model.Id);
 
             return command.ExecuteNonQuery() > 0;
@@ -64,18 +70,8 @@ namespace ControleEstacionamento.DAO
         {
             var command = conexao.Command;
 
-            command.CommandText = $@"SELECT `usuario`.`id`,
-    `usuario`.`usuario`,
-    `usuario`.`senha`,
-    `funcionario`.`id` as funcionario_id,
-    `funcionario`.`nome`,
-    `funcionario`.`endereco`,
-    `funcionario`.`cpf`,
-    `funcionario`.`tel`,
-    `funcionario`.`cel`,
-    `funcionario`.`salario`
-FROM { tableName}
-            LEFT JOIN funcionario ON usuario_id = usuario.id ";
+            command.Parameters.Clear();
+            command.CommandText = $"SELECT * FROM { viewName} LEFT JOIN ON = usuario.id ";
 
             return Ler();
         }
@@ -84,18 +80,9 @@ FROM { tableName}
         {
             var command = conexao.Command;
 
-            command.CommandText = $@"SELECT `usuario`.`id`,
-    `usuario`.`usuario`,
-    `usuario`.`senha`,
-    `funcionario`.`id` as funcionario_id,
-    `funcionario`.`nome`,
-    `funcionario`.`endereco`,
-    `funcionario`.`cpf`,
-    `funcionario`.`tel`,
-    `funcionario`.`cel`,
-    `funcionario`.`salario`
-FROM { tableName}
-            LEFT JOIN funcionario ON usuario_id = usuario.id WHERE usuario.id = @id";
+            command.Parameters.Clear();
+            command.CommandText = $"SELECT * FROM { viewName} LEFT JOIN funcionario ON usuario_id = usuario.id WHERE usuario.id = @id";
+
             command.Parameters.AddWithValue("@id", id);
 
             return Ler().FirstOrDefault();
@@ -107,21 +94,30 @@ FROM { tableName}
                 return null;
 
             var command = conexao.Command;
-
-            command.CommandText = $@"SELECT `usuario`.`id`,
-    `usuario`.`usuario`,
-    `usuario`.`senha`,
-    `funcionario`.`id` as funcionario_id,
-    `funcionario`.`nome`,
-    `funcionario`.`endereco`,
-    `funcionario`.`cpf`,
-    `funcionario`.`tel`,
-    `funcionario`.`cel`,
-    `funcionario`.`salario`
-FROM {tableName}
-LEFT JOIN funcionario ON usuario_id = usuario.id WHERE id IN ({string.Join(",", id)})";
+            command.Parameters.Clear();
+            command.CommandText = $"SELECT * FROM { viewName} LEFT JOIN funcionario ON usuario_id = usuario.id WHERE id IN ({string.Join(",", id)})";
 
             return Ler();
+        }
+
+       
+
+        public UsuarioModelo Logar(UsuarioModelo modelo)
+        {
+
+            var command = conexao.Command;
+            command.Parameters.Clear();
+            command.CommandText = $"SELECT* FROM { viewName} WHERE usuario=@usuario AND senha=md5(@senha)";
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@usuario", modelo.Usuario);
+            command.Parameters.AddWithValue("@senha", modelo.Senha);
+            var list = Ler();
+            if (list.Count == 1)
+                return list.First();
+
+            return null;
+
+
         }
 
         public List<UsuarioModelo> Ler()
@@ -173,35 +169,6 @@ LEFT JOIN funcionario ON usuario_id = usuario.id WHERE id IN ({string.Join(",", 
                     Salario = reader.GetDecimal("salario"),
                     Telefone = reader.GetString("tel")
                 };
-
-        }
-
-        public UsuarioModelo Logar(UsuarioModelo modelo)
-        {
-
-            var command = conexao.Command;
-
-            command.CommandText = $@"SELECT `usuario`.`id`,
-    `usuario`.`usuario`,
-    `usuario`.`senha`,
-    `funcionario`.`id` as funcionario_id,
-    `funcionario`.`nome`,
-    `funcionario`.`endereco`,
-    `funcionario`.`cpf`,
-    `funcionario`.`tel`,
-    `funcionario`.`cel`,
-    `funcionario`.`salario`
-FROM { tableName}
-            LEFT JOIN funcionario ON usuario_id = usuario.id  WHERE usuario=@usuario AND senha=md5(@senha)";
-            command.Parameters.Clear();
-            command.Parameters.AddWithValue("@usuario", modelo.Usuario);
-            command.Parameters.AddWithValue("@senha", modelo.Senha);
-            var list = Ler();
-            if (list.Count == 1)
-                return list.First();
-
-            return null;
-
 
         }
         public void Dispose()
