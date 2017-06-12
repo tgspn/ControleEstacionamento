@@ -59,7 +59,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controlers\ClienteController.cs" />
+    <Compile Include="Controlers\FuncionarioControler.cs" />
     <Compile Include="Controlers\OcupaController.cs" />
+    <Compile Include="Controlers\VagaControler.cs" />
     <Compile Include="Controlers\VeiculoControler.cs" />
     <Compile Include="DAO\ClienteDAO.cs" />
     <Compile Include="DAO\Conexao.cs" />
