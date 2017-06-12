@@ -132,7 +132,7 @@ namespace ControleEstacionamento.DAO
                 conexao.Ler();
                 var reader = conexao.Leitor;
                 List<FuncionarioModelo> list = new List<FuncionarioModelo>();
-                while (reader.NextResult())
+                while (reader.Read())
                 {
                     list.Add(new FuncionarioModelo()
                     {
