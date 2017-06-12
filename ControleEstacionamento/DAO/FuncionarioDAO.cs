@@ -92,9 +92,10 @@ namespace ControleEstacionamento.DAO
         {
             try
             {
-                var reader = conexao.Command.ExecuteReader();
+                conexao.Ler();
+                var reader = conexao.Leitor;
                 List<FuncionarioModelo> list = new List<FuncionarioModelo>();
-                while (reader.NextResult())
+                while (reader.Read())
                 {
                     list.Add(new FuncionarioModelo()
                     {
@@ -115,7 +116,7 @@ namespace ControleEstacionamento.DAO
             }
             finally
             {
-                conexao.Fechar();
+                conexao.FecharLeitor();
             }
         }
         public FuncionarioModelo BuscarPorId(int id)
