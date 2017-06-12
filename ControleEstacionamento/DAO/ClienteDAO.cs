@@ -28,6 +28,7 @@ namespace ControleEstacionamento.DAO
         {
             var command = conexao.Command;
             command.CommandText = $"INSERT INTO {tableName} (nome, cpf, endereco, tel, cel, id_funcionario) VALUES (@nome, @cpf, @endereco, @tel, @cel, @id_funcionario)";
+            command.Parameters.Clear();
             command.Parameters.AddWithValue("@nome", model.Nome);
             command.Parameters.AddWithValue("@cpf", model.Cpf);
             command.Parameters.AddWithValue("@endereco", model.Endereco);
@@ -45,6 +46,7 @@ namespace ControleEstacionamento.DAO
             var command = conexao.Command;
             command.CommandText = $"UPDATE {tableName} SET nome = @nome, cpf = @cpf, endereco = @endereco, tel = @tel, cel = @cel, id_funcinario = @id_funcionario";
 
+            command.Parameters.Clear();
             command.Parameters.AddWithValue("@nome", model.Nome);
             command.Parameters.AddWithValue("@cpf", model.Cpf);
             command.Parameters.AddWithValue("@endereco", model.Endereco);
@@ -61,6 +63,7 @@ namespace ControleEstacionamento.DAO
             var command = conexao.Command;
             command.CommandText = $"DELETE FROM {tableName} WHERE id=@id";
 
+            command.Parameters.Clear();
             command.Parameters.AddWithValue("@id", model.Id);
 
             return command.ExecuteNonQuery() > 0;
@@ -69,7 +72,7 @@ namespace ControleEstacionamento.DAO
         public List<ClienteModelo> ListarTodos()
         {
             var command = conexao.Command;
-
+            command.Parameters.Clear();
             command.CommandText = $"SELECT * FROM view_cliente";
 
             return Ler();
@@ -80,6 +83,7 @@ namespace ControleEstacionamento.DAO
             var command = conexao.Command;
 
             command.CommandText = $"SELECT * FROM  view_cliente WHERE id =@id";
+            command.Parameters.Clear();
             command.Parameters.AddWithValue("@id", id);
 
             return Ler().FirstOrDefault();
@@ -142,7 +146,7 @@ namespace ControleEstacionamento.DAO
                 Nome = reader.GetString("funcionario_nome"),
                 Salario = reader.GetDecimal("salario"),
                 Telefone = reader.GetString("funcionario_telefone")
-            }
+            };
         }
 
         public void Dispose()
