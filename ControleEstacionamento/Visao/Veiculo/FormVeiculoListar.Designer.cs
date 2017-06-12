@@ -176,6 +176,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
             this.Name = "FormVeiculoListar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lista de Veículos";
             this.Load += new System.EventHandler(this.FormVeiculoListar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).EndInit();

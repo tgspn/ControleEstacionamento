@@ -181,6 +181,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
             this.Name = "FormVagaListar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lista de Vagas";
             this.Load += new System.EventHandler(this.FormVagaListar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).EndInit();

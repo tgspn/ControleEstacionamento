@@ -82,8 +82,7 @@ namespace ControleEstacionamento.DAO
 
         }
 
-      
-        public VeiculoModelo BuscarPorId( int id)
+        public VeiculoModelo BuscarPorId(int id)
         {
             var command = conexao.Command;
             command.Parameters.Clear();
@@ -170,6 +169,57 @@ namespace ControleEstacionamento.DAO
         {
             this.conexao.Dispose();
         }
-        
+
+        // por nome
+        public List<VeiculoModelo> ListarPorNome(string nome)
+        {
+            if (nome == null)
+            {
+                return null;
+            }
+
+            var command = conexao.Command;
+
+            command.CommandText = $"select * from {tableName} v where nome like" + nome;
+            return Ler();
+        }
+        public List<VeiculoModelo> ListarPorModelo(string modelo)
+        {
+            if (modelo == null)
+                return null;
+
+            var command = conexao.Command;
+
+            command.CommandText = $"select * from {tableName} v where modelo like @modelo";
+            command.Parameters.AddWithValue("@modelo", modelo);
+            return Ler();
+        }
+        public List<VeiculoModelo> ListarPorAno(string ano)
+        {
+            if (ano == null)
+                return null;
+
+            var command = conexao.Command;
+            command.CommandText = $"select * from {tableName} v where ano like @ano";
+            command.Parameters.AddWithValue("@ano", ano);
+            return Ler();
+        }
+        public List<VeiculoModelo> ListarPorCor(string cor)
+        {
+            if (cor == null)
+                return null;
+
+            var command = conexao.Command;
+            command.CommandText = $"select * from {tableName} v where cor like @cor";
+            command.Parameters.AddWithValue("@cor", cor);
+            return Ler();
+        }
+
+        public List<VeiculoModelo> ListarPorCliente(int id_cliente) {
+
+            var command = conexao.Command;
+            command.CommandText = $"select c.id as ID, c.nome as Cliente, v.marca as Fabricante, v.modelo as Modelo, v.placa as Placa, v.cor as Cor from {tableName} v join cliente c on v.id_cliente = c.id where id_cliente = " + id_cliente;
+            return Ler();
+        }
     }
 }
