@@ -28,7 +28,7 @@ namespace ControleEstacionamento
 
             Visao.Funcionario.FormFuncionarioListar form = new Visao.Funcionario.FormFuncionarioListar();
             form.MdiParent = this;
-            form.WindowState = FormWindowState.Maximized;
+            //form.WindowState = FormWindowState.Maximized;
             form.Show();
 
 
@@ -38,7 +38,7 @@ namespace ControleEstacionamento
         {
             Visao.Cliente.FormClienteListar form = new Visao.Cliente.FormClienteListar();
             form.MdiParent = this;
-            form.WindowState = FormWindowState.Maximized;
+           // form.WindowState = FormWindowState.Maximized;
             form.Show();
         }
 
@@ -47,31 +47,39 @@ namespace ControleEstacionamento
             new Visao.Vaga.FormVagaListar()
             {
                 MdiParent = this,
-                WindowState = FormWindowState.Maximized
-        }.Show();
+            }.Show();
         }
 
-        private void tsbVeiculo_Click(object sender, EventArgs e) {
+        private void tsbVeiculo_Click(object sender, EventArgs e)
+        {
             Visao.Veiculo.FormVeiculoListar form = new Visao.Veiculo.FormVeiculoListar();
             form.MdiParent = this;
-            form.WindowState = FormWindowState.Maximized;
+         //   form.WindowState = FormWindowState.Maximized;
             form.Show();
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
 
-            new ControleEstacionamento.Visao.Ocupa.FormOcupaListar() { MdiParent = this, WindowState = FormWindowState.Maximized }.Show();
+            new ControleEstacionamento.Visao.Ocupa.FormOcupaListar() { MdiParent = this  }.Show();
         }
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
-            new ControleEstacionamento.Visao.Ocupa.FormOcupaListar() { MdiParent = this, WindowState = FormWindowState.Maximized }.Show();
+            new ControleEstacionamento.Visao.Ocupa.FormOcupaListar() { MdiParent = this }.Show();
         }
 
         private void veiculosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new Relatorio.FormRelatorioVeiculo().ShowDialog();
+            new Relatorio.FormRelatorioVeiculoAvancado().ShowDialog();
+        }
+
+        private void usuáriosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new Visao.Admin.Usuario.FormUsuarioListar()
+            {
+                MdiParent = this,
+            }.Show();
         }
     }
 }

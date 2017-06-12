@@ -1,6 +1,6 @@
 ﻿namespace ControleEstacionamento.Relatorio
 {
-    partial class FormRelatorioVeiculoAvancado
+    partial class FormRelatorioFuncionario
     {
         /// <summary>
         /// Required designer variable.
@@ -75,7 +75,7 @@
             // 
             // cmbMarca
             // 
-            this.cmbMarca.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.cmbMarca.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbMarca.FormattingEnabled = true;
             this.cmbMarca.Location = new System.Drawing.Point(17, 35);
@@ -184,7 +184,7 @@
             // 
             // gdVeiculo
             // 
-            this.gdVeiculo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.gdVeiculo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gdVeiculo.Controls.Add(this.lblMarca);
             this.gdVeiculo.Controls.Add(this.cmbMarca);

@@ -12,13 +12,14 @@ namespace ControleEstacionamento.Visao.Ocupa
 {
     public partial class FormOcupaListar : Form
     {
-        //teste
-        BindingList<Modelos.FuncionarioModelo> list = new BindingList<Modelos.FuncionarioModelo>();
 
         public FormOcupaListar()
         {
             InitializeComponent();
+            controler = new Controlers.OcupaController();
         }
+
+        private Controlers.OcupaController controler;
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
@@ -55,6 +56,17 @@ namespace ControleEstacionamento.Visao.Ocupa
                 pictureBox1.Image = Properties.Resources.num1;
                 label1.Text = "Livre";
             }
+        }
+
+        private void ucVagas1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormOcupaListar_Load(object sender, EventArgs e)
+        {
+            Controlers.VagaControler vagaControler = new Controlers.VagaControler();
+            ucVagas1.AdicionarVagas(vagaControler.Listar());
         }
     }
 }

@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace ControleEstacionamento.Relatorio
 {
-    public partial class FormRelatorioVeiculoAvancado : Form
+    public partial class FormRelatorioFuncionario : Form
     {
-        public FormRelatorioVeiculoAvancado()
+        public FormRelatorioFuncionario()
         {
             InitializeComponent();
         }

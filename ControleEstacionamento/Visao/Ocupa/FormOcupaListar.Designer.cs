@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ucVagas1 = new ControleEstacionamento.ucVagas();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.listView1 = new System.Windows.Forms.ListView();
@@ -42,14 +43,24 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.ucVagas1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.listView1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(867, 492);
+            this.panel1.Size = new System.Drawing.Size(788, 604);
             this.panel1.TabIndex = 7;
+            // 
+            // ucVagas1
+            // 
+            this.ucVagas1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucVagas1.Location = new System.Drawing.Point(0, 0);
+            this.ucVagas1.Name = "ucVagas1";
+            this.ucVagas1.Size = new System.Drawing.Size(788, 604);
+            this.ucVagas1.TabIndex = 3;
+            this.ucVagas1.Load += new System.EventHandler(this.ucVagas1_Load);
             // 
             // label1
             // 
@@ -79,7 +90,7 @@
             listViewItem1});
             this.listView1.Location = new System.Drawing.Point(0, 0);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(867, 492);
+            this.listView1.Size = new System.Drawing.Size(788, 604);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
@@ -87,15 +98,15 @@
             // 
             this.panel2.Controls.Add(this.btnFechar);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 444);
+            this.panel2.Location = new System.Drawing.Point(0, 556);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(867, 48);
+            this.panel2.Size = new System.Drawing.Size(788, 48);
             this.panel2.TabIndex = 8;
             // 
             // btnFechar
             // 
             this.btnFechar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFechar.Location = new System.Drawing.Point(780, 12);
+            this.btnFechar.Location = new System.Drawing.Point(701, 12);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(75, 23);
             this.btnFechar.TabIndex = 6;
@@ -106,11 +117,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(867, 492);
+            this.ClientSize = new System.Drawing.Size(788, 604);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.MaximumSize = new System.Drawing.Size(804, 643);
+            this.MinimumSize = new System.Drawing.Size(804, 643);
             this.Name = "FormOcupaListar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gerenciamento de Vagas";
+            this.Load += new System.EventHandler(this.FormOcupaListar_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -126,5 +141,6 @@
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
+        private ucVagas ucVagas1;
     }
 }

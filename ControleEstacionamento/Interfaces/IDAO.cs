@@ -12,7 +12,7 @@ namespace ControleEstacionamento.Interfaces
         void Atualizar(T model);
         bool Remover(T model);
         List<T> ListarTodos();
-        T ProcurarPorId(int id);
+        T BuscarPorId(int id);
         List<T> ListarPorId(params int[] id);
 
         List<T> Ler();

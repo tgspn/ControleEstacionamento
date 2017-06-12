@@ -27,7 +27,7 @@ namespace ControleEstacionamento.Controlers
         }
         public Modelos.ClienteModelo Buscar(int id)
         {
-            return clienteDao.ProcurarPorId(id);
+            return clienteDao.BuscarPorId(id);
         }
     }
 }

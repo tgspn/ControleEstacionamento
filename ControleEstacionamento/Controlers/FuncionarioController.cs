@@ -6,28 +6,32 @@ using System.Threading.Tasks;
 
 namespace ControleEstacionamento.Controlers
 {
-    class FuncionarioControler
+    class FuncionarioController
     {
-        private DAO.FuncionarioDAO funcionarioDao = new DAO.FuncionarioDAO();
+        private DAO.FuncionarioDAO dao = new DAO.FuncionarioDAO();
         public List<Modelos.FuncionarioModelo> Listar()
         {
-            return funcionarioDao.ListarTodos();
+            return dao.ListarTodos();
         }
         public Modelos.FuncionarioModelo Criar(Modelos.FuncionarioModelo modelo)
         {
-            return funcionarioDao.Inserir(modelo);
+            return dao.Inserir(modelo);
         }
         public void Atualizar(Modelos.FuncionarioModelo modelo)
         {
-            funcionarioDao.Atualizar(modelo);
+            dao.Atualizar(modelo);
         }
         public bool Excluir(Modelos.FuncionarioModelo modelo)
         {
-            return funcionarioDao.Remover(modelo);
+            return dao.Remover(modelo);
         }
         public Modelos.FuncionarioModelo Buscar(int id)
         {
-            return funcionarioDao.ProcurarPorId(id);
+            return dao.BuscarPorId(id);
+        }
+        public Modelos.FuncionarioModelo BuscarPorUsuarioId(int id)
+        {
+            return dao.BuscarPorUsuarioId(id);
         }
     }
 }
