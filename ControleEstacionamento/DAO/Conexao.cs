@@ -13,8 +13,9 @@ namespace ControleEstacionamento.DAO
         
         public Conexao()
         {
-            //var connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-            var connectionString = "SERVER=localhost;DATABASE=controle_estacionamento;UId=root;pwd=root";
+            var connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            //Esta configuração insere no App.config
+            //var connectionString = "SERVER=localhost;DATABASE=controle_estacionamento;UId=root;pwd=root";
 
             Connection = new MySqlConnection(connectionString);
             conexao = this;
