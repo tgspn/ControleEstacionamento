@@ -29,7 +29,7 @@ namespace ControleEstacionamento.Controlers
         public Modelos.VeiculoModelo Buscar(int id)
         {
 
-            return veiculoDao.ProcurarPorId(id);
+            return veiculoDao.BuscarPorId(id);
         }
     }
 }

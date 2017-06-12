@@ -12,13 +12,15 @@ namespace ControleEstacionamento.Visao.Admin.Usuario
 {
     public partial class FormUsuarioListar : Form
     {
-        //teste
-        BindingList<Modelos.FuncionarioModelo> list = new BindingList<Modelos.FuncionarioModelo>();
+
+        BindingList<Modelos.UsuarioModelo> list;
+        private Controlers.UsuarioController controler;
 
         public FormUsuarioListar()
         {
             InitializeComponent();
-            dgvFuncionario.DataSource = list; //teste
+            controler = new Controlers.UsuarioController();
+            
         }
 
         private void btnAdicionar_Click(object sender, EventArgs e)
@@ -31,7 +33,7 @@ namespace ControleEstacionamento.Visao.Admin.Usuario
 
         private void btnDetalhesVeiculo_Click(object sender, EventArgs e)
         {
-            var modelo = (Modelos.FuncionarioModelo)dgvFuncionario.SelectedRows[0].DataBoundItem;
+            var modelo = (Modelos.UsuarioModelo)dgvFuncionario.SelectedRows[0].DataBoundItem;
             FormUsuarioCrud form = new FormUsuarioCrud(modelo);
             form.MdiParent = this.MdiParent;
             form.Show();
@@ -39,7 +41,7 @@ namespace ControleEstacionamento.Visao.Admin.Usuario
 
         private void btnEditarVeiculo_Click(object sender, EventArgs e)
         {
-            var modelo = (Modelos.FuncionarioModelo)dgvFuncionario.SelectedRows[0].DataBoundItem;
+            var modelo = (Modelos.UsuarioModelo)dgvFuncionario.SelectedRows[0].DataBoundItem;
             FormUsuarioCrud form = new FormUsuarioCrud(modelo);
             form.MdiParent = this.MdiParent;
             form.IsEdit = true;
@@ -48,11 +50,18 @@ namespace ControleEstacionamento.Visao.Admin.Usuario
 
         private void btnExcluirVeiculo_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Deseja excluir?", "Confirmação", MessageBoxButtons.YesNo);
+           var result= MessageBox.Show("Deseja excluir?", "Confirmação", MessageBoxButtons.YesNo);
+            if (result == DialogResult.OK)
+                controler.Excluir((Modelos.UsuarioModelo)dgvFuncionario.SelectedRows[0].DataBoundItem);
         }
 
         private void btnFecharVeiculo_Click(object sender, EventArgs e) {
             this.Close();
+        }
+
+        private void FormUsuarioListar_Load(object sender, EventArgs e)
+        {
+            dgvFuncionario.DataSource = list=new BindingList<Modelos.UsuarioModelo>(controler.Listar()); 
         }
     }
 }

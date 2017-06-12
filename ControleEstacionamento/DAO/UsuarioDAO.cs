@@ -31,7 +31,8 @@ namespace ControleEstacionamento.DAO
             command.Parameters.AddWithValue("@usuario", model.Usuario);
             command.Parameters.AddWithValue("@senha", model.Senha);
 
-            model.Id = int.Parse(command.ExecuteScalar().ToString());
+            model.Id = (int)command.LastInsertedId;
+
 
             return model;
         }
@@ -39,7 +40,7 @@ namespace ControleEstacionamento.DAO
         public void Atualizar(UsuarioModelo model)
         {
             var command = conexao.Command;
-            command.CommandText = $"UPDATE {tableName} SET usuario = @usuario, senha = @senha WHERE id=@id";
+            command.CommandText = $"UPDATE {tableName} SET usuario = @usuario, senha =md5( @senha) WHERE id=@id";
 
             command.Parameters.AddWithValue("@usuario", model.Usuario);
             command.Parameters.AddWithValue("@senha", model.Senha);
@@ -63,16 +64,38 @@ namespace ControleEstacionamento.DAO
         {
             var command = conexao.Command;
 
-            command.CommandText = $"SELECT * FROM {tableName}";
+            command.CommandText = $@"SELECT `usuario`.`id`,
+    `usuario`.`usuario`,
+    `usuario`.`senha`,
+    `funcionario`.`id` as funcionario_id,
+    `funcionario`.`nome`,
+    `funcionario`.`endereco`,
+    `funcionario`.`cpf`,
+    `funcionario`.`tel`,
+    `funcionario`.`cel`,
+    `funcionario`.`salario`
+FROM { tableName}
+            LEFT JOIN funcionario ON usuario_id = usuario.id ";
 
             return Ler();
         }
 
-        public UsuarioModelo ProcurarPorId(int id)
+        public UsuarioModelo BuscarPorId(int id)
         {
             var command = conexao.Command;
 
-            command.CommandText = $"SELECT * FROM  {tableName} WHERE id =@id";
+            command.CommandText = $@"SELECT `usuario`.`id`,
+    `usuario`.`usuario`,
+    `usuario`.`senha`,
+    `funcionario`.`id` as funcionario_id,
+    `funcionario`.`nome`,
+    `funcionario`.`endereco`,
+    `funcionario`.`cpf`,
+    `funcionario`.`tel`,
+    `funcionario`.`cel`,
+    `funcionario`.`salario`
+FROM { tableName}
+            LEFT JOIN funcionario ON usuario_id = usuario.id WHERE usuario.id = @id";
             command.Parameters.AddWithValue("@id", id);
 
             return Ler().FirstOrDefault();
@@ -85,34 +108,91 @@ namespace ControleEstacionamento.DAO
 
             var command = conexao.Command;
 
-            command.CommandText = $"SELECT * FROM  {tableName} WHERE id IN ({string.Join(",", id)})";
+            command.CommandText = $@"SELECT `usuario`.`id`,
+    `usuario`.`usuario`,
+    `usuario`.`senha`,
+    `funcionario`.`id` as funcionario_id,
+    `funcionario`.`nome`,
+    `funcionario`.`endereco`,
+    `funcionario`.`cpf`,
+    `funcionario`.`tel`,
+    `funcionario`.`cel`,
+    `funcionario`.`salario`
+FROM {tableName}
+LEFT JOIN funcionario ON usuario_id = usuario.id WHERE id IN ({string.Join(",", id)})";
 
             return Ler();
         }
 
         public List<UsuarioModelo> Ler()
         {
-            var reader = conexao.Command.ExecuteReader();
-            List<UsuarioModelo> list = new List<UsuarioModelo>();
-            while (reader.NextResult())
+            try
             {
-                list.Add(new UsuarioModelo()
+                conexao.Ler();
+                var leitor = conexao.Leitor;
+                List<UsuarioModelo> list = new List<UsuarioModelo>();
+                while (leitor.Read())
                 {
-                    Usuario = reader.GetString("usuario"),
+                    var usuario = new UsuarioModelo()
+                    {
+                        Usuario = leitor.GetString("usuario"),
+                        Id = leitor.GetInt32("id"),
+                        Senha = leitor.GetString("senha"),
+                        Funcionario = LerFuncionario(leitor)
+                    };
+                    if (usuario.Funcionario != null)
+                        usuario.Funcionario.Usuario = usuario;
+                    list.Add(usuario);
+                }
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conexao.FecharLeitor();
 
-                    Id = reader.GetInt32("id"),
-                    Senha = reader.GetString("senha"),
-                });
             }
 
-            return list;
         }
+
+        private FuncionarioModelo LerFuncionario(MySqlDataReader reader)
+        {
+            if (string.IsNullOrEmpty(reader["funcionario_id"].ToString()))
+                return null;
+            else
+                return new FuncionarioModelo()
+                {
+                    Celular = reader.GetString("cel"),
+                    Cpf = reader.GetString("cpf"),
+                    Endereco = reader.GetString("endereco"),
+                    Id = reader.GetInt32("funcionario_id"),
+                    Nome = reader.GetString("nome"),
+                    Salario = reader.GetDecimal("salario"),
+                    Telefone = reader.GetString("tel")
+                };
+
+        }
+
         public UsuarioModelo Logar(UsuarioModelo modelo)
         {
 
             var command = conexao.Command;
 
-            command.CommandText = $"SELECT * FROM  {tableName} WHERE usuario=@usuario AND senha=md5(@senha)";
+            command.CommandText = $@"SELECT `usuario`.`id`,
+    `usuario`.`usuario`,
+    `usuario`.`senha`,
+    `funcionario`.`id` as funcionario_id,
+    `funcionario`.`nome`,
+    `funcionario`.`endereco`,
+    `funcionario`.`cpf`,
+    `funcionario`.`tel`,
+    `funcionario`.`cel`,
+    `funcionario`.`salario`
+FROM { tableName}
+            LEFT JOIN funcionario ON usuario_id = usuario.id  WHERE usuario=@usuario AND senha=md5(@senha)";
             command.Parameters.Clear();
             command.Parameters.AddWithValue("@usuario", modelo.Usuario);
             command.Parameters.AddWithValue("@senha", modelo.Senha);
@@ -122,7 +202,7 @@ namespace ControleEstacionamento.DAO
 
             return null;
 
-                    
+
         }
         public void Dispose()
         {

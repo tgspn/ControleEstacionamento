@@ -54,12 +54,16 @@ create table ocupa (
     foreign key(id_vaga) references vaga(id)
 );
 
+-- Criação da tabela usuario
+
 create table usuario 
 (
 	id int not null primary key auto_increment,
     usuario varchar(50),
     senha varchar(200)
 )
+
+-- Alteração na tabela funcionario
 
 ALTER TABLE `estacionamento`.`funcionario` 
 ADD COLUMN `usuario_id` INT(11) NULL AFTER `salario`,
@@ -70,3 +74,23 @@ ADD CONSTRAINT `id`
   REFERENCES `estacionamento`.`usuario` (`id`)
   ON DELETE NO ACTION
   ON UPDATE NO ACTION;
+
+-- Criação da view_cliente
+
+CREATE  OR REPLACE VIEW `view_cliente` AS
+SELECT `cliente`.`id`,
+    `cliente`.`nome`,
+    `cliente`.`endereco`,
+    `cliente`.`cpf`,
+    `cliente`.`tel`,
+    `cliente`.`cel`,
+    `funcionario`.`id` as funcionario_id,
+    `funcionario`.`nome` as funcionario_nome,
+    `funcionario`.`endereco` as funcionario_endereco,
+    `funcionario`.`cpf` as funcionario_cpf,
+    `funcionario`.`tel` as funcionario_telefone,
+    `funcionario`.`cel` as funcionario_celular,
+    `funcionario`.`salario`,
+     `funcionario`.`usuario_id`
+from cliente 
+left join funcionario on cliente.id_funcionario=funcionario.id;

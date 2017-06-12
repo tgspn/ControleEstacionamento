@@ -25,7 +25,7 @@ namespace ControleEstacionamento.DAO
         public void Atualizar(FuncionarioModelo model)
         {
             var command = conexao.Command;
-            command.CommandText = $"UPDATE {tableName} SET nome=@nome, endereco=@endereco, cpf=@cpf, telefone=@telefone, celular=@celular, salario=@salario WHERE id=@id";
+            command.CommandText = $"UPDATE {tableName} SET nome=@nome, endereco=@endereco, cpf=@cpf, telefone=@telefone, celular=@celular, salario=@salario, usuario_id=@usuario_id WHERE id=@id";
 
             command.Parameters.AddWithValue("@nome", model.Nome);
             command.Parameters.AddWithValue("@endereco", model.Endereco);
@@ -34,17 +34,20 @@ namespace ControleEstacionamento.DAO
             command.Parameters.AddWithValue("@celular", model.Celular);
             command.Parameters.AddWithValue("@salario", model.Salario);
             command.Parameters.AddWithValue("@id", model.Id);
-
+            if (model.Usuario != null)
+                command.Parameters.AddWithValue("@usuario_id", model.Usuario.Id);
+            else
+                command.Parameters.AddWithValue("@usuario_id", null);
             command.ExecuteNonQuery();
 
         }
 
-       
+
         public FuncionarioModelo Inserir(FuncionarioModelo model)
         {
 
             var command = conexao.Command;
-            command.CommandText = $"INSERT INTO {tableName} (nome,endereco,cpf,telefone,celular,salario) VALUES (@nome,@endereco,@cpf,@telefone,@celular,@salario)";
+            command.CommandText = $"INSERT INTO {tableName} (nome,endereco,cpf,telefone,celular,salario,usuario_id) VALUES (@nome,@endereco,@cpf,@telefone,@celular,@salario,@usuario_id)";
 
             command.Parameters.AddWithValue("@nome", model.Nome);
             command.Parameters.AddWithValue("@endereco", model.Endereco);
@@ -53,6 +56,10 @@ namespace ControleEstacionamento.DAO
             command.Parameters.AddWithValue("@celular", model.Celular);
             command.Parameters.AddWithValue("@salario", model.Salario);
             command.Parameters.AddWithValue("@id", model.Id);
+            if (model.Usuario != null)
+                command.Parameters.AddWithValue("@usuario_id", model.Usuario.Id);
+            else
+                command.Parameters.AddWithValue("@usuario_id", null);
 
             model.Id = int.Parse(command.ExecuteScalar().ToString());
 
@@ -83,28 +90,36 @@ namespace ControleEstacionamento.DAO
 
         public List<FuncionarioModelo> Ler()
         {
-            var reader = conexao.Command.ExecuteReader();
-            List<FuncionarioModelo> list = new List<FuncionarioModelo>();
-            while (reader.NextResult())
+            try
             {
-                list.Add(new FuncionarioModelo()
+                conexao.Ler();
+                var reader = conexao.Leitor;
+                List<FuncionarioModelo> list = new List<FuncionarioModelo>();
+                while (reader.Read())
                 {
-                    Id = reader.GetInt32("id"),
-                    Nome = reader.GetString("nome"),
-                    Endereco = reader.GetString("endereco"),
-                    Cpf = reader.GetString("cpf"),
-                    Telefone = reader.GetString("telefone"),
-                    Celular = reader.GetString("celular"),
-                    Salario = reader.GetDecimal("salario")
-            });
-            }
-            foreach (var item in list)
+                    list.Add(new FuncionarioModelo()
+                    {
+                        Id = reader.GetInt32("id"),
+                        Nome = reader.GetString("nome"),
+                        Endereco = reader.GetString("endereco"),
+                        Cpf = reader.GetString("cpf"),
+                        Telefone = reader.GetString("telefone"),
+                        Celular = reader.GetString("celular"),
+                        Salario = reader.GetDecimal("salario")
+                    });
+                }
+
+                return list;
+            }catch(Exception ex )
             {
-                //Preencher a propriedade cliente
+                throw ex;
             }
-            return list;
+            finally
+            {
+                conexao.FecharLeitor();
+            }
         }
-        public FuncionarioModelo ProcurarPorId(int id)
+        public FuncionarioModelo BuscarPorId(int id)
         {
             var command = conexao.Command;
 

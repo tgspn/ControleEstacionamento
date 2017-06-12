@@ -31,22 +31,16 @@
             this.lblNome = new System.Windows.Forms.Label();
             this.lblCpf = new System.Windows.Forms.Label();
             this.lblEndereco = new System.Windows.Forms.Label();
-            this.lblTelefone = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.txtCpf = new System.Windows.Forms.TextBox();
-            this.txtEndereco = new System.Windows.Forms.TextBox();
-            this.txtTelefone = new System.Windows.Forms.TextBox();
             this.btnSalvarFuncionario = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.ptbLogo = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtSalario = new System.Windows.Forms.TextBox();
-            this.txtCelular = new System.Windows.Forms.TextBox();
-            this.lblSalario = new System.Windows.Forms.Label();
-            this.lblCelular = new System.Windows.Forms.Label();
+            this.cmbFuncionario = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).BeginInit();
@@ -58,38 +52,29 @@
             // lblNome
             // 
             this.lblNome.AutoSize = true;
-            this.lblNome.Location = new System.Drawing.Point(21, 34);
+            this.lblNome.Location = new System.Drawing.Point(21, 101);
             this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(38, 13);
+            this.lblNome.Size = new System.Drawing.Size(46, 13);
             this.lblNome.TabIndex = 0;
-            this.lblNome.Text = "Nome:";
+            this.lblNome.Text = "Usuário:";
             // 
             // lblCpf
             // 
             this.lblCpf.AutoSize = true;
-            this.lblCpf.Location = new System.Drawing.Point(21, 76);
+            this.lblCpf.Location = new System.Drawing.Point(21, 143);
             this.lblCpf.Name = "lblCpf";
-            this.lblCpf.Size = new System.Drawing.Size(30, 13);
+            this.lblCpf.Size = new System.Drawing.Size(41, 13);
             this.lblCpf.TabIndex = 1;
-            this.lblCpf.Text = "CPF:";
+            this.lblCpf.Text = "Senha:";
             // 
             // lblEndereco
             // 
             this.lblEndereco.AutoSize = true;
-            this.lblEndereco.Location = new System.Drawing.Point(21, 120);
+            this.lblEndereco.Location = new System.Drawing.Point(21, 187);
             this.lblEndereco.Name = "lblEndereco";
-            this.lblEndereco.Size = new System.Drawing.Size(56, 13);
+            this.lblEndereco.Size = new System.Drawing.Size(65, 13);
             this.lblEndereco.TabIndex = 2;
-            this.lblEndereco.Text = "Endereço:";
-            // 
-            // lblTelefone
-            // 
-            this.lblTelefone.AutoSize = true;
-            this.lblTelefone.Location = new System.Drawing.Point(21, 164);
-            this.lblTelefone.Name = "lblTelefone";
-            this.lblTelefone.Size = new System.Drawing.Size(52, 13);
-            this.lblTelefone.TabIndex = 3;
-            this.lblTelefone.Text = "Telefone:";
+            this.lblEndereco.Text = "Funcionário:";
             // 
             // lblTitulo
             // 
@@ -97,37 +82,24 @@
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.Location = new System.Drawing.Point(139, 33);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(241, 25);
+            this.lblTitulo.Size = new System.Drawing.Size(206, 25);
             this.lblTitulo.TabIndex = 5;
-            this.lblTitulo.Text = "Cadastro de funcionário";
+            this.lblTitulo.Text = "Cadastro de usuário";
             // 
             // txtNome
             // 
-            this.txtNome.Location = new System.Drawing.Point(102, 31);
+            this.txtNome.Location = new System.Drawing.Point(102, 98);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(275, 20);
             this.txtNome.TabIndex = 6;
             // 
             // txtCpf
             // 
-            this.txtCpf.Location = new System.Drawing.Point(102, 73);
+            this.txtCpf.Location = new System.Drawing.Point(102, 140);
             this.txtCpf.Name = "txtCpf";
+            this.txtCpf.PasswordChar = '*';
             this.txtCpf.Size = new System.Drawing.Size(275, 20);
             this.txtCpf.TabIndex = 7;
-            // 
-            // txtEndereco
-            // 
-            this.txtEndereco.Location = new System.Drawing.Point(102, 117);
-            this.txtEndereco.Name = "txtEndereco";
-            this.txtEndereco.Size = new System.Drawing.Size(275, 20);
-            this.txtEndereco.TabIndex = 8;
-            // 
-            // txtTelefone
-            // 
-            this.txtTelefone.Location = new System.Drawing.Point(102, 161);
-            this.txtTelefone.Name = "txtTelefone";
-            this.txtTelefone.Size = new System.Drawing.Size(275, 20);
-            this.txtTelefone.TabIndex = 9;
             // 
             // btnSalvarFuncionario
             // 
@@ -183,55 +155,25 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtSalario);
-            this.groupBox1.Controls.Add(this.txtCelular);
-            this.groupBox1.Controls.Add(this.lblSalario);
-            this.groupBox1.Controls.Add(this.lblCelular);
+            this.groupBox1.Controls.Add(this.cmbFuncionario);
             this.groupBox1.Controls.Add(this.lblNome);
             this.groupBox1.Controls.Add(this.txtCpf);
             this.groupBox1.Controls.Add(this.lblCpf);
-            this.groupBox1.Controls.Add(this.txtEndereco);
             this.groupBox1.Controls.Add(this.lblEndereco);
             this.groupBox1.Controls.Add(this.txtNome);
-            this.groupBox1.Controls.Add(this.lblTelefone);
-            this.groupBox1.Controls.Add(this.txtTelefone);
             this.groupBox1.Location = new System.Drawing.Point(12, 6);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(413, 292);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             // 
-            // txtSalario
+            // cmbFuncionario
             // 
-            this.txtSalario.Location = new System.Drawing.Point(102, 238);
-            this.txtSalario.Name = "txtSalario";
-            this.txtSalario.Size = new System.Drawing.Size(275, 20);
-            this.txtSalario.TabIndex = 13;
-            // 
-            // txtCelular
-            // 
-            this.txtCelular.Location = new System.Drawing.Point(102, 201);
-            this.txtCelular.Name = "txtCelular";
-            this.txtCelular.Size = new System.Drawing.Size(275, 20);
-            this.txtCelular.TabIndex = 12;
-            // 
-            // lblSalario
-            // 
-            this.lblSalario.AutoSize = true;
-            this.lblSalario.Location = new System.Drawing.Point(24, 245);
-            this.lblSalario.Name = "lblSalario";
-            this.lblSalario.Size = new System.Drawing.Size(42, 13);
-            this.lblSalario.TabIndex = 11;
-            this.lblSalario.Text = "Salário:";
-            // 
-            // lblCelular
-            // 
-            this.lblCelular.AutoSize = true;
-            this.lblCelular.Location = new System.Drawing.Point(24, 208);
-            this.lblCelular.Name = "lblCelular";
-            this.lblCelular.Size = new System.Drawing.Size(42, 13);
-            this.lblCelular.TabIndex = 10;
-            this.lblCelular.Text = "Celular:";
+            this.cmbFuncionario.FormattingEnabled = true;
+            this.cmbFuncionario.Location = new System.Drawing.Point(102, 187);
+            this.cmbFuncionario.Name = "cmbFuncionario";
+            this.cmbFuncionario.Size = new System.Drawing.Size(275, 21);
+            this.cmbFuncionario.TabIndex = 8;
             // 
             // panel3
             // 
@@ -244,7 +186,7 @@
             this.panel3.Size = new System.Drawing.Size(437, 51);
             this.panel3.TabIndex = 16;
             // 
-            // FormFuncionarioCrud
+            // FormUsuarioCrud
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -252,7 +194,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Name = "FormFuncionarioCrud";
+            this.Name = "FormUsuarioCrud";
             this.Text = "Cadastro Funcionário";
             this.Load += new System.EventHandler(this.FormFuncionarioCrud_Load);
             this.panel1.ResumeLayout(false);
@@ -271,12 +213,9 @@
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.Label lblCpf;
         private System.Windows.Forms.Label lblEndereco;
-        private System.Windows.Forms.Label lblTelefone;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.TextBox txtCpf;
-        private System.Windows.Forms.TextBox txtEndereco;
-        private System.Windows.Forms.TextBox txtTelefone;
         private System.Windows.Forms.Button btnSalvarFuncionario;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Panel panel1;
@@ -284,9 +223,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label lblSalario;
-        private System.Windows.Forms.Label lblCelular;
-        private System.Windows.Forms.TextBox txtSalario;
-        private System.Windows.Forms.TextBox txtCelular;
+        private System.Windows.Forms.ComboBox cmbFuncionario;
     }
 }

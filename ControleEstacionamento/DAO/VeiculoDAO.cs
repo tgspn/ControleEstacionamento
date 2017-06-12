@@ -50,7 +50,7 @@ namespace ControleEstacionamento.DAO
             command.Parameters.AddWithValue("@placa", model.Placa);
             command.Parameters.AddWithValue("@cliente", model.Cliente.Id);
 
-            model.Id = int.Parse(command.ExecuteScalar().ToString());
+            model.Id = (int)command.LastInsertedId;
 
             return model;
         }
@@ -80,30 +80,37 @@ namespace ControleEstacionamento.DAO
 
         public List<VeiculoModelo> Ler()
         {
-            var reader = conexao.Command.ExecuteReader();
-            List<VeiculoModelo> list = new List<VeiculoModelo>();
-            while (reader.NextResult())
+            try
             {
-                list.Add(new VeiculoModelo()
+                var reader = conexao.Command.ExecuteReader();
+                List<VeiculoModelo> list = new List<VeiculoModelo>();
+                while (reader.NextResult())
                 {
-                    Ano = reader.GetString("ano"),
-                    Cliente = new ClienteModelo()
+                    list.Add(new VeiculoModelo()
                     {
-                        Id = reader.GetInt32("cliente_id")
-                    },
-                    Id = reader.GetInt32("id"),
-                    Marca = reader.GetString("marca"),
-                    Modelo = reader.GetString("modelo"),
-                    Placa = reader.GetString("placa")
-                });
-            }
-            foreach (var item in list)
+                        Ano = reader.GetString("ano"),
+                        Cliente = new ClienteModelo()
+                        {
+                            Id = reader.GetInt32("cliente_id")
+                        },
+                        Id = reader.GetInt32("id"),
+                        Marca = reader.GetString("marca"),
+                        Modelo = reader.GetString("modelo"),
+                        Placa = reader.GetString("placa")
+                    });
+                }
+
+                return list;
+            }catch(Exception ex)
             {
-                //Preencher a propriedade cliente
+                throw ex;
             }
-            return list;
+            finally
+            {
+                conexao.Fechar();
+            }
         }
-        public VeiculoModelo ProcurarPorId( int id)
+        public VeiculoModelo BuscarPorId( int id)
         {
             var command = conexao.Command;
 

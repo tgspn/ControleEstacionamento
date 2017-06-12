@@ -48,10 +48,11 @@ namespace ControleEstacionamento
             {
                 MdiParent = this,
                 WindowState = FormWindowState.Maximized
-        }.Show();
+            }.Show();
         }
 
-        private void tsbVeiculo_Click(object sender, EventArgs e) {
+        private void tsbVeiculo_Click(object sender, EventArgs e)
+        {
             Visao.Veiculo.FormVeiculoListar form = new Visao.Veiculo.FormVeiculoListar();
             form.MdiParent = this;
             form.WindowState = FormWindowState.Maximized;
@@ -72,6 +73,15 @@ namespace ControleEstacionamento
         private void veiculosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new Relatorio.FormRelatorioVeiculoAvancado().ShowDialog();
+        }
+
+        private void usuáriosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new Visao.Admin.Usuario.FormUsuarioListar()
+            {
+                MdiParent = this,
+                WindowState = FormWindowState.Maximized
+            }.Show();
         }
     }
 }

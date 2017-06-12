@@ -15,5 +15,6 @@ namespace ControleEstacionamento.Modelos
         public string Telefone { get; set; }
         public string Celular { get; set; }
         public decimal Salario { get; set; }
+        public UsuarioModelo Usuario { get; internal set; }
     }
 }

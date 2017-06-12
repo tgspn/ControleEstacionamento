@@ -27,7 +27,7 @@ namespace ControleEstacionamento.Controlers
         }
         public Modelos.OcupaModelo Buscar(int id)
         {
-            return ocupaDao.ProcurarPorId(id);
+            return ocupaDao.BuscarPorId(id);
         }
     }
 }

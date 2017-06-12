@@ -16,8 +16,7 @@ namespace ControleEstacionamento
         {
             InitializeComponent();
         }
-        Controlers.UsuarioController controler=new Controlers.UsuarioController();
-        Controlers.FuncionarioController FuncionarioControler = new Controlers.FuncionarioController();
+        Controlers.UsuarioController controler = new Controlers.UsuarioController();
         private bool Validar()
         {
             if (txtUser.Text == "admin" && txtPasswd.Text == "admin")
@@ -25,9 +24,9 @@ namespace ControleEstacionamento
             else
             {
                 var usuario = controler.Logar(new Modelos.UsuarioModelo() { Usuario = txtUser.Text, Senha = txtPasswd.Text });
-                if(usuario!=null)
+                if (usuario != null)
                 {
-                    Configuracao.CurrentFuncionario = FuncionarioControler.BuscarPorUsuarioId(usuario.Id);
+                    Configuracao.CurrentFuncionario = usuario.Funcionario;
                     return Configuracao.CurrentFuncionario != null;
                 }
             }
@@ -48,14 +47,11 @@ namespace ControleEstacionamento
                 this.DialogResult = DialogResult.Cancel;
                 txtUser.Text = "";
                 txtPasswd.Text = "";
+                
+               
             }
             btnLogar.Enabled = true;
         }
-
-        private void txtPasswd_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-                btnLogar.PerformClick();
-        }
+        
     }
 }

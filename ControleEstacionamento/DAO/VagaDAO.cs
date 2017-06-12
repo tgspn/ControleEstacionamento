@@ -44,7 +44,7 @@ namespace ControleEstacionamento.DAO
             command.Parameters.AddWithValue("@nro", model.NumeroVaga);
             command.Parameters.AddWithValue("@acessibilidade", model.TemAcessibilidade);
 
-            model.Id = int.Parse(command.ExecuteScalar().ToString());
+            model.Id = (int)command.LastInsertedId;
 
             return model;
         }
@@ -74,24 +74,31 @@ namespace ControleEstacionamento.DAO
 
         public List<VagaModelo> Ler()
         {
-            var reader = conexao.Command.ExecuteReader();
-            List<VagaModelo> list = new List<VagaModelo>();
-            while (reader.NextResult())
+            try
             {
-                list.Add(new VagaModelo()
+                var reader = conexao.Command.ExecuteReader();
+                List<VagaModelo> list = new List<VagaModelo>();
+                while (reader.NextResult())
                 {
-                    NumeroVaga = reader.GetString("nro"),
-                    Id = reader.GetInt32("id"),
-                    TemAcessibilidade = reader.GetBoolean("acessibilidade")
-                });
-            }
-            foreach (var item in list)
+                    list.Add(new VagaModelo()
+                    {
+                        NumeroVaga = reader.GetString("nro"),
+                        Id = reader.GetInt32("id"),
+                        TemAcessibilidade = reader.GetBoolean("acessibilidade")
+                    });
+                }
+
+                return list;
+            }catch(Exception ex)
             {
-                //Preencher a propriedade cliente
+                throw ex;
             }
-            return list;
+            finally
+            {
+                conexao.Fechar();
+            }
         }
-        public VagaModelo ProcurarPorId(int id)
+        public VagaModelo BuscarPorId(int id)
         {
             var command = conexao.Command;
 
