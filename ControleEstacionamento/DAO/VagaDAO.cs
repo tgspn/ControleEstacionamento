@@ -26,7 +26,7 @@ namespace ControleEstacionamento.DAO
         {
             var command = conexao.Command;
             command.CommandText = $"UPDATE {tableName} SET nro=@nro, acessibilidade=@acessibilidade WHERE id=@id";
-
+            command.Parameters.Clear();
             command.Parameters.AddWithValue("@nro", model.NumeroVaga);
             command.Parameters.AddWithValue("@acessibilidade", model.TemAcessibilidade);
             command.Parameters.AddWithValue("@id", model.Id);
@@ -40,11 +40,13 @@ namespace ControleEstacionamento.DAO
 
             var command = conexao.Command;
             command.CommandText = $"INSERT INTO {tableName} (nro, acessibilidade) VALUES (@nro,@acessibilidade)";
-
+            command.Parameters.Clear();
             command.Parameters.AddWithValue("@nro", model.NumeroVaga);
             command.Parameters.AddWithValue("@acessibilidade", model.TemAcessibilidade);
 
-            model.Id = int.Parse(command.ExecuteScalar().ToString());
+            command.ExecuteNonQuery();
+
+            model.Id = (int)command.LastInsertedId;
 
             return model;
         }
@@ -55,7 +57,7 @@ namespace ControleEstacionamento.DAO
 
             var command = conexao.Command;
             command.CommandText = $"DELETE FROM {tableName} WHERE id=@id";
-
+            command.Parameters.Clear();
             command.Parameters.AddWithValue("@id", model.Id);
 
             return command.ExecuteNonQuery() > 0;
@@ -72,30 +74,12 @@ namespace ControleEstacionamento.DAO
 
         }
 
-        public List<VagaModelo> Ler()
-        {
-            var reader = conexao.Command.ExecuteReader();
-            List<VagaModelo> list = new List<VagaModelo>();
-            while (reader.NextResult())
-            {
-                list.Add(new VagaModelo()
-                {
-                    NumeroVaga = reader.GetString("nro"),
-                    Id = reader.GetInt32("id"),
-                    TemAcessibilidade = reader.GetBoolean("acessibilidade")
-                });
-            }
-            foreach (var item in list)
-            {
-                //Preencher a propriedade cliente
-            }
-            return list;
-        }
-        public VagaModelo ProcurarPorId(int id)
+        public VagaModelo BuscarPorId(int id)
         {
             var command = conexao.Command;
 
             command.CommandText = $"SELECT * FROM  {tableName} WHERE id =@id";
+            command.Parameters.Clear();
             command.Parameters.AddWithValue("@id", id);
 
             return Ler().FirstOrDefault();
@@ -110,6 +94,36 @@ namespace ControleEstacionamento.DAO
             command.CommandText = $"SELECT * FROM  {tableName} WHERE id IN ({string.Join(",", id)})";
 
             return Ler();
+        }
+
+
+        public List<VagaModelo> Ler()
+        {
+            try
+            {
+                conexao.Ler();
+                var reader = conexao.Leitor;
+                List<VagaModelo> list = new List<VagaModelo>();
+                while (reader.Read())
+                {
+                    list.Add(new VagaModelo()
+                    {
+                        NumeroVaga = reader.GetString("nro"),
+                        Id = reader.GetInt32("id"),
+                        TemAcessibilidade = reader.GetBoolean("acessibilidade")
+                    });
+                }
+
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conexao.Fechar();
+            }
         }
         public void Dispose()
         {

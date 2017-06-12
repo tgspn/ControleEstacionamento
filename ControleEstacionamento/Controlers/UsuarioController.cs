@@ -8,31 +8,60 @@ namespace ControleEstacionamento.Controlers
 {
     class UsuarioController
     {
-        private DAO.UsuarioDAO clienteDao = new DAO.UsuarioDAO();
+        private DAO.UsuarioDAO dao = new DAO.UsuarioDAO();
+        private DAO.FuncionarioDAO funcionariDao = new DAO.FuncionarioDAO();
+
         public List<Modelos.UsuarioModelo> Listar()
         {
-            return clienteDao.ListarTodos();
+            return dao.ListarTodos();
+
         }
         public Modelos.UsuarioModelo Criar(Modelos.UsuarioModelo modelo)
         {
-            return clienteDao.Inserir(modelo);
+
+            var usuario = dao.Inserir(modelo);
+            if (modelo.Funcionario != null)
+            {
+                modelo.Funcionario.Usuario = modelo;
+                funcionariDao.Atualizar(modelo.Funcionario);
+            }
+            return usuario;
         }
         public void Atualizar(Modelos.UsuarioModelo modelo)
         {
-            clienteDao.Atualizar(modelo);
+            
+            dao.Atualizar(modelo);
+            if (modelo.Funcionario != null)
+            {
+                modelo.Funcionario.Usuario = modelo;
+                funcionariDao.Atualizar(modelo.Funcionario);
+            }
         }
         public bool Excluir(Modelos.UsuarioModelo modelo)
         {
-            return clienteDao.Remover(modelo);
+           
+
+            bool removido = dao.Remover(modelo);
+            if (removido)
+            {
+                if (modelo.Funcionario != null)
+                {
+                    modelo.Funcionario.Usuario = null;
+                    funcionariDao.Atualizar(modelo.Funcionario);
+                }
+            }
+                
+
+            return removido;
         }
         public Modelos.UsuarioModelo Buscar(int id)
         {
-            return clienteDao.ProcurarPorId(id);
+            return dao.BuscarPorId(id);
         }
         public Modelos.UsuarioModelo Logar(Modelos.UsuarioModelo modelo)
         {
-            return clienteDao.Logar(modelo);
-            
+            return dao.Logar(modelo);
+
         }
     }
 }

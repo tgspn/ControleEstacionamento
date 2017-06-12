@@ -101,7 +101,6 @@
             this.txtPasswd.PasswordChar = '*';
             this.txtPasswd.Size = new System.Drawing.Size(227, 20);
             this.txtPasswd.TabIndex = 12;
-            this.txtPasswd.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPasswd_KeyUp);
             // 
             // txtUser
             // 
@@ -109,7 +108,6 @@
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(226, 20);
             this.txtUser.TabIndex = 11;
-            this.txtUser.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPasswd_KeyUp);
             // 
             // lblLoginPasswd
             // 
@@ -133,11 +131,13 @@
             // 
             // FormLogin
             // 
+            this.AcceptButton = this.btnLogar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(593, 318);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.KeyPreview = true;
             this.Name = "FormLogin";
             this.Text = "Login";
             this.panel1.ResumeLayout(false);

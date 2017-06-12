@@ -12,6 +12,9 @@ namespace ControleEstacionamento.Interfaces
     {
         MySqlConnection Abrir();
         void Fechar();
+        void FecharLeitor();
+        void Ler();
         MySqlCommand Command { get; }
+        MySqlDataReader Leitor { get; }
     }
 }

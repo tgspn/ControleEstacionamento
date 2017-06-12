@@ -28,6 +28,7 @@ namespace ControleEstacionamento.DAO
         {
             var command = conexao.Command;
             command.CommandText = $"INSERT INTO {tableName} (nome, cpf, endereco, tel, cel, id_funcionario) VALUES (@nome, @cpf, @endereco, @tel, @cel, @id_funcionario)";
+            command.Parameters.Clear();
             command.Parameters.AddWithValue("@nome", model.Nome);
             command.Parameters.AddWithValue("@cpf", model.Cpf);
             command.Parameters.AddWithValue("@endereco", model.Endereco);
@@ -35,7 +36,7 @@ namespace ControleEstacionamento.DAO
             command.Parameters.AddWithValue("@cel", model.Celular);
             command.Parameters.AddWithValue("@funcionario", model.Funcionario);
 
-            model.Id = int.Parse(command.ExecuteScalar().ToString());
+            model.Id = (int)command.LastInsertedId;
 
             return model;
         }
@@ -45,6 +46,7 @@ namespace ControleEstacionamento.DAO
             var command = conexao.Command;
             command.CommandText = $"UPDATE {tableName} SET nome = @nome, cpf = @cpf, endereco = @endereco, tel = @tel, cel = @cel, id_funcinario = @id_funcionario";
 
+            command.Parameters.Clear();
             command.Parameters.AddWithValue("@nome", model.Nome);
             command.Parameters.AddWithValue("@cpf", model.Cpf);
             command.Parameters.AddWithValue("@endereco", model.Endereco);
@@ -61,6 +63,7 @@ namespace ControleEstacionamento.DAO
             var command = conexao.Command;
             command.CommandText = $"DELETE FROM {tableName} WHERE id=@id";
 
+            command.Parameters.Clear();
             command.Parameters.AddWithValue("@id", model.Id);
 
             return command.ExecuteNonQuery() > 0;
@@ -69,17 +72,18 @@ namespace ControleEstacionamento.DAO
         public List<ClienteModelo> ListarTodos()
         {
             var command = conexao.Command;
-
-            command.CommandText = $"SELECT * FROM {tableName}";
+            command.Parameters.Clear();
+            command.CommandText = $"SELECT * FROM view_cliente";
 
             return Ler();
         }
 
-        public ClienteModelo ProcurarPorId(int id)
+        public ClienteModelo BuscarPorId(int id)
         {
             var command = conexao.Command;
 
-            command.CommandText = $"SELECT * FROM  {tableName} WHERE id =@id";
+            command.CommandText = $"SELECT * FROM  view_cliente WHERE id =@id";
+            command.Parameters.Clear();
             command.Parameters.AddWithValue("@id", id);
 
             return Ler().FirstOrDefault();
@@ -92,36 +96,57 @@ namespace ControleEstacionamento.DAO
 
             var command = conexao.Command;
 
-            command.CommandText = $"SELECT * FROM  {tableName} WHERE id IN ({string.Join(",", id)})";
+            command.CommandText = $"SELECT * FROM view_cliente WHERE id IN ({string.Join(",", id)})";
 
             return Ler();
         }
 
         public List<ClienteModelo> Ler()
         {
-            var reader = conexao.Command.ExecuteReader();
-            List<ClienteModelo> list = new List<ClienteModelo>();
-            while (reader.NextResult())
+            try
             {
-                list.Add(new ClienteModelo()
+                var reader = conexao.Command.ExecuteReader();
+                List<ClienteModelo> list = new List<ClienteModelo>();
+                while (reader.NextResult())
                 {
-                    Nome = reader.GetString("nome"),
-                    Funcionario = new FuncionarioModelo()
+                    list.Add(new ClienteModelo()
                     {
-                        Id = reader.GetInt32("id_funcionario")
-                    },
-                    Id = reader.GetInt32("id"),
-                    Cpf = reader.GetString("cpf"),
-                    Endereco = reader.GetString("endereco"),
-                    Telefone = reader.GetString("telefone"),
-                    Celular = reader.GetString("celular")
-                });
-            }
-            foreach (var item in list)
-            {
+                        Nome = reader.GetString("nome"),
+                        Funcionario = LerFuncionario(reader),
+                        Id = reader.GetInt32("id"),
+                        Cpf = reader.GetString("cpf"),
+                        Endereco = reader.GetString("endereco"),
+                        Telefone = reader.GetString("telefone"),
+                        Celular = reader.GetString("celular")
+                    });
+                }
 
+                return list;
             }
-            return list;
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conexao.Fechar();
+            }
+        }
+
+        private FuncionarioModelo LerFuncionario(MySqlDataReader reader)
+        {
+            if (string.IsNullOrEmpty(reader["funcionario_id"].ToString()))
+                return null;
+            return new FuncionarioModelo()
+            {
+                Id = reader.GetInt32("funcionario_id"),
+                Celular = reader.GetString("funcionario_celular"),
+                Cpf = reader.GetString("funcionario_cpf"),
+                Endereco = reader.GetString("funcionario_endereco"),
+                Nome = reader.GetString("funcionario_nome"),
+                Salario = reader.GetDecimal("salario"),
+                Telefone = reader.GetString("funcionario_telefone")
+            };
         }
 
         public void Dispose()

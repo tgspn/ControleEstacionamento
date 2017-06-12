@@ -24,6 +24,8 @@ namespace ControleEstacionamento.Visao.Veiculo
 
         public bool IsEdit { get; set; }
 
+        public bool IsEdit { get; internal set; }
+
         public FormVeiculoCrud(VeiculoModelo veiculo) : this()
         {
             this.veiculo = veiculo;

@@ -11,5 +11,6 @@ namespace ControleEstacionamento.Modelos
         public int Id { get; set; }
         public string Usuario { get; set; }
         public string Senha { get; set; }
+        public FuncionarioModelo Funcionario { get; set; }
     }
 }

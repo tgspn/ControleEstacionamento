@@ -10,7 +10,7 @@ namespace ControleEstacionamento.DAO
 {
     public class Conexao : IConexao
     {
-        private MySqlConnection Connection;
+        
         public Conexao()
         {
             //var connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
@@ -27,24 +27,33 @@ namespace ControleEstacionamento.DAO
             this.Connection = conexao.Connection;
         }
         private static IConexao conexao;
+        private MySqlConnection Connection;
+        private MySqlCommand command;
+        private MySqlDataReader leitor;
         public static IConexao Instancia
         {
             get
             {
                 if (conexao == null)
                     conexao = new Conexao();
+                conexao.Abrir();
                 return conexao;
             }
         }
-        private MySqlCommand command;
+        
         public MySqlCommand Command
         {
             get
             {
+                Abrir();
                 if (command == null)
                     command = Connection.CreateCommand();
                 return command;
             }
+        }
+        public MySqlDataReader Leitor
+        {
+            get { return leitor; }
         }
 
         public MySqlConnection Abrir()
@@ -58,6 +67,28 @@ namespace ControleEstacionamento.DAO
         {
             if (Connection != null && Connection.State == System.Data.ConnectionState.Open)
                 Connection.Close();
+        }
+        public void FecharLeitor()
+        {
+            if (leitor != null)
+            {
+                if (!leitor.IsClosed)
+                    leitor.Close();
+            }
+        }
+
+        public void Ler()
+        {
+            try
+            {
+                leitor = command.ExecuteReader();
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Erro ao fazer leitura da base de dados\r\nDados:\r\n\r\n" + ex.Message);
+
+            }
         }
         public void Dispose()
         {
