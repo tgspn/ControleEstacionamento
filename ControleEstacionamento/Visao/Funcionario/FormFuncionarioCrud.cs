@@ -16,9 +16,11 @@ namespace ControleEstacionamento.Visao.Funcionario
         public FormFuncionarioCrud()
         {
             InitializeComponent();
+            controler = new Controlers.FuncionarioController();
         }
 
         public FuncionarioModelo modelo; //voltar privado depois do teste
+        private Controlers.FuncionarioController controler;
 
         public bool IsEdit { get; set; }
 
@@ -27,7 +29,7 @@ namespace ControleEstacionamento.Visao.Funcionario
             this.modelo = modelo;
         }
 
-        private void GetInfo()
+        private bool GetInfo()
         {
             if (modelo == null)
             {
@@ -41,11 +43,12 @@ namespace ControleEstacionamento.Visao.Funcionario
                 modelo.Telefone = txtTelefone.Text;
                 modelo.Celular = txtCelular.Text;
                 modelo.Salario = decimal.Parse(txtSalario.Text);
+                return true;
             }
             else
             {
                 MessageBox.Show("Existem campos obrigatórios não preenchidos!");
-                return;
+                return false;
             }
         }
 
@@ -85,8 +88,16 @@ namespace ControleEstacionamento.Visao.Funcionario
 
         private void btnSalvarFuncionario_Click(object sender, EventArgs e)
         {
-            GetInfo();
-            this.Close();
+            if (GetInfo())
+            {
+                if (IsEdit)
+                    controler.Atualizar(modelo);
+                else
+                    controler.Criar(modelo);
+
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
 
         private void FormFuncionarioCrud_Load(object sender, EventArgs e)

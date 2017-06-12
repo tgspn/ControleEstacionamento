@@ -180,6 +180,7 @@
             this.Controls.Add(this.panel3);
             this.Name = "FormFuncionarioListar";
             this.Text = "Lista de Funcionários";
+            this.Load += new System.EventHandler(this.FormFuncionarioListar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
