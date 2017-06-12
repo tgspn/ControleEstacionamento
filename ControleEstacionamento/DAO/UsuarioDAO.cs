@@ -34,7 +34,7 @@ namespace ControleEstacionamento.DAO
             command.Parameters.Clear();
             command.Parameters.AddWithValue("@usuario", model.Usuario);
             command.Parameters.AddWithValue("@senha", model.Senha);
-
+            command.ExecuteNonQuery();
             model.Id = (int)command.LastInsertedId;
 
 
@@ -71,7 +71,7 @@ namespace ControleEstacionamento.DAO
             var command = conexao.Command;
 
             command.Parameters.Clear();
-            command.CommandText = $"SELECT * FROM { viewName} LEFT JOIN ON = usuario.id ";
+            command.CommandText = $"SELECT * FROM { viewName}  ";
 
             return Ler();
         }
@@ -81,7 +81,7 @@ namespace ControleEstacionamento.DAO
             var command = conexao.Command;
 
             command.Parameters.Clear();
-            command.CommandText = $"SELECT * FROM { viewName} LEFT JOIN funcionario ON usuario_id = usuario.id WHERE usuario.id = @id";
+            command.CommandText = $"SELECT * FROM { viewName} WHERE usuario.id = @id";
 
             command.Parameters.AddWithValue("@id", id);
 
@@ -95,7 +95,7 @@ namespace ControleEstacionamento.DAO
 
             var command = conexao.Command;
             command.Parameters.Clear();
-            command.CommandText = $"SELECT * FROM { viewName} LEFT JOIN funcionario ON usuario_id = usuario.id WHERE id IN ({string.Join(",", id)})";
+            command.CommandText = $"SELECT * FROM { viewName} WHERE id IN ({string.Join(",", id)})";
 
             return Ler();
         }
@@ -107,7 +107,7 @@ namespace ControleEstacionamento.DAO
 
             var command = conexao.Command;
             command.Parameters.Clear();
-            command.CommandText = $"SELECT* FROM { viewName} WHERE usuario=@usuario AND senha=md5(@senha)";
+            command.CommandText = $"SELECT * FROM { viewName} WHERE usuario=@usuario AND senha=md5(@senha)";
             command.Parameters.Clear();
             command.Parameters.AddWithValue("@usuario", modelo.Usuario);
             command.Parameters.AddWithValue("@senha", modelo.Senha);

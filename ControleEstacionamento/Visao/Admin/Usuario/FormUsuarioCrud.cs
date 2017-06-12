@@ -43,8 +43,10 @@ namespace ControleEstacionamento.Visao.Admin.Usuario
                 modelo.Usuario = txtNome.Text;
                 modelo.Senha = txtCpf.Text;
                 modelo.Funcionario = cmbFuncionario.SelectedValue as FuncionarioModelo;
-
-                usuarioControler.Criar(modelo);
+                if (IsEdit)
+                    usuarioControler.Atualizar(modelo);
+                else
+                    usuarioControler.Criar(modelo);
 
                 return true;
             }
@@ -69,7 +71,8 @@ namespace ControleEstacionamento.Visao.Admin.Usuario
         {
             txtNome.Text = modelo.Usuario;
             txtCpf.Text = modelo.Usuario;
-            cmbFuncionario.SelectedValue = modelo.Funcionario;
+            if (modelo.Funcionario != null)
+                cmbFuncionario.SelectedValue = modelo.Funcionario;
 
             if (!IsEdit)
             {
