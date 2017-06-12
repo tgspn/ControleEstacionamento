@@ -40,6 +40,7 @@ create table vaga (
 	id int not null auto_increment,
     nro varchar(10),
     acessibilidade bool,
+	valor_hora decimal,
     primary key(id)
 );
 
@@ -49,6 +50,7 @@ create table ocupa (
     id_vaga int,
 	dh_entrada datetime,
     dh_saida datetime,
+	valor_total decimal,
     foreign key(id_funcionario) references funcionario(id),
     foreign key(id_veiculo) references veiculo(id),
     foreign key(id_vaga) references vaga(id)
