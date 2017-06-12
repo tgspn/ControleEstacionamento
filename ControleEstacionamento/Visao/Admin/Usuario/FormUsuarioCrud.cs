@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ControleEstacionamento.Modelos;
+using ControleEstacionamento.Controlers;
 
 namespace ControleEstacionamento.Visao.Admin.Usuario
 {
@@ -16,36 +17,42 @@ namespace ControleEstacionamento.Visao.Admin.Usuario
         public FormUsuarioCrud()
         {
             InitializeComponent();
+            funcionarioControler = new FuncionarioController();
+            usuarioControler = new UsuarioController();
         }
 
-        public FuncionarioModelo modelo; //voltar privado depois do teste
+        public UsuarioModelo modelo; //voltar privado depois do teste
+        private FuncionarioController funcionarioControler;
+        private UsuarioController usuarioControler;
 
         public bool IsEdit { get; set; }
 
-        public FormUsuarioCrud(FuncionarioModelo modelo) : this()
+        public FormUsuarioCrud(UsuarioModelo modelo) : this()
         {
             this.modelo = modelo;
         }
 
-        private void GetInfo()
+        private bool GetInfo()
         {
             if (modelo == null)
             {
-                modelo = new FuncionarioModelo();
+                modelo = new UsuarioModelo();
             }
             if (Validar())
             {
-                modelo.Nome = txtNome.Text;
-                modelo.Cpf = txtCpf.Text;
-                modelo.Endereco = txtEndereco.Text;
-                modelo.Telefone = txtTelefone.Text;
-                modelo.Celular = txtCelular.Text;
-                modelo.Salario = decimal.Parse(txtSalario.Text);
+                modelo.Usuario = txtNome.Text;
+                modelo.Senha = txtCpf.Text;
+                modelo.Funcionario = cmbFuncionario.SelectedValue as FuncionarioModelo;
+
+                usuarioControler.Criar(modelo);
+
+                return true;
             }
+
             else
             {
                 MessageBox.Show("Existem campos obrigatórios não preenchidos!");
-                return;
+                return false;
             }
         }
 
@@ -53,30 +60,22 @@ namespace ControleEstacionamento.Visao.Admin.Usuario
         {
             if (!string.IsNullOrEmpty(txtNome.Text))
                 if (!string.IsNullOrEmpty(txtCpf.Text))
-                    if (!string.IsNullOrEmpty(txtCelular.Text))
-                        if (!string.IsNullOrEmpty(txtSalario.Text))
-                            return true;
+                    return true;
 
             return false;
         }
 
-        private void SetInfo(FuncionarioModelo modelo)
+        private void SetInfo(UsuarioModelo modelo)
         {
-            txtNome.Text = modelo.Nome;
-            txtCpf.Text = modelo.Cpf.ToString();
-            txtEndereco.Text = modelo.Endereco;
-            txtTelefone.Text = modelo.Telefone.ToString();
-            txtCelular.Text = modelo.Celular.ToString();
-            txtSalario.Text = modelo.Salario.ToString();
+            txtNome.Text = modelo.Usuario;
+            txtCpf.Text = modelo.Usuario;
+            cmbFuncionario.SelectedValue = modelo.Funcionario;
 
-            if(!IsEdit)
+            if (!IsEdit)
             {
-                txtNome.ReadOnly = true;
-                txtCpf.ReadOnly = true;
-                txtEndereco.ReadOnly= true;
-                txtTelefone.ReadOnly = true;
-                txtCelular.ReadOnly = true;
-                txtSalario.ReadOnly = true;
+                txtNome.Enabled = false;
+                txtCpf.Enabled = false;
+                cmbFuncionario.Enabled = false;
 
                 btnSalvarFuncionario.Visible = false;
                 btnCancelar.Text = "Fechar";
@@ -85,15 +84,26 @@ namespace ControleEstacionamento.Visao.Admin.Usuario
 
         private void btnSalvarFuncionario_Click(object sender, EventArgs e)
         {
-            GetInfo();
-            this.Close();
+            if (GetInfo())
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
 
         private void FormFuncionarioCrud_Load(object sender, EventArgs e)
         {
+            var dic = funcionarioControler.Listar().OrderBy(x => x.Nome).ToDictionary(k => k.Nome, v => v);
+            if (dic.Count > 0)
+            {
+                cmbFuncionario.DataSource = new BindingSource(dic, null);
+                cmbFuncionario.DisplayMember = "Key";
+                cmbFuncionario.ValueMember = "Value";
+            }
             if (modelo != null)
             {
                 SetInfo(modelo);
+
             }
         }
 
