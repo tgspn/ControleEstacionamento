@@ -27,7 +27,7 @@ namespace ControleEstacionamento.Controlers
         }
         public Modelos.VagaModelo Buscar(int id)
         {
-            return vagaDao.ProcurarPorId(id);
+            return vagaDao.BuscarPorId(id);
         }
     }
 }

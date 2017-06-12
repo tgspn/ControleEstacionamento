@@ -18,7 +18,8 @@ namespace ControleEstacionamento.Visao.Funcionario
 
         public FormFuncionarioListar()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            controler = new Controlers.FuncionarioController();
         }
 
         private void btnAdicionar_Click(object sender, EventArgs e)

@@ -65,6 +65,7 @@
     <Compile Include="Controlers\UsuarioController.cs" />
     <Compile Include="Controlers\ClienteController.cs" />
     <Compile Include="Controlers\OcupaController.cs" />
+    <Compile Include="Controlers\VagaControler.cs" />
     <Compile Include="Controlers\VeiculoControler.cs" />
     <Compile Include="DAO\UsuarioDAO.cs" />
     <Compile Include="DAO\ClienteDAO.cs" />
@@ -132,6 +133,12 @@
       <DependentUpon>rptVeiculosAvancado.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="ucVagas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucVagas.Designer.cs">
+      <DependentUpon>ucVagas.cs</DependentUpon>
     </Compile>
     <Compile Include="Visao\Admin\Usuario\FormUsuarioCrud.cs">
       <SubType>Form</SubType>
@@ -254,6 +261,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptVeiculosAvancado.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucVagas.resx">
+      <DependentUpon>ucVagas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\Admin\Usuario\FormUsuarioCrud.resx">
       <DependentUpon>FormUsuarioCrud.cs</DependentUpon>

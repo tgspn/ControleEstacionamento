@@ -25,7 +25,7 @@ namespace ControleEstacionamento.DAO
         public void Atualizar(FuncionarioModelo model)
         {
             var command = conexao.Command;
-            command.CommandText = $"UPDATE {tableName} SET nome=@nome, endereco=@endereco, cpf=@cpf, telefone=@telefone, celular=@celular, salario=@salario, usuario_id=@usuario_id WHERE id=@id";
+            command.CommandText = $"UPDATE {tableName} SET nome=@nome, endereco=@endereco, cpf=@cpf, tel=@telefone, cel=@celular, salario=@salario, usuario_id=@usuario_id WHERE id=@id";
             command.Parameters.Clear();
             command.Parameters.AddWithValue("@nome", model.Nome);
             command.Parameters.AddWithValue("@endereco", model.Endereco);
@@ -47,7 +47,7 @@ namespace ControleEstacionamento.DAO
         {
 
             var command = conexao.Command;
-            command.CommandText = $"INSERT INTO {tableName} (nome,endereco,cpf,telefone,celular,salario,usuario_id) VALUES (@nome,@endereco,@cpf,@telefone,@celular,@salario,@usuario_id)";
+            command.CommandText = $"INSERT INTO {tableName} (nome,endereco,cpf,tel,cel,salario,usuario_id) VALUES (@nome,@endereco,@cpf,@telefone,@celular,@salario,@usuario_id)";
 
             command.Parameters.Clear();
             command.Parameters.AddWithValue("@nome", model.Nome);
@@ -61,6 +61,8 @@ namespace ControleEstacionamento.DAO
                 command.Parameters.AddWithValue("@usuario_id", model.Usuario.Id);
             else
                 command.Parameters.AddWithValue("@usuario_id", null);
+
+            command.ExecuteNonQuery();
 
             model.Id = (int)command.LastInsertedId;
 
@@ -138,8 +140,8 @@ namespace ControleEstacionamento.DAO
                         Nome = reader.GetString("nome"),
                         Endereco = reader.GetString("endereco"),
                         Cpf = reader.GetString("cpf"),
-                        Telefone = reader.GetString("telefone"),
-                        Celular = reader.GetString("celular"),
+                        Telefone = reader.GetString("tel"),
+                        Celular = reader.GetString("cel"),
                         Salario = reader.GetDecimal("salario")
                     });
                 }

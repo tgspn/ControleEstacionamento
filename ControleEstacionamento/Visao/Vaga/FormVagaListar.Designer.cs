@@ -182,6 +182,7 @@
             this.Controls.Add(this.panel3);
             this.Name = "FormVagaListar";
             this.Text = "Lista de Vagas";
+            this.Load += new System.EventHandler(this.FormVagaListar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

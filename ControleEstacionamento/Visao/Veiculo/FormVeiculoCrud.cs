@@ -20,6 +20,8 @@ namespace ControleEstacionamento.Visao.Veiculo
 
         VeiculoModelo veiculo;//remover o public no final do teste
 
+        public bool IsEdit { get; internal set; }
+
         public FormVeiculoCrud(VeiculoModelo veiculo) : this()
         {
             this.veiculo = veiculo;
