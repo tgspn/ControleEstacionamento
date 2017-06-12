@@ -20,7 +20,10 @@ namespace ControleEstacionamento.Relatorio
 
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
-            var list = new List<Modelos.VeiculoModelo>(new Modelos.VeiculoModelo[] { new Modelos.VeiculoModelo() { Marca = "Chevrolet",Modelo="Corsa Classic",Ano="2004" }, new Modelos.VeiculoModelo { Marca = "Fiat", Modelo="Uno",Ano="2017" } });
+            
+            var list = new List<Modelos.VeiculoModelo>(new Modelos.VeiculoModelo[] { new Modelos.VeiculoModelo()
+            { Marca = "Chevrolet",Modelo="Corsa Classic",Ano="2004" }, new Modelos.VeiculoModelo
+            { Marca = "Fiat", Modelo="Uno",Ano="2017" } });
             // rptVeiculos1.SetDataSource(list);
 
             ReportDocument rpt = new ReportDocument();

@@ -253,6 +253,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "FormFuncionarioCrud";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro Funcionário";
             this.Load += new System.EventHandler(this.FormFuncionarioCrud_Load);
             this.panel1.ResumeLayout(false);

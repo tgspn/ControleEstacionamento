@@ -63,7 +63,7 @@ create table usuario
 	id int not null primary key auto_increment,
     usuario varchar(50),
     senha varchar(200)
-)
+);
 
 -- Alteração na tabela funcionario
 
@@ -97,7 +97,7 @@ SELECT `cliente`.`id`,
 from cliente 
 left join funcionario on cliente.id_funcionario=funcionario.id;
 
---Criação da view_ocupa
+-- Criação da view_ocupa
 
 USE `estacionamento`;
 CREATE  OR REPLACE VIEW `view_ocupa` AS
@@ -130,7 +130,7 @@ INNER JOIN `estacionamento`.`vaga` ON ocupa.id_vaga=vaga.id
 INNER JOIN `estacionamento`.`veiculo` ON veiculo.id=ocupa.id_veiculo
 INNER JOIN `estacionamento`.`cliente` ON cliente.id=veiculo.id_cliente;
 
---Criacao da view_veiculo
+-- Criacao da view_veiculo
 
 USE `estacionamento`;
 CREATE  OR REPLACE VIEW `view_veiculo` AS
@@ -155,7 +155,7 @@ FROM veiculo
 INNER JOIN `estacionamento`.`cliente` ON cliente.id=veiculo.id_cliente
 INNER JOIN `estacionamento`.`funcionario` ON cliente.id_funcionario=funcionario.id;
 
---Criacao da view_usuario
+-- Criacao da view_usuario
 
 CREATE  OR REPLACE VIEW `view_usuario` AS
 SELECT `usuario`.`id`,

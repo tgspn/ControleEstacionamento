@@ -33,10 +33,10 @@
             this.lblEndereco = new System.Windows.Forms.Label();
             this.lblTelefone = new System.Windows.Forms.Label();
             this.lblSalario = new System.Windows.Forms.Label();
-            this.txtNomeFuncionario = new System.Windows.Forms.TextBox();
-            this.txtCpfFuncionario = new System.Windows.Forms.TextBox();
-            this.txtEnderecoFuncionario = new System.Windows.Forms.TextBox();
-            this.txtTelefoneFuncionario = new System.Windows.Forms.TextBox();
+            this.txtMarca = new System.Windows.Forms.TextBox();
+            this.txtModelo = new System.Windows.Forms.TextBox();
+            this.txtAno = new System.Windows.Forms.TextBox();
+            this.txtPlaca = new System.Windows.Forms.TextBox();
             this.btnSalvarFuncionario = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -97,33 +97,33 @@
             this.lblSalario.TabIndex = 5;
             this.lblSalario.Text = "Cadastro de veículo";
             // 
-            // txtNomeFuncionario
+            // txtMarca
             // 
-            this.txtNomeFuncionario.Location = new System.Drawing.Point(102, 31);
-            this.txtNomeFuncionario.Name = "txtNomeFuncionario";
-            this.txtNomeFuncionario.Size = new System.Drawing.Size(275, 20);
-            this.txtNomeFuncionario.TabIndex = 6;
+            this.txtMarca.Location = new System.Drawing.Point(102, 31);
+            this.txtMarca.Name = "txtMarca";
+            this.txtMarca.Size = new System.Drawing.Size(275, 20);
+            this.txtMarca.TabIndex = 6;
             // 
-            // txtCpfFuncionario
+            // txtModelo
             // 
-            this.txtCpfFuncionario.Location = new System.Drawing.Point(102, 73);
-            this.txtCpfFuncionario.Name = "txtCpfFuncionario";
-            this.txtCpfFuncionario.Size = new System.Drawing.Size(275, 20);
-            this.txtCpfFuncionario.TabIndex = 7;
+            this.txtModelo.Location = new System.Drawing.Point(102, 73);
+            this.txtModelo.Name = "txtModelo";
+            this.txtModelo.Size = new System.Drawing.Size(275, 20);
+            this.txtModelo.TabIndex = 7;
             // 
-            // txtEnderecoFuncionario
+            // txtAno
             // 
-            this.txtEnderecoFuncionario.Location = new System.Drawing.Point(102, 117);
-            this.txtEnderecoFuncionario.Name = "txtEnderecoFuncionario";
-            this.txtEnderecoFuncionario.Size = new System.Drawing.Size(275, 20);
-            this.txtEnderecoFuncionario.TabIndex = 8;
+            this.txtAno.Location = new System.Drawing.Point(102, 117);
+            this.txtAno.Name = "txtAno";
+            this.txtAno.Size = new System.Drawing.Size(275, 20);
+            this.txtAno.TabIndex = 8;
             // 
-            // txtTelefoneFuncionario
+            // txtPlaca
             // 
-            this.txtTelefoneFuncionario.Location = new System.Drawing.Point(102, 161);
-            this.txtTelefoneFuncionario.Name = "txtTelefoneFuncionario";
-            this.txtTelefoneFuncionario.Size = new System.Drawing.Size(275, 20);
-            this.txtTelefoneFuncionario.TabIndex = 9;
+            this.txtPlaca.Location = new System.Drawing.Point(102, 161);
+            this.txtPlaca.Name = "txtPlaca";
+            this.txtPlaca.Size = new System.Drawing.Size(275, 20);
+            this.txtPlaca.TabIndex = 9;
             // 
             // btnSalvarFuncionario
             // 
@@ -145,6 +145,7 @@
             this.btnCancelar.TabIndex = 13;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // panel1
             // 
@@ -177,13 +178,13 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.lblNome);
-            this.groupBox1.Controls.Add(this.txtCpfFuncionario);
+            this.groupBox1.Controls.Add(this.txtModelo);
             this.groupBox1.Controls.Add(this.lblCpf);
-            this.groupBox1.Controls.Add(this.txtEnderecoFuncionario);
+            this.groupBox1.Controls.Add(this.txtAno);
             this.groupBox1.Controls.Add(this.lblEndereco);
-            this.groupBox1.Controls.Add(this.txtNomeFuncionario);
+            this.groupBox1.Controls.Add(this.txtMarca);
             this.groupBox1.Controls.Add(this.lblTelefone);
-            this.groupBox1.Controls.Add(this.txtTelefoneFuncionario);
+            this.groupBox1.Controls.Add(this.txtPlaca);
             this.groupBox1.Location = new System.Drawing.Point(12, 6);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(413, 207);
@@ -210,6 +211,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "FormVeiculoCrud";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro Veículo";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -229,10 +231,10 @@
         private System.Windows.Forms.Label lblEndereco;
         private System.Windows.Forms.Label lblTelefone;
         private System.Windows.Forms.Label lblSalario;
-        private System.Windows.Forms.TextBox txtNomeFuncionario;
-        private System.Windows.Forms.TextBox txtCpfFuncionario;
-        private System.Windows.Forms.TextBox txtEnderecoFuncionario;
-        private System.Windows.Forms.TextBox txtTelefoneFuncionario;
+        private System.Windows.Forms.TextBox txtMarca;
+        private System.Windows.Forms.TextBox txtModelo;
+        private System.Windows.Forms.TextBox txtAno;
+        private System.Windows.Forms.TextBox txtPlaca;
         private System.Windows.Forms.Button btnSalvarFuncionario;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Panel panel1;

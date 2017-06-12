@@ -16,9 +16,11 @@ namespace ControleEstacionamento.Visao.Veiculo
         public FormVeiculoCrud()
         {
             InitializeComponent();
+            controler = new Controlers.VeiculoControler();
         }
 
         VeiculoModelo veiculo;//remover o public no final do teste
+        private Controlers.VeiculoControler controler;
 
         public bool IsEdit { get; internal set; }
 
@@ -27,31 +29,75 @@ namespace ControleEstacionamento.Visao.Veiculo
             this.veiculo = veiculo;
         }
 
-        public void GetInfo()
+        public bool GetInfo()
         {
             if (veiculo == null)
             {
                 veiculo = new VeiculoModelo();
             }
-            if (!string.IsNullOrEmpty(txtNomeFuncionario.Text))
+            if (Validar())
             {
-
+                veiculo.Marca = txtMarca.Text;
+                veiculo.Modelo = txtModelo.Text;
+                veiculo.Ano = txtAno.Text;
+                veiculo.Placa = txtPlaca.Text;
+                return true;
             }
             else
             {
-                MessageBox.Show("Test");
-                return;
+                MessageBox.Show("Existem campos obrigatórios não preenchidos!");
+                return false;
             }
 
-            //funcionario.Cpf = long.Parse()
+        }
+        private bool Validar()
+        {
+            if (!string.IsNullOrEmpty(txtMarca.Text))
+                if (!string.IsNullOrEmpty(txtModelo.Text))
+                    if (!string.IsNullOrEmpty(txtAno.Text))
+                        if (!string.IsNullOrEmpty(txtPlaca.Text))
+                            return true;
 
+            return false;
         }
         public void SetInfo(VeiculoModelo modelo)
         {
+            txtModelo.Text = modelo.Modelo;
+            txtAno.Text = modelo.Ano.ToString();
+            txtMarca.Text = modelo.Marca;
+            txtPlaca.Text = modelo.Placa.ToString();
 
+
+            if (!IsEdit)
+            {
+                txtMarca.ReadOnly = true;
+                txtModelo.ReadOnly = true;
+                txtAno.ReadOnly = true;
+                txtPlaca.ReadOnly = true;
+
+
+                btnSalvarFuncionario.Visible = false;
+                btnCancelar.Text = "Fechar";
+            }
         }
         private void btnSalvarFuncionario_Click(object sender, EventArgs e)
         {
+            if (GetInfo())
+            {
+                if (IsEdit)
+                    controler.Atualizar(veiculo);
+                else
+                    controler.Criar(veiculo);
+
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
 
         }
     }

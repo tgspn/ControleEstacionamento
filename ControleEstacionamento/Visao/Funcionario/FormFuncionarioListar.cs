@@ -69,5 +69,11 @@ namespace ControleEstacionamento.Visao.Funcionario
         {
             dgvFuncionario.DataSource = list = new BindingList<Modelos.FuncionarioModelo>(controler.Listar());
         }
+
+        private void btnFechar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
+        }
     }
 }
