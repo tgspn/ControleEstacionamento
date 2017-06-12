@@ -34,10 +34,5 @@ namespace ControleEstacionamento.Visao.Ocupa
         {
             this.Close();
         }
-
-        private void tmHoraEntrada_Tick(object sender, EventArgs e)
-        {
-            label2.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
-        }
     }
 }

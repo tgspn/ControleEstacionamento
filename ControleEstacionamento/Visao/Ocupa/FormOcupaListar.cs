@@ -45,14 +45,14 @@ namespace ControleEstacionamento.Visao.Ocupa
         {
             if (label1.Text == "Livre")
             {
-                new FormOcupaFechamento ().ShowDialog();
+                new FormOcupaLancamento ().ShowDialog();
                 pictureBox1.Image = Properties.Resources.num1_red;
                 pictureBox1.Update();
                 label1.Text = "Ocupado";
             }
             else
             {
-                new FormOcupaCrud().ShowDialog();
+                new FormOcupaFechamento().ShowDialog();
                 pictureBox1.Image = Properties.Resources.num1;
                 label1.Text = "Livre";
             }

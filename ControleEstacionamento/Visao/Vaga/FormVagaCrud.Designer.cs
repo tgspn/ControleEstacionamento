@@ -39,6 +39,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbxAcessibilidade = new System.Windows.Forms.CheckBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.lblPrecoHora = new System.Windows.Forms.Label();
+            this.txtPrecoHora = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).BeginInit();
             this.panel2.SuspendLayout();
@@ -124,19 +126,21 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 89);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(661, 198);
+            this.panel2.Size = new System.Drawing.Size(661, 249);
             this.panel2.TabIndex = 15;
             // 
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.txtPrecoHora);
+            this.groupBox1.Controls.Add(this.lblPrecoHora);
             this.groupBox1.Controls.Add(this.cbxAcessibilidade);
             this.groupBox1.Controls.Add(this.lblNr);
             this.groupBox1.Controls.Add(this.txtNr);
             this.groupBox1.Location = new System.Drawing.Point(124, 15);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(413, 117);
+            this.groupBox1.Size = new System.Drawing.Size(413, 168);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             // 
@@ -157,16 +161,32 @@
             this.panel3.Controls.Add(this.btnSalvar);
             this.panel3.Controls.Add(this.btnCancelar);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 236);
+            this.panel3.Location = new System.Drawing.Point(0, 287);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(661, 51);
             this.panel3.TabIndex = 16;
+            // 
+            // lblPrecoHora
+            // 
+            this.lblPrecoHora.AutoSize = true;
+            this.lblPrecoHora.Location = new System.Drawing.Point(53, 104);
+            this.lblPrecoHora.Name = "lblPrecoHora";
+            this.lblPrecoHora.Size = new System.Drawing.Size(66, 13);
+            this.lblPrecoHora.TabIndex = 8;
+            this.lblPrecoHora.Text = "Preço/Hora:";
+            // 
+            // txtPrecoHora
+            // 
+            this.txtPrecoHora.Location = new System.Drawing.Point(125, 101);
+            this.txtPrecoHora.Name = "txtPrecoHora";
+            this.txtPrecoHora.Size = new System.Drawing.Size(183, 20);
+            this.txtPrecoHora.TabIndex = 9;
             // 
             // FormVagaCrud
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(661, 287);
+            this.ClientSize = new System.Drawing.Size(661, 338);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -198,5 +218,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.CheckBox cbxAcessibilidade;
+        private System.Windows.Forms.TextBox txtPrecoHora;
+        private System.Windows.Forms.Label lblPrecoHora;
     }
 }

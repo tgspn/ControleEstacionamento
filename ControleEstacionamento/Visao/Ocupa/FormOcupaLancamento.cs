@@ -11,9 +11,9 @@ using ControleEstacionamento.Modelos;
 
 namespace ControleEstacionamento.Visao.Ocupa
 {
-    public partial class FormOcupaCrud : Form
+    public partial class FormOcupaLancamento : Form
     {
-        public FormOcupaCrud()
+        public FormOcupaLancamento()
         {
             InitializeComponent();
         }
@@ -33,6 +33,11 @@ namespace ControleEstacionamento.Visao.Ocupa
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void tmHoraEntrada_Tick(object sender, EventArgs e)
+        {
+            label2.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
         }
     }
 }
