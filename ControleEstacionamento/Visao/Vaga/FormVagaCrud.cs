@@ -16,9 +16,12 @@ namespace ControleEstacionamento.Visao.Vaga
         public FormVagaCrud()
         {
             InitializeComponent();
+            controller = new Controlers.VagaControler();
         }
 
-        public VagaModelo modelo; //voltar privado depois do teste
+
+        private VagaModelo modelo;
+        private Controlers.VagaControler controller;
 
         public bool IsEdit { get; set; }
 
@@ -27,7 +30,7 @@ namespace ControleEstacionamento.Visao.Vaga
             this.modelo = modelo;
         }
 
-        private void GetInfo()
+        private bool GetInfo()
         {
             if (modelo == null)
             {
@@ -36,12 +39,18 @@ namespace ControleEstacionamento.Visao.Vaga
             if (Validar())
             {
                 modelo.NumeroVaga = txtNr.Text;
-                modelo.TemAcessibilidade =cbxAcessibilidade.Checked;
+                modelo.TemAcessibilidade = cbxAcessibilidade.Checked;
+
+                if (IsEdit)
+                    controller.Atualizar(modelo);
+                else
+                    controller.Criar(modelo);
+                return true;
             }
             else
             {
                 MessageBox.Show("Existem campos obrigatórios não preenchidos!");
-                return;
+                return false;
             }
         }
 
@@ -70,8 +79,11 @@ namespace ControleEstacionamento.Visao.Vaga
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            GetInfo();
-            this.Close();
+            if (GetInfo())
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
 
         private void FormVagaCrud_Load(object sender, EventArgs e)
@@ -84,11 +96,12 @@ namespace ControleEstacionamento.Visao.Vaga
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
         private void panel4_Paint(object sender, PaintEventArgs e)
         {
-                    }
+        }
     }
 }

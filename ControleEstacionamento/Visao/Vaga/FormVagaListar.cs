@@ -12,21 +12,26 @@ namespace ControleEstacionamento.Visao.Vaga
 {
     public partial class FormVagaListar : Form
     {
-        //teste
-        BindingList<Modelos.VagaModelo> list = new BindingList<Modelos.VagaModelo>();
 
         public FormVagaListar()
         {
             InitializeComponent();
-            dgvFuncionario.DataSource = list; //teste
+            controler = new Controlers.VagaControler();
         }
+        private Controlers.VagaControler controler;
+
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
             FormVagaCrud form = new FormVagaCrud();
             //form.MdiParent = this.MdiParent;
-            form.ShowDialog();
-            list.Add(form.modelo); //teste
+            if (form.ShowDialog() == DialogResult.OK)
+                CarregarDataGrid();
+        }
+
+        private void CarregarDataGrid()
+        {
+            dgvFuncionario.DataSource = new BindingList<Modelos.VagaModelo>(controler.Listar());
         }
 
         private void btnDetalhesVeiculo_Click(object sender, EventArgs e)
@@ -48,11 +53,23 @@ namespace ControleEstacionamento.Visao.Vaga
 
         private void btnExcluirVeiculo_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Deseja excluir?", "Confirmação", MessageBoxButtons.YesNo);
+          var result=  MessageBox.Show("Deseja excluir?", "Confirmação", MessageBoxButtons.YesNo);
+            if (result == DialogResult.OK)
+            {
+                controler.Excluir((Modelos.VagaModelo)dgvFuncionario.SelectedRows[0].DataBoundItem);
+                CarregarDataGrid();
+            }
+
         }
 
-        private void btnFecharVeiculo_Click(object sender, EventArgs e) {
+        private void btnFecharVeiculo_Click(object sender, EventArgs e)
+        {
             this.Close();
+        }
+
+        private void FormVagaListar_Load(object sender, EventArgs e)
+        {
+            CarregarDataGrid();
         }
     }
 }

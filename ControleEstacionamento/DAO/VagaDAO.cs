@@ -104,7 +104,7 @@ namespace ControleEstacionamento.DAO
                 conexao.Ler();
                 var reader = conexao.Leitor;
                 List<VagaModelo> list = new List<VagaModelo>();
-                while (reader.NextResult())
+                while (reader.Read())
                 {
                     list.Add(new VagaModelo()
                     {

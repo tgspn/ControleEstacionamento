@@ -92,6 +92,7 @@
             this.btnEditarVeiculo.TabIndex = 4;
             this.btnEditarVeiculo.Text = "Editar";
             this.btnEditarVeiculo.UseVisualStyleBackColor = true;
+            this.btnEditarVeiculo.Click += new System.EventHandler(this.btnEditarVeiculo_Click);
             // 
             // btnExcluirVeiculo
             // 
@@ -101,6 +102,7 @@
             this.btnExcluirVeiculo.TabIndex = 5;
             this.btnExcluirVeiculo.Text = "Excluir";
             this.btnExcluirVeiculo.UseVisualStyleBackColor = true;
+            this.btnExcluirVeiculo.Click += new System.EventHandler(this.btnExcluirVeiculo_Click);
             // 
             // dgvFuncionario
             // 
@@ -175,6 +177,7 @@
             this.Controls.Add(this.panel3);
             this.Name = "FormVeiculoListar";
             this.Text = "Lista de Veículos";
+            this.Load += new System.EventHandler(this.FormVeiculoListar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
