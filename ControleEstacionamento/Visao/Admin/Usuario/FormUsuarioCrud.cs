@@ -62,7 +62,8 @@ namespace ControleEstacionamento.Visao.Admin.Usuario
         {
             if (!string.IsNullOrEmpty(txtNome.Text))
                 if (!string.IsNullOrEmpty(txtCpf.Text))
-                    return true;
+                    if (cmbFuncionario.SelectedValue != null)
+                        return true;
 
             return false;
         }

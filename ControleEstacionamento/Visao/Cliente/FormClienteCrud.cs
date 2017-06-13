@@ -41,6 +41,12 @@ namespace ControleEstacionamento.Visao.Cliente
                 Cliente.Celular = txtCelular.Text;
                 Cliente.Endereco = txtEndereco.Text;
                 Cliente.Funcionario = Configuracao.CurrentFuncionario;
+
+                if (IsEdit)
+                    controler.Atualizar(Cliente);
+                else
+                    controler.Criar(Cliente);
+
                 return true;
 
 
@@ -55,9 +61,7 @@ namespace ControleEstacionamento.Visao.Cliente
         {
             if (!string.IsNullOrEmpty(txtNome.Text))
                 if (!string.IsNullOrEmpty(txtCpf.Text))
-                    if (!string.IsNullOrEmpty(txtEndereco.Text))
-                        if (!string.IsNullOrEmpty(txtCelular.Text))
-                            return true;
+                    return true;
 
             return false;
         }
@@ -88,10 +92,7 @@ namespace ControleEstacionamento.Visao.Cliente
         {
             if (GetInfo())
             {
-                if (IsEdit)
-                    controler.Atualizar(Cliente);
-                else
-                    controler.Criar(Cliente);
+                
 
                 this.DialogResult = DialogResult.OK;
                 this.Close();

@@ -55,27 +55,27 @@
             this.lblNome.AutoSize = true;
             this.lblNome.Location = new System.Drawing.Point(21, 101);
             this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(46, 13);
+            this.lblNome.Size = new System.Drawing.Size(50, 13);
             this.lblNome.TabIndex = 0;
-            this.lblNome.Text = "Usuário:";
+            this.lblNome.Text = "Usuário:*";
             // 
             // lblCpf
             // 
             this.lblCpf.AutoSize = true;
             this.lblCpf.Location = new System.Drawing.Point(21, 143);
             this.lblCpf.Name = "lblCpf";
-            this.lblCpf.Size = new System.Drawing.Size(41, 13);
+            this.lblCpf.Size = new System.Drawing.Size(45, 13);
             this.lblCpf.TabIndex = 1;
-            this.lblCpf.Text = "Senha:";
+            this.lblCpf.Text = "Senha:*";
             // 
             // lblEndereco
             // 
             this.lblEndereco.AutoSize = true;
             this.lblEndereco.Location = new System.Drawing.Point(21, 187);
             this.lblEndereco.Name = "lblEndereco";
-            this.lblEndereco.Size = new System.Drawing.Size(65, 13);
+            this.lblEndereco.Size = new System.Drawing.Size(69, 13);
             this.lblEndereco.TabIndex = 2;
-            this.lblEndereco.Text = "Funcionário:";
+            this.lblEndereco.Text = "Funcionário:*";
             // 
             // lblTitulo
             // 
@@ -197,15 +197,21 @@
             // 
             // FormUsuarioCrud
             // 
+            this.AcceptButton = this.btnSalvarFuncionario;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancelar;
             this.ClientSize = new System.Drawing.Size(437, 448);
+            this.ControlBox = false;
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormUsuarioCrud";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cadastro Funcionário";
+            this.Text = "Cadastro Usuário";
             this.Load += new System.EventHandler(this.FormFuncionarioCrud_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

@@ -40,6 +40,7 @@ namespace ControleEstacionamento.Visao.Vaga
             {
                 modelo.NumeroVaga = txtNr.Text;
                 modelo.TemAcessibilidade = cbxAcessibilidade.Checked;
+                modelo.Preco = Convert.ToDecimal(txtPrecoHora.Text);
 
                 if (IsEdit)
                     controller.Atualizar(modelo);
@@ -71,6 +72,7 @@ namespace ControleEstacionamento.Visao.Vaga
             {
                 txtNr.ReadOnly = true;
                 cbxAcessibilidade.Enabled = false;
+                txtPrecoHora.ReadOnly = true;
 
                 btnSalvar.Visible = false;
                 btnCancelar.Text = "Fechar";

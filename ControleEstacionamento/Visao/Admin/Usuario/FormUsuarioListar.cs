@@ -70,6 +70,16 @@ namespace ControleEstacionamento.Visao.Admin.Usuario
 
         }
 
+        private void dgvFuncionario_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            foreach (DataGridViewColumn item in ((DataGridView)sender).Columns)
+            {
+                if (item.Name == "Id")
+                    item.Visible = false;
+                item.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
+        }
+
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             controler.BuscarPorNomeLike(txtBuscar.Text);

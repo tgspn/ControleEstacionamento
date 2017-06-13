@@ -45,6 +45,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -57,36 +59,36 @@
             this.lblNome.AutoSize = true;
             this.lblNome.Location = new System.Drawing.Point(21, 34);
             this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(40, 13);
+            this.lblNome.Size = new System.Drawing.Size(44, 13);
             this.lblNome.TabIndex = 0;
-            this.lblNome.Text = "Marca:";
+            this.lblNome.Text = "Marca:*";
             // 
             // lblCpf
             // 
             this.lblCpf.AutoSize = true;
             this.lblCpf.Location = new System.Drawing.Point(21, 76);
             this.lblCpf.Name = "lblCpf";
-            this.lblCpf.Size = new System.Drawing.Size(45, 13);
+            this.lblCpf.Size = new System.Drawing.Size(49, 13);
             this.lblCpf.TabIndex = 1;
-            this.lblCpf.Text = "Modelo:";
+            this.lblCpf.Text = "Modelo:*";
             // 
             // lblEndereco
             // 
             this.lblEndereco.AutoSize = true;
             this.lblEndereco.Location = new System.Drawing.Point(21, 120);
             this.lblEndereco.Name = "lblEndereco";
-            this.lblEndereco.Size = new System.Drawing.Size(29, 13);
+            this.lblEndereco.Size = new System.Drawing.Size(33, 13);
             this.lblEndereco.TabIndex = 2;
-            this.lblEndereco.Text = "Ano:";
+            this.lblEndereco.Text = "Ano:*";
             // 
             // lblTelefone
             // 
             this.lblTelefone.AutoSize = true;
             this.lblTelefone.Location = new System.Drawing.Point(21, 164);
             this.lblTelefone.Name = "lblTelefone";
-            this.lblTelefone.Size = new System.Drawing.Size(37, 13);
+            this.lblTelefone.Size = new System.Drawing.Size(41, 13);
             this.lblTelefone.TabIndex = 3;
-            this.lblTelefone.Text = "Placa:";
+            this.lblTelefone.Text = "Placa:*";
             // 
             // lblSalario
             // 
@@ -121,6 +123,7 @@
             // 
             // txtPlaca
             // 
+            this.txtPlaca.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtPlaca.Location = new System.Drawing.Point(102, 161);
             this.txtPlaca.Name = "txtPlaca";
             this.txtPlaca.Size = new System.Drawing.Size(275, 20);
@@ -181,11 +184,13 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 89);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(435, 279);
+            this.panel2.Size = new System.Drawing.Size(435, 321);
             this.panel2.TabIndex = 15;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.lblNome);
             this.groupBox1.Controls.Add(this.txtModelo);
             this.groupBox1.Controls.Add(this.lblCpf);
@@ -196,7 +201,7 @@
             this.groupBox1.Controls.Add(this.txtPlaca);
             this.groupBox1.Location = new System.Drawing.Point(12, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(413, 207);
+            this.groupBox1.Size = new System.Drawing.Size(413, 243);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             // 
@@ -206,16 +211,33 @@
             this.panel3.Controls.Add(this.btnSalvarFuncionario);
             this.panel3.Controls.Add(this.btnCancelar);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 311);
+            this.panel3.Location = new System.Drawing.Point(0, 353);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(435, 57);
             this.panel3.TabIndex = 16;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(21, 203);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 13);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Cliente:*";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(102, 203);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(275, 21);
+            this.comboBox1.TabIndex = 11;
             // 
             // FormVeiculoCrud
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(435, 368);
+            this.ClientSize = new System.Drawing.Size(435, 410);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -223,6 +245,7 @@
             this.Name = "FormVeiculoCrud";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PARKING [Cadastro Veículo]";
+            this.Load += new System.EventHandler(this.FormVeiculoCrud_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -252,5 +275,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label1;
     }
 }

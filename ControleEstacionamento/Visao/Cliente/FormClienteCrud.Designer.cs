@@ -95,18 +95,18 @@
             this.lblCPF.AutoSize = true;
             this.lblCPF.Location = new System.Drawing.Point(23, 65);
             this.lblCPF.Name = "lblCPF";
-            this.lblCPF.Size = new System.Drawing.Size(30, 13);
+            this.lblCPF.Size = new System.Drawing.Size(34, 13);
             this.lblCPF.TabIndex = 19;
-            this.lblCPF.Text = "CPF:";
+            this.lblCPF.Text = "CPF:*";
             // 
             // lblNome
             // 
             this.lblNome.AutoSize = true;
             this.lblNome.Location = new System.Drawing.Point(23, 27);
             this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(38, 13);
+            this.lblNome.Size = new System.Drawing.Size(42, 13);
             this.lblNome.TabIndex = 18;
-            this.lblNome.Text = "Nome:";
+            this.lblNome.Text = "Nome:*";
             // 
             // panel1
             // 
@@ -230,9 +230,12 @@
             // 
             // FormClienteCrud
             // 
+            this.AcceptButton = this.btnSalvarCliente;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancelar;
             this.ClientSize = new System.Drawing.Size(435, 377);
+            this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);

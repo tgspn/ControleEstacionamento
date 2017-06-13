@@ -27,7 +27,7 @@ namespace ControleEstacionamento.DAO
         public void Atualizar(VeiculoModelo model)
         {
             var command = conexao.Command;
-            command.CommandText = $"UPDATE {tableName} SET marca=@marca, modelo=@modelo , ano=@ano , placa=@placa , cliente_id=@cliente WHERE id=@id";
+            command.CommandText = $"UPDATE {tableName} SET marca=@marca, modelo=@modelo , ano=@ano , placa=@placa , id_cliente=@cliente WHERE id=@id";
             command.Parameters.Clear();
             command.Parameters.AddWithValue("@marca", model.Marca);
             command.Parameters.AddWithValue("@modelo", model.Modelo);
@@ -44,7 +44,7 @@ namespace ControleEstacionamento.DAO
         {
 
             var command = conexao.Command;
-            command.CommandText = $"INSERT INTO {tableName} (marca,modelo,ano,placa,cliente_id) VALUES (@marca,@modelo,@ano,@placa,@cliente)";
+            command.CommandText = $"INSERT INTO {tableName} (marca,modelo,ano,placa,id_cliente) VALUES (@marca,@modelo,@ano,@placa,@cliente)";
             command.Parameters.Clear();
             command.Parameters.AddWithValue("@marca", model.Marca);
             command.Parameters.AddWithValue("@modelo", model.Modelo);
@@ -76,7 +76,7 @@ namespace ControleEstacionamento.DAO
 
             var command = conexao.Command;
 
-            command.CommandText = $"SELECT * FROM  {tableName}";
+            command.CommandText = $"SELECT * FROM  {viewName}";
 
             return Ler();
 
@@ -86,7 +86,7 @@ namespace ControleEstacionamento.DAO
         {
             var command = conexao.Command;
             command.Parameters.Clear();
-            command.CommandText = $"SELECT * FROM  {tableName} WHERE id =@id";
+            command.CommandText = $"SELECT * FROM  {viewName} WHERE id =@id";
             command.Parameters.AddWithValue("@id", id);
 
             return Ler().FirstOrDefault();
@@ -98,7 +98,7 @@ namespace ControleEstacionamento.DAO
 
             var command = conexao.Command;
 
-            command.CommandText = $"SELECT * FROM  {tableName} WHERE id IN ({string.Join(",", id)})";
+            command.CommandText = $"SELECT * FROM  {viewName} WHERE id IN ({string.Join(",", id)})";
 
             return Ler();
         }
@@ -106,9 +106,10 @@ namespace ControleEstacionamento.DAO
         {
             try
             {
-                var reader = conexao.Command.ExecuteReader();
+                conexao.Ler();
+                var reader = conexao.Leitor;
                 List<VeiculoModelo> list = new List<VeiculoModelo>();
-                while (reader.NextResult())
+                while (reader.Read())
                 {
                     list.Add(new VeiculoModelo()
                     {
@@ -180,18 +181,18 @@ namespace ControleEstacionamento.DAO
 
             var command = conexao.Command;
 
-            command.CommandText = $"select * from {tableName} v where nome like" + nome;
+            command.CommandText = $"select * from {viewName} v where nome like" + nome;
             return Ler();
         }
-        public List<VeiculoModelo> ListarPorModelo(string modelo)
+        public List<VeiculoModelo> ListarPorModelo(VeiculoModelo modelo)
         {
             if (modelo == null)
                 return null;
 
             var command = conexao.Command;
 
-            command.CommandText = $"select * from {tableName} v where modelo like @modelo";
-            command.Parameters.AddWithValue("@modelo", modelo);
+            command.CommandText = $"select * from {viewName} v where modelo like @modelo";
+            command.Parameters.AddWithValue("@modelo", modelo.Modelo);
             return Ler();
         }
         public List<VeiculoModelo> ListarPorAno(string ano)
@@ -210,7 +211,7 @@ namespace ControleEstacionamento.DAO
                 return null;
 
             var command = conexao.Command;
-            command.CommandText = $"select * from {tableName} v where cor like @cor";
+            command.CommandText = $"select * from {viewName} v where cor like @cor";
             command.Parameters.AddWithValue("@cor", cor);
             return Ler();
         }
@@ -218,7 +219,7 @@ namespace ControleEstacionamento.DAO
         public List<VeiculoModelo> ListarPorCliente(int id_cliente) {
 
             var command = conexao.Command;
-            command.CommandText = $"select c.id as ID, c.nome as Cliente, v.marca as Fabricante, v.modelo as Modelo, v.placa as Placa, v.cor as Cor from {tableName} v join cliente c on v.id_cliente = c.id where id_cliente = " + id_cliente;
+            command.CommandText = $"select c.id as ID, c.nome as Cliente, v.marca as Fabricante, v.modelo as Modelo, v.placa as Placa, v.cor as Cor from {viewName} v join cliente c on v.id_cliente = c.id where id_cliente = " + id_cliente;
             return Ler();
         }
     }

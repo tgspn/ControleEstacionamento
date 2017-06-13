@@ -29,5 +29,8 @@ namespace ControleEstacionamento.Controlers
         {
             return ocupaDao.BuscarPorId(id);
         }
+        public DateTime HoraEntrada(Modelos.OcupaModelo modelo) {
+            return ocupaDao.PegarHoraEntrada(modelo);
+        }
     }
 }

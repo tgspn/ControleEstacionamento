@@ -10,5 +10,6 @@ namespace ControleEstacionamento
     {
         public static Modelos.FuncionarioModelo CurrentFuncionario { get; set; }
 
+
     }
 }
