@@ -29,5 +29,9 @@ namespace ControleEstacionamento.Controlers
         {
             return vagaDao.BuscarPorId(id);
         }
+        internal List<Modelos.VagaModelo> BuscarPorNomeLike(string text)
+        {
+            return vagaDao.ListarPorNro(text);
+        }
     }
 }

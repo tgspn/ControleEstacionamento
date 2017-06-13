@@ -63,5 +63,9 @@ namespace ControleEstacionamento.Controlers
             return dao.Logar(modelo);
 
         }
+        internal List<Modelos.UsuarioModelo> BuscarPorNomeLike(string text)
+        {
+            return dao.ListarPorNome(text);
+        }
     }
 }

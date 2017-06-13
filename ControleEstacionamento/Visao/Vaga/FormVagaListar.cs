@@ -71,5 +71,10 @@ namespace ControleEstacionamento.Visao.Vaga
         {
             CarregarDataGrid();
         }
+
+        private void btnBuscarVeiculo_Click(object sender, EventArgs e)
+        {
+            controler.BuscarPorNomeLike(txtBuscar.Text);
+        }
     }
 }

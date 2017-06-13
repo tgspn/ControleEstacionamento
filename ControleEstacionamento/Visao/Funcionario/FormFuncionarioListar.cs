@@ -75,5 +75,10 @@ namespace ControleEstacionamento.Visao.Funcionario
             this.Close();
 
         }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            controler.BuscarPorNomeLike(txtBuscar.Text);
+        }
     }
 }

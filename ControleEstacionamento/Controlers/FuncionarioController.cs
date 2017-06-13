@@ -33,5 +33,9 @@ namespace ControleEstacionamento.Controlers
         {
             return dao.BuscarPorUsuarioId(id);
         }
+        internal List<Modelos.FuncionarioModelo> BuscarPorNomeLike(string text)
+        {
+            return dao.ListarPorNome(text);
+        }
     }
 }

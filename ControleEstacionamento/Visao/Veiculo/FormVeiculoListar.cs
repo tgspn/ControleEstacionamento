@@ -67,5 +67,10 @@ namespace ControleEstacionamento.Visao.Veiculo
 
             }
         }
+
+        private void btnBuscarVeiculo_Click(object sender, EventArgs e)
+        {
+            controler.BuscarPorNomeLike(txtBuscar.Text);
+        }
     }
 }
