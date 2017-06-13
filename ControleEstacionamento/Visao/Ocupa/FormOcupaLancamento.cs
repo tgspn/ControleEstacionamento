@@ -16,12 +16,39 @@ namespace ControleEstacionamento.Visao.Ocupa
         public FormOcupaLancamento()
         {
             InitializeComponent();
+            controler = new Controlers.OcupaController();
         }
 
-        
+        public OcupaModelo ocupa = new OcupaModelo();
+        private Controlers.OcupaController controler;
 
+        private bool Validar() {
+            if (!string.IsNullOrEmpty(ocupa.Veiculo.Modelo))
+                if (!string.IsNullOrEmpty(ocupa.dhEntrada.ToString()))
+                    return true;
+
+            return false;
+        }
+        private bool GetInfo() {
+            if (ocupa == null)
+                ocupa = new OcupaModelo();
+            if (Validar()) {
+                ocupa.dhEntrada = System.DateTime.Now;
+                return true;
+
+            }
+            else {
+                MessageBox.Show("Existem campos obrigatórios não preenchidos");
+                return false;
+            }
+        }
         private void btnSalvarFuncionario_Click(object sender, EventArgs e)
         {
+            if (GetInfo()) {
+                controler.Criar(ocupa);
+            }
+            this.DialogResult = DialogResult.OK;
+
             this.Close();
         }
 

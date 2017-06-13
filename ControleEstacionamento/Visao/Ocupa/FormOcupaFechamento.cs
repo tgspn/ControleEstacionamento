@@ -18,8 +18,6 @@ namespace ControleEstacionamento.Visao.Ocupa
             InitializeComponent();
         }
 
-        
-
         private void btnSalvarFuncionario_Click(object sender, EventArgs e)
         {
             this.Close();
