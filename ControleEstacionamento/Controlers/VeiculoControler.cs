@@ -31,5 +31,8 @@ namespace ControleEstacionamento.Controlers
 
             return veiculoDao.BuscarPorId(id);
         }
+        public List<Modelos.VeiculoModelo> ListarModelos(Modelos.VeiculoModelo modelo) {
+            return veiculoDao.ListarPorModelo(modelo);
+        }
     }
 }

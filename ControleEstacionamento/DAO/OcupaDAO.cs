@@ -48,7 +48,7 @@ namespace ControleEstacionamento.DAO
             var command = conexao.Command;
             command.CommandText = $"INSERT INTO {tableName} (id_funcionario, id_veiculo, id_vaga, dh_entrada, dh_saida) VALUES (@id_func, @id_veiculo, @id_vaga, @dh_entrada, @dh_saida)";
             command.Parameters.Clear();
-            command.Parameters.AddWithValue("@id_func", model.Funcionario);
+            command.Parameters.AddWithValue("@id_func", 1);
             command.Parameters.AddWithValue("@id_veiculo", model.Veiculo);
             command.Parameters.AddWithValue("@id_vaga", model.Vaga);
             command.Parameters.AddWithValue("@dh_entrada", model.dhEntrada);

@@ -183,7 +183,7 @@ namespace ControleEstacionamento.DAO
             command.CommandText = $"select * from {tableName} v where nome like" + nome;
             return Ler();
         }
-        public List<VeiculoModelo> ListarPorModelo(string modelo)
+        public List<VeiculoModelo> ListarPorModelo(VeiculoModelo modelo)
         {
             if (modelo == null)
                 return null;
@@ -191,7 +191,7 @@ namespace ControleEstacionamento.DAO
             var command = conexao.Command;
 
             command.CommandText = $"select * from {tableName} v where modelo like @modelo";
-            command.Parameters.AddWithValue("@modelo", modelo);
+            command.Parameters.AddWithValue("@modelo", modelo.Modelo);
             return Ler();
         }
         public List<VeiculoModelo> ListarPorAno(string ano)

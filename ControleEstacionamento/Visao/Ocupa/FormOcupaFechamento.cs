@@ -17,12 +17,25 @@ namespace ControleEstacionamento.Visao.Ocupa
         {
             InitializeComponent();
         }
-
+        OcupaModelo ocupa = new OcupaModelo();
         private void btnSalvarFuncionario_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
+        private bool GetInfo() {
+            if(ocupa == null) {
+                ocupa = new OcupaModelo();
+            }
+            try {
+                ocupa.dhSaida = System.DateTime.Now;
+                return true;
+            }
+            catch (Exception erro) {
+                MessageBox.Show("Erro - " + erro);
+                return false;
+            }
+            
+        }
         private void FormFuncionarioCrud_Load(object sender, EventArgs e)
         {
         

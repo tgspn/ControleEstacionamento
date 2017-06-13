@@ -53,7 +53,7 @@
             // lblVeiculo
             // 
             this.lblVeiculo.AutoSize = true;
-            this.lblVeiculo.Location = new System.Drawing.Point(23, 81);
+            this.lblVeiculo.Location = new System.Drawing.Point(26, 81);
             this.lblVeiculo.Name = "lblVeiculo";
             this.lblVeiculo.Size = new System.Drawing.Size(47, 13);
             this.lblVeiculo.TabIndex = 0;
@@ -161,10 +161,14 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "",
+            "Teste"});
             this.comboBox1.Location = new System.Drawing.Point(104, 81);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(275, 21);
             this.comboBox1.TabIndex = 14;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // panel3
             // 

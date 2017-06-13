@@ -153,7 +153,7 @@
             this.tsbVeiculo.Image = ((System.Drawing.Image)(resources.GetObject("tsbVeiculo.Image")));
             this.tsbVeiculo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbVeiculo.Name = "tsbVeiculo";
-            this.tsbVeiculo.Size = new System.Drawing.Size(71, 22);
+            this.tsbVeiculo.Size = new System.Drawing.Size(70, 22);
             this.tsbVeiculo.Text = "Veículos";
             this.tsbVeiculo.Click += new System.EventHandler(this.tsbVeiculo_Click);
             // 
@@ -171,7 +171,7 @@
             this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(58, 22);
+            this.toolStripButton2.Size = new System.Drawing.Size(57, 22);
             this.toolStripButton2.Text = "Vagas";
             this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 

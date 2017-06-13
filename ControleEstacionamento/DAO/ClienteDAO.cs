@@ -34,7 +34,7 @@ namespace ControleEstacionamento.DAO
             command.Parameters.AddWithValue("@endereco", model.Endereco);
             command.Parameters.AddWithValue("@tel", model.Telefone);
             command.Parameters.AddWithValue("@cel", model.Celular);
-            command.Parameters.AddWithValue("@funcionario", model.Funcionario);
+            command.Parameters.AddWithValue("@funcionario", model.Funcionario.Id);
 
             model.Id = (int)command.LastInsertedId;
 

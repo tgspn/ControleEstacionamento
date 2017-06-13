@@ -8,23 +8,32 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ControleEstacionamento.Modelos;
+using ControleEstacionamento.Controlers;
 
 namespace ControleEstacionamento.Visao.Ocupa
 {
     public partial class FormOcupaLancamento : Form
     {
-        public FormOcupaLancamento()
+        public FormOcupaLancamento(VagaModelo vaga)
         {
             InitializeComponent();
-            controler = new Controlers.OcupaController();
+            ocupaControler = new OcupaController();
+            funcionarioControler = new FuncionarioController();
+            veiculoControler = new VeiculoControler();
+            vagaControler = new VagaControler();
+            this.vaga = vaga;
         }
 
         public OcupaModelo ocupa = new OcupaModelo();
-        private Controlers.OcupaController controler;
+        private OcupaController ocupaControler;
+        private FuncionarioController funcionarioControler;
+        private VeiculoControler veiculoControler;
+        private VagaControler vagaControler;
+        private VagaModelo vaga;
+        public VeiculoModelo Veiculo { get; internal set; }
 
         private bool Validar() {
-            if (!string.IsNullOrEmpty(ocupa.Veiculo.Modelo))
-                if (!string.IsNullOrEmpty(ocupa.dhEntrada.ToString()))
+                if (comboBox1.SelectedValue!=null)
                     return true;
 
             return false;
@@ -34,6 +43,10 @@ namespace ControleEstacionamento.Visao.Ocupa
                 ocupa = new OcupaModelo();
             if (Validar()) {
                 ocupa.dhEntrada = System.DateTime.Now;
+                ocupa.Veiculo = comboBox1.SelectedValue as VeiculoModelo;
+                ocupa.Funcionario = Configuracao.CurrentFuncionario;
+                ocupa.Vaga = vaga;
+                
                 return true;
 
             }
@@ -42,14 +55,17 @@ namespace ControleEstacionamento.Visao.Ocupa
                 return false;
             }
         }
+        
         private void btnSalvarFuncionario_Click(object sender, EventArgs e)
         {
             if (GetInfo()) {
-                controler.Criar(ocupa);
-            }
-            this.DialogResult = DialogResult.OK;
+                ocupaControler.Criar(ocupa);
+                this.Veiculo = ocupa.Veiculo;
 
-            this.Close();
+                this.DialogResult = DialogResult.OK;
+
+                this.Close();
+            }
         }
 
         private void FormFuncionarioCrud_Load(object sender, EventArgs e)
@@ -59,12 +75,17 @@ namespace ControleEstacionamento.Visao.Ocupa
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
         private void tmHoraEntrada_Tick(object sender, EventArgs e)
         {
             label2.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) {
+            veiculoControler.Listar();
         }
     }
 }
