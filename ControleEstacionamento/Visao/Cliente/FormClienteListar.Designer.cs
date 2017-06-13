@@ -73,6 +73,7 @@
             this.btnBuscarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscarCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBuscarCliente.UseVisualStyleBackColor = true;
+            this.btnBuscarCliente.Click += new System.EventHandler(this.btnBuscarCliente_Click);
             // 
             // txtBuscarCliente
             // 
@@ -241,6 +242,7 @@
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "FormClienteListar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PARKING [Lista de Clientes]";
