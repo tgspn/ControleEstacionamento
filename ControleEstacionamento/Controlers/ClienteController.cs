@@ -29,5 +29,10 @@ namespace ControleEstacionamento.Controlers
         {
             return clienteDao.BuscarPorId(id);
         }
+
+        internal List<Modelos.ClienteModelo> BuscarPorNomeLike(string text)
+        {
+            return clienteDao.ListarPorNome(text);
+        }
     }
 }
