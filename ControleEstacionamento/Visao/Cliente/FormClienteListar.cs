@@ -64,5 +64,11 @@ namespace ControleEstacionamento.Visao.Cliente
             dgvCliente.DataSource = list = new BindingList<Modelos.ClienteModelo>(controler.Listar());
             list.OrderBy(x => x.Nome);
         }
+
+        private void btnBuscarCliente_Click(object sender, EventArgs e)
+        {
+            //Você vai precisar criar um método no controler
+            controler.BuscarPorNomeLike(txtBuscarCliente.Text);
+        }
     }
 }
