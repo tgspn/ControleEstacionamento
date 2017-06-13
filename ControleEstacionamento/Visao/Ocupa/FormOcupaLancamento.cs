@@ -67,7 +67,7 @@ namespace ControleEstacionamento.Visao.Ocupa {
         private void FormFuncionarioCrud_Load(object sender, EventArgs e) {
             comboBox1.DataSource = new BindingSource(veiculoControler.Listar().ToDictionary(k => k.Placa, v => v), null);
             comboBox1.DisplayMember = "Key";
-            comboBox1.ValueMember = "Value";//Commita ai que eu termino aqui... blz
+            comboBox1.ValueMember = "Value";
         }
 
         private void btnCancelar_Click(object sender, EventArgs e) {
