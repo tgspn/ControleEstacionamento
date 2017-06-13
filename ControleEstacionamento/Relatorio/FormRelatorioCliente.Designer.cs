@@ -156,7 +156,7 @@
             this.groupBox1.Size = new System.Drawing.Size(235, 67);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Ano de Fabricação";
+            this.groupBox1.Text = "Período";
             // 
             // lblFinal
             // 
@@ -170,7 +170,7 @@
             // lblInicial
             // 
             this.lblInicial.AutoSize = true;
-            this.lblInicial.Location = new System.Drawing.Point(35, 21);
+            this.lblInicial.Location = new System.Drawing.Point(25, 21);
             this.lblInicial.Name = "lblInicial";
             this.lblInicial.Size = new System.Drawing.Size(34, 13);
             this.lblInicial.TabIndex = 2;
@@ -179,21 +179,19 @@
             // dtFinal
             // 
             this.dtFinal.CustomFormat = "yyyy";
-            this.dtFinal.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtFinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtFinal.Location = new System.Drawing.Point(127, 36);
             this.dtFinal.Name = "dtFinal";
-            this.dtFinal.ShowUpDown = true;
-            this.dtFinal.Size = new System.Drawing.Size(70, 20);
+            this.dtFinal.Size = new System.Drawing.Size(85, 20);
             this.dtFinal.TabIndex = 1;
             // 
             // dtInicial
             // 
-            this.dtInicial.CustomFormat = "yyyy";
-            this.dtInicial.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtInicial.Location = new System.Drawing.Point(38, 37);
+            this.dtInicial.CustomFormat = "dd/MM/yyyy";
+            this.dtInicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtInicial.Location = new System.Drawing.Point(23, 37);
             this.dtInicial.Name = "dtInicial";
-            this.dtInicial.ShowUpDown = true;
-            this.dtInicial.Size = new System.Drawing.Size(70, 20);
+            this.dtInicial.Size = new System.Drawing.Size(85, 20);
             this.dtInicial.TabIndex = 0;
             // 
             // crystalReportViewer1

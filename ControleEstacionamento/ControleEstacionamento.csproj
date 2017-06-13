@@ -140,6 +140,12 @@
     <Compile Include="ucVagas.Designer.cs">
       <DependentUpon>ucVagas.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucVagasItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucVagasItem.Designer.cs">
+      <DependentUpon>ucVagasItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Visao\Admin\Usuario\FormUsuarioCrud.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -264,6 +270,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucVagas.resx">
       <DependentUpon>ucVagas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucVagasItem.resx">
+      <DependentUpon>ucVagasItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\Admin\Usuario\FormUsuarioCrud.resx">
       <DependentUpon>FormUsuarioCrud.cs</DependentUpon>
