@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormVagaCrud));
             this.lblNr = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.txtNr = new System.Windows.Forms.TextBox();
@@ -37,10 +38,10 @@
             this.ptbLogo = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtPrecoHora = new System.Windows.Forms.TextBox();
+            this.lblPrecoHora = new System.Windows.Forms.Label();
             this.cbxAcessibilidade = new System.Windows.Forms.CheckBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.lblPrecoHora = new System.Windows.Forms.Label();
-            this.txtPrecoHora = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).BeginInit();
             this.panel2.SuspendLayout();
@@ -78,11 +79,14 @@
             // 
             this.btnSalvar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSalvar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnSalvar.Location = new System.Drawing.Point(493, 16);
+            this.btnSalvar.Image = ((System.Drawing.Image)(resources.GetObject("btnSalvar.Image")));
+            this.btnSalvar.Location = new System.Drawing.Point(498, 10);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(75, 23);
+            this.btnSalvar.Size = new System.Drawing.Size(75, 36);
             this.btnSalvar.TabIndex = 12;
             this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSalvar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
@@ -90,11 +94,14 @@
             // 
             this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(574, 16);
+            this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
+            this.btnCancelar.Location = new System.Drawing.Point(579, 10);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(75, 36);
             this.btnCancelar.TabIndex = 13;
             this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
@@ -112,9 +119,11 @@
             // 
             // ptbLogo
             // 
+            this.ptbLogo.Image = global::ControleEstacionamento.Properties.Resources.logo;
             this.ptbLogo.Location = new System.Drawing.Point(12, 12);
             this.ptbLogo.Name = "ptbLogo";
             this.ptbLogo.Size = new System.Drawing.Size(100, 59);
+            this.ptbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ptbLogo.TabIndex = 6;
             this.ptbLogo.TabStop = false;
             // 
@@ -144,6 +153,22 @@
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             // 
+            // txtPrecoHora
+            // 
+            this.txtPrecoHora.Location = new System.Drawing.Point(125, 101);
+            this.txtPrecoHora.Name = "txtPrecoHora";
+            this.txtPrecoHora.Size = new System.Drawing.Size(183, 20);
+            this.txtPrecoHora.TabIndex = 9;
+            // 
+            // lblPrecoHora
+            // 
+            this.lblPrecoHora.AutoSize = true;
+            this.lblPrecoHora.Location = new System.Drawing.Point(53, 104);
+            this.lblPrecoHora.Name = "lblPrecoHora";
+            this.lblPrecoHora.Size = new System.Drawing.Size(66, 13);
+            this.lblPrecoHora.TabIndex = 8;
+            this.lblPrecoHora.Text = "Preço/Hora:";
+            // 
             // cbxAcessibilidade
             // 
             this.cbxAcessibilidade.AutoSize = true;
@@ -161,26 +186,10 @@
             this.panel3.Controls.Add(this.btnSalvar);
             this.panel3.Controls.Add(this.btnCancelar);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 287);
+            this.panel3.Location = new System.Drawing.Point(0, 279);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(661, 51);
+            this.panel3.Size = new System.Drawing.Size(661, 59);
             this.panel3.TabIndex = 16;
-            // 
-            // lblPrecoHora
-            // 
-            this.lblPrecoHora.AutoSize = true;
-            this.lblPrecoHora.Location = new System.Drawing.Point(53, 104);
-            this.lblPrecoHora.Name = "lblPrecoHora";
-            this.lblPrecoHora.Size = new System.Drawing.Size(66, 13);
-            this.lblPrecoHora.TabIndex = 8;
-            this.lblPrecoHora.Text = "Preço/Hora:";
-            // 
-            // txtPrecoHora
-            // 
-            this.txtPrecoHora.Location = new System.Drawing.Point(125, 101);
-            this.txtPrecoHora.Name = "txtPrecoHora";
-            this.txtPrecoHora.Size = new System.Drawing.Size(183, 20);
-            this.txtPrecoHora.TabIndex = 9;
             // 
             // FormVagaCrud
             // 
@@ -190,9 +199,10 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormVagaCrud";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cadastro Vaga";
+            this.Text = "PARKING [Cadastro Vaga]";
             this.Load += new System.EventHandler(this.FormVagaCrud_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
