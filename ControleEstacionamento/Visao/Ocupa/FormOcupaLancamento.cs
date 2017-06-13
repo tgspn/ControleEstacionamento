@@ -10,9 +10,12 @@ using System.Windows.Forms;
 using ControleEstacionamento.Modelos;
 using ControleEstacionamento.Controlers;
 
-namespace ControleEstacionamento.Visao.Ocupa {
-    public partial class FormOcupaLancamento : Form {
-        public FormOcupaLancamento(VagaModelo vaga) {
+namespace ControleEstacionamento.Visao.Ocupa
+{
+    public partial class FormOcupaLancamento : Form
+    {
+        public FormOcupaLancamento(VagaModelo vaga)
+        {
             InitializeComponent();
             ocupaControler = new OcupaController();
             funcionarioControler = new FuncionarioController();
@@ -29,18 +32,21 @@ namespace ControleEstacionamento.Visao.Ocupa {
         private VagaModelo vaga;
         public VeiculoModelo Veiculo { get; internal set; }
 
-        private bool Validar() {
-            if (comboBox1.SelectedItem != null)
+        private bool Validar()
+        {
+            if (comboBox1.SelectedValue != null)
                 return true;
 
             return false;
         }
-        private bool GetInfo() {
+        private bool GetInfo()
+        {
             if (ocupa == null)
                 ocupa = new OcupaModelo();
-            if (Validar()) {
+            if (Validar())
+            {
                 ocupa.dhEntrada = System.DateTime.Now;
-                ocupa.Veiculo = comboBox1.SelectedItem as VeiculoModelo;
+                ocupa.Veiculo = comboBox1.SelectedValue as VeiculoModelo;
                 ocupa.Funcionario = Configuracao.CurrentFuncionario;
                 ocupa.Vaga = vaga;
 
@@ -53,8 +59,10 @@ namespace ControleEstacionamento.Visao.Ocupa {
             }
         }
 
-        private void btnSalvarFuncionario_Click(object sender, EventArgs e) {
-            if (GetInfo()) {
+        private void btnSalvarFuncionario_Click(object sender, EventArgs e)
+        {
+            if (GetInfo())
+            {
                 ocupaControler.Criar(ocupa);
                 this.Veiculo = ocupa.Veiculo;
 
@@ -64,23 +72,33 @@ namespace ControleEstacionamento.Visao.Ocupa {
             }
         }
 
-        private void FormFuncionarioCrud_Load(object sender, EventArgs e) {
+        private void FormFuncionarioCrud_Load(object sender, EventArgs e)
+        {
+            label2.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
             comboBox1.DataSource = new BindingSource(veiculoControler.Listar().ToDictionary(k => k.Placa, v => v), null);
             comboBox1.DisplayMember = "Key";
-            comboBox1.ValueMember = "Value";//Commita ai que eu termino aqui... blz
+            comboBox1.ValueMember = "Value";
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e) {
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
-        private void tmHoraEntrada_Tick(object sender, EventArgs e) {
+        private void tmHoraEntrada_Tick(object sender, EventArgs e)
+        {
             label2.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) {
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
             veiculoControler.Listar();
+        }
+
+        private void tmFechamento_Tick(object sender, EventArgs e)
+        {
+
         }
     }
 }

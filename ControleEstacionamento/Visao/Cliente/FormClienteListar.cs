@@ -67,7 +67,6 @@ namespace ControleEstacionamento.Visao.Cliente
 
         private void btnBuscarCliente_Click(object sender, EventArgs e)
         {
-            //Você vai precisar criar um método no controler
             controler.BuscarPorNomeLike(txtBuscarCliente.Text);
         }
     }

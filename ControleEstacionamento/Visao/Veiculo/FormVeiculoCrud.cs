@@ -17,10 +17,12 @@ namespace ControleEstacionamento.Visao.Veiculo
         {
             InitializeComponent();
             controler = new Controlers.VeiculoControler();
+            clienteControler = new Controlers.ClienteController();
         }
 
         VeiculoModelo veiculo;//remover o public no final do teste
         private Controlers.VeiculoControler controler;
+        private Controlers.ClienteController clienteControler;
 
         public bool IsEdit { get; internal set; }
 
@@ -41,6 +43,13 @@ namespace ControleEstacionamento.Visao.Veiculo
                 veiculo.Modelo = txtModelo.Text;
                 veiculo.Ano = txtAno.Text;
                 veiculo.Placa = txtPlaca.Text;
+                veiculo.Cliente = comboBox1.SelectedValue as Modelos.ClienteModelo;
+
+                if (IsEdit)
+                    controler.Atualizar(veiculo);
+                else
+                    controler.Criar(veiculo);
+
                 return true;
             }
             else
@@ -56,7 +65,8 @@ namespace ControleEstacionamento.Visao.Veiculo
                 if (!string.IsNullOrEmpty(txtModelo.Text))
                     if (!string.IsNullOrEmpty(txtAno.Text))
                         if (!string.IsNullOrEmpty(txtPlaca.Text))
-                            return true;
+                            if (comboBox1.SelectedValue != null)
+                                return true;
 
             return false;
         }
@@ -66,15 +76,15 @@ namespace ControleEstacionamento.Visao.Veiculo
             txtAno.Text = modelo.Ano.ToString();
             txtMarca.Text = modelo.Marca;
             txtPlaca.Text = modelo.Placa.ToString();
-
+            comboBox1.SelectedValue = veiculo.Cliente;
 
             if (!IsEdit)
             {
-                txtMarca.ReadOnly = true;
-                txtModelo.ReadOnly = true;
-                txtAno.ReadOnly = true;
-                txtPlaca.ReadOnly = true;
-
+                txtMarca.Enabled = false;
+                txtModelo.Enabled = false;
+                txtAno.Enabled = false;
+                txtPlaca.Enabled = false;
+                comboBox1.Enabled = false;
 
                 btnSalvarFuncionario.Visible = false;
                 btnCancelar.Text = "Fechar";
@@ -84,10 +94,7 @@ namespace ControleEstacionamento.Visao.Veiculo
         {
             if (GetInfo())
             {
-                if (IsEdit)
-                    controler.Atualizar(veiculo);
-                else
-                    controler.Criar(veiculo);
+               
 
                 this.DialogResult = DialogResult.OK;
                 this.Close();
@@ -99,6 +106,19 @@ namespace ControleEstacionamento.Visao.Veiculo
             this.DialogResult = DialogResult.Cancel;
             this.Close();
 
+        }
+
+        private void FormVeiculoCrud_Load(object sender, EventArgs e)
+        {
+            var dic = clienteControler.Listar().ToDictionary(x => x.Nome, v => v);
+            if (dic.Count > 0)
+            {
+                comboBox1.DataSource = new BindingSource(dic, null);
+                comboBox1.DisplayMember = "Key";
+                comboBox1.ValueMember = "Value";
+            }
+            
+                
         }
     }
 }

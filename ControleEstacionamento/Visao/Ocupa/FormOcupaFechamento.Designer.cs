@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormOcupaFechamento));
             this.lblVeiculo = new System.Windows.Forms.Label();
             this.lblVaga = new System.Windows.Forms.Label();
@@ -41,6 +42,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.tmFechamento = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).BeginInit();
             this.panel2.SuspendLayout();
@@ -178,6 +180,11 @@
             this.panel3.Size = new System.Drawing.Size(661, 61);
             this.panel3.TabIndex = 16;
             // 
+            // tmFechamento
+            // 
+            this.tmFechamento.Enabled = true;
+            this.tmFechamento.Tick += new System.EventHandler(this.tmFechamento_Tick);
+            // 
             // FormOcupaFechamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -216,5 +223,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Timer tmFechamento;
     }
 }

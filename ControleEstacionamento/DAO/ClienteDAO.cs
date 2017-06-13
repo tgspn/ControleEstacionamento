@@ -34,7 +34,9 @@ namespace ControleEstacionamento.DAO
             command.Parameters.AddWithValue("@endereco", model.Endereco);
             command.Parameters.AddWithValue("@tel", model.Telefone);
             command.Parameters.AddWithValue("@cel", model.Celular);
-            command.Parameters.AddWithValue("@funcionario", model.Funcionario.Id);
+            command.Parameters.AddWithValue("@id_funcionario", model.Funcionario.Id);
+
+            command.ExecuteNonQuery();
 
             model.Id = (int)command.LastInsertedId;
 
@@ -52,7 +54,7 @@ namespace ControleEstacionamento.DAO
             command.Parameters.AddWithValue("@endereco", model.Endereco);
             command.Parameters.AddWithValue("@tel", model.Telefone);
             command.Parameters.AddWithValue("@cel", model.Celular);
-            command.Parameters.AddWithValue("@funcionario", model.Funcionario);
+            command.Parameters.AddWithValue("@id_funcionario", model.Funcionario.Id);
 
             command.ExecuteNonQuery();
 
@@ -105,9 +107,10 @@ namespace ControleEstacionamento.DAO
         {
             try
             {
-                var reader = conexao.Command.ExecuteReader();
+                conexao.Ler();
+                var reader = conexao.Leitor;
                 List<ClienteModelo> list = new List<ClienteModelo>();
-                while (reader.NextResult())
+                while (reader.Read())
                 {
                     list.Add(new ClienteModelo()
                     {
@@ -116,8 +119,8 @@ namespace ControleEstacionamento.DAO
                         Id = reader.GetInt32("id"),
                         Cpf = reader.GetString("cpf"),
                         Endereco = reader.GetString("endereco"),
-                        Telefone = reader.GetString("telefone"),
-                        Celular = reader.GetString("celular")
+                        Telefone = reader.GetString("tel"),
+                        Celular = reader.GetString("cel")
                     });
                 }
 
@@ -129,7 +132,7 @@ namespace ControleEstacionamento.DAO
             }
             finally
             {
-                conexao.Fechar();
+                conexao.FecharLeitor();
             }
         }
 

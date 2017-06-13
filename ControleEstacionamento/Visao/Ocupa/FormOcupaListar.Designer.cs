@@ -31,7 +31,6 @@
             System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormOcupaListar));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.vaga11 = new ControleEstacionamento.ucVagasItem();
             this.vaga10 = new ControleEstacionamento.ucVagasItem();
             this.vaga9 = new ControleEstacionamento.ucVagasItem();
@@ -56,7 +55,6 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.vaga11);
             this.panel1.Controls.Add(this.vaga10);
             this.panel1.Controls.Add(this.vaga9);
@@ -77,16 +75,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(788, 604);
             this.panel1.TabIndex = 7;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(333, 222);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // vaga11
             // 
@@ -336,6 +324,5 @@
         private ucVagasItem vaga3;
         private ucVagasItem vaga2;
         private ucVagasItem vaga1;
-        private System.Windows.Forms.Button button1;
     }
 }

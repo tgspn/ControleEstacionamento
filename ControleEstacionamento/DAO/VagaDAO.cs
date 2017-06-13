@@ -114,7 +114,7 @@ namespace ControleEstacionamento.DAO
                         NumeroVaga = reader.GetString("nro"),
                         Id = reader.GetInt32("id"),
                         TemAcessibilidade = reader.GetBoolean("acessibilidade"),
-                        //Preco = reader.GetDecimal("Preco"),
+                        Preco = reader.GetDecimal("valor_hora"),
                         
                     });
                 }

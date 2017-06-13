@@ -14,6 +14,7 @@ namespace ControleEstacionamento.Modelos
 
         public DateTime dhEntrada { get; set; }
         public DateTime dhSaida { get; set; }
-        public int Id { get; internal set; }
+        public int Id { get;  set; }
+        public decimal ValorPago { get;  set; }
     }
 }

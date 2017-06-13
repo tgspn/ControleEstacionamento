@@ -41,6 +41,12 @@ namespace ControleEstacionamento.Visao.Cliente
                 Cliente.Celular = txtCelular.Text;
                 Cliente.Endereco = txtEndereco.Text;
                 Cliente.Funcionario = Configuracao.CurrentFuncionario;
+
+                if (IsEdit)
+                    controler.Atualizar(Cliente);
+                else
+                    controler.Criar(Cliente);
+
                 return true;
 
 
@@ -86,10 +92,7 @@ namespace ControleEstacionamento.Visao.Cliente
         {
             if (GetInfo())
             {
-                if (IsEdit)
-                    controler.Atualizar(Cliente);
-                else
-                    controler.Criar(Cliente);
+                
 
                 this.DialogResult = DialogResult.OK;
                 this.Close();
