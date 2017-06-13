@@ -28,25 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pnlVaga6 = new System.Windows.Forms.Panel();
-            this.pnlVaga11 = new System.Windows.Forms.Panel();
-            this.pnlVaga10 = new System.Windows.Forms.Panel();
-            this.pnlVaga9 = new System.Windows.Forms.Panel();
-            this.pnlVaga8 = new System.Windows.Forms.Panel();
-            this.pnlVaga7 = new System.Windows.Forms.Panel();
-            this.pnlVaga5 = new System.Windows.Forms.Panel();
-            this.pnlVaga4 = new System.Windows.Forms.Panel();
-            this.pnlVaga2 = new System.Windows.Forms.Panel();
-            this.pnlVaga3 = new System.Windows.Forms.Panel();
-            this.pnlVaga1 = new System.Windows.Forms.Panel();
-            this.ucVagas1 = new ControleEstacionamento.ucVagas();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.listView1 = new System.Windows.Forms.ListView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnFechar = new System.Windows.Forms.Button();
+            this.vaga11 = new ControleEstacionamento.ucVagasItem();
+            this.vaga10 = new ControleEstacionamento.ucVagasItem();
+            this.vaga9 = new ControleEstacionamento.ucVagasItem();
+            this.vaga8 = new ControleEstacionamento.ucVagasItem();
+            this.vaga7 = new ControleEstacionamento.ucVagasItem();
+            this.vaga6 = new ControleEstacionamento.ucVagasItem();
+            this.vaga5 = new ControleEstacionamento.ucVagasItem();
+            this.vaga4 = new ControleEstacionamento.ucVagasItem();
+            this.vaga3 = new ControleEstacionamento.ucVagasItem();
+            this.vaga2 = new ControleEstacionamento.ucVagasItem();
+            this.vaga1 = new ControleEstacionamento.ucVagasItem();
+            this.ucVagas1 = new ControleEstacionamento.ucVagas();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -54,17 +55,18 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.pnlVaga6);
-            this.panel1.Controls.Add(this.pnlVaga11);
-            this.panel1.Controls.Add(this.pnlVaga10);
-            this.panel1.Controls.Add(this.pnlVaga9);
-            this.panel1.Controls.Add(this.pnlVaga8);
-            this.panel1.Controls.Add(this.pnlVaga7);
-            this.panel1.Controls.Add(this.pnlVaga5);
-            this.panel1.Controls.Add(this.pnlVaga4);
-            this.panel1.Controls.Add(this.pnlVaga2);
-            this.panel1.Controls.Add(this.pnlVaga3);
-            this.panel1.Controls.Add(this.pnlVaga1);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.vaga11);
+            this.panel1.Controls.Add(this.vaga10);
+            this.panel1.Controls.Add(this.vaga9);
+            this.panel1.Controls.Add(this.vaga8);
+            this.panel1.Controls.Add(this.vaga7);
+            this.panel1.Controls.Add(this.vaga6);
+            this.panel1.Controls.Add(this.vaga5);
+            this.panel1.Controls.Add(this.vaga4);
+            this.panel1.Controls.Add(this.vaga3);
+            this.panel1.Controls.Add(this.vaga2);
+            this.panel1.Controls.Add(this.vaga1);
             this.panel1.Controls.Add(this.ucVagas1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox1);
@@ -74,104 +76,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(788, 604);
             this.panel1.TabIndex = 7;
-            // 
-            // pnlVaga6
-            // 
-            this.pnlVaga6.Location = new System.Drawing.Point(639, 225);
-            this.pnlVaga6.Name = "pnlVaga6";
-            this.pnlVaga6.Size = new System.Drawing.Size(137, 92);
-            this.pnlVaga6.TabIndex = 5;
-            this.pnlVaga6.Click += new System.EventHandler(this.panel3_Click);
-            // 
-            // pnlVaga11
-            // 
-            this.pnlVaga11.Location = new System.Drawing.Point(63, 386);
-            this.pnlVaga11.Name = "pnlVaga11";
-            this.pnlVaga11.Size = new System.Drawing.Size(94, 141);
-            this.pnlVaga11.TabIndex = 5;
-            this.pnlVaga11.Click += new System.EventHandler(this.panel3_Click);
-            // 
-            // pnlVaga10
-            // 
-            this.pnlVaga10.Location = new System.Drawing.Point(184, 386);
-            this.pnlVaga10.Name = "pnlVaga10";
-            this.pnlVaga10.Size = new System.Drawing.Size(94, 141);
-            this.pnlVaga10.TabIndex = 7;
-            this.pnlVaga10.Click += new System.EventHandler(this.panel3_Click);
-            // 
-            // pnlVaga9
-            // 
-            this.pnlVaga9.Location = new System.Drawing.Point(304, 386);
-            this.pnlVaga9.Name = "pnlVaga9";
-            this.pnlVaga9.Size = new System.Drawing.Size(94, 141);
-            this.pnlVaga9.TabIndex = 6;
-            this.pnlVaga9.Click += new System.EventHandler(this.panel3_Click);
-            // 
-            // pnlVaga8
-            // 
-            this.pnlVaga8.Location = new System.Drawing.Point(423, 386);
-            this.pnlVaga8.Name = "pnlVaga8";
-            this.pnlVaga8.Size = new System.Drawing.Size(94, 141);
-            this.pnlVaga8.TabIndex = 5;
-            this.pnlVaga8.Click += new System.EventHandler(this.panel3_Click);
-            // 
-            // pnlVaga7
-            // 
-            this.pnlVaga7.Location = new System.Drawing.Point(543, 386);
-            this.pnlVaga7.Name = "pnlVaga7";
-            this.pnlVaga7.Size = new System.Drawing.Size(94, 141);
-            this.pnlVaga7.TabIndex = 5;
-            this.pnlVaga7.Click += new System.EventHandler(this.panel3_Click);
-            // 
-            // pnlVaga5
-            // 
-            this.pnlVaga5.Location = new System.Drawing.Point(543, 13);
-            this.pnlVaga5.Name = "pnlVaga5";
-            this.pnlVaga5.Size = new System.Drawing.Size(94, 141);
-            this.pnlVaga5.TabIndex = 5;
-            this.pnlVaga5.Click += new System.EventHandler(this.panel3_Click);
-            // 
-            // pnlVaga4
-            // 
-            this.pnlVaga4.Location = new System.Drawing.Point(424, 13);
-            this.pnlVaga4.Name = "pnlVaga4";
-            this.pnlVaga4.Size = new System.Drawing.Size(94, 141);
-            this.pnlVaga4.TabIndex = 5;
-            this.pnlVaga4.Click += new System.EventHandler(this.panel3_Click);
-            // 
-            // pnlVaga2
-            // 
-            this.pnlVaga2.Location = new System.Drawing.Point(184, 13);
-            this.pnlVaga2.Name = "pnlVaga2";
-            this.pnlVaga2.Size = new System.Drawing.Size(94, 141);
-            this.pnlVaga2.TabIndex = 5;
-            this.pnlVaga2.Click += new System.EventHandler(this.panel3_Click);
-            // 
-            // pnlVaga3
-            // 
-            this.pnlVaga3.Location = new System.Drawing.Point(304, 13);
-            this.pnlVaga3.Name = "pnlVaga3";
-            this.pnlVaga3.Size = new System.Drawing.Size(94, 141);
-            this.pnlVaga3.TabIndex = 5;
-            this.pnlVaga3.Click += new System.EventHandler(this.panel3_Click);
-            // 
-            // pnlVaga1
-            // 
-            this.pnlVaga1.Location = new System.Drawing.Point(63, 13);
-            this.pnlVaga1.Name = "pnlVaga1";
-            this.pnlVaga1.Size = new System.Drawing.Size(94, 141);
-            this.pnlVaga1.TabIndex = 4;
-            this.pnlVaga1.Click += new System.EventHandler(this.panel3_Click);
-            // 
-            // ucVagas1
-            // 
-            this.ucVagas1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucVagas1.Location = new System.Drawing.Point(0, 0);
-            this.ucVagas1.Name = "ucVagas1";
-            this.ucVagas1.Size = new System.Drawing.Size(788, 604);
-            this.ucVagas1.TabIndex = 3;
-            this.ucVagas1.Load += new System.EventHandler(this.ucVagas1_Load);
-            this.ucVagas1.Click += new System.EventHandler(this.panel3_Click);
             // 
             // label1
             // 
@@ -198,7 +102,7 @@
             // 
             this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
+            listViewItem1});
             this.listView1.Location = new System.Drawing.Point(0, 0);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(788, 604);
@@ -223,6 +127,169 @@
             this.btnFechar.TabIndex = 6;
             this.btnFechar.Text = "Fechar";
             this.btnFechar.UseVisualStyleBackColor = true;
+            // 
+            // vaga11
+            // 
+            this.vaga11.CorLivre = System.Drawing.Color.LimeGreen;
+            this.vaga11.CorOcupado = System.Drawing.Color.Salmon;
+            this.vaga11.Location = new System.Drawing.Point(63, 390);
+            this.vaga11.Name = "vaga11";
+            this.vaga11.NumeroVaga = null;
+            this.vaga11.Size = new System.Drawing.Size(95, 140);
+            this.vaga11.TabIndex = 11;
+            this.vaga11.Vaga = null;
+            this.vaga11.Veiculo = null;
+            this.vaga11.Click += new System.EventHandler(this.vaga1_Click);
+            // 
+            // vaga10
+            // 
+            this.vaga10.CorLivre = System.Drawing.Color.LimeGreen;
+            this.vaga10.CorOcupado = System.Drawing.Color.Salmon;
+            this.vaga10.Location = new System.Drawing.Point(183, 390);
+            this.vaga10.Name = "vaga10";
+            this.vaga10.NumeroVaga = null;
+            this.vaga10.Size = new System.Drawing.Size(95, 140);
+            this.vaga10.TabIndex = 10;
+            this.vaga10.Vaga = null;
+            this.vaga10.Veiculo = null;
+            this.vaga10.Click += new System.EventHandler(this.vaga1_Click);
+            // 
+            // vaga9
+            // 
+            this.vaga9.CorLivre = System.Drawing.Color.LimeGreen;
+            this.vaga9.CorOcupado = System.Drawing.Color.Salmon;
+            this.vaga9.Location = new System.Drawing.Point(303, 390);
+            this.vaga9.Name = "vaga9";
+            this.vaga9.NumeroVaga = null;
+            this.vaga9.Size = new System.Drawing.Size(95, 140);
+            this.vaga9.TabIndex = 9;
+            this.vaga9.Vaga = null;
+            this.vaga9.Veiculo = null;
+            this.vaga9.Click += new System.EventHandler(this.vaga1_Click);
+            // 
+            // vaga8
+            // 
+            this.vaga8.CorLivre = System.Drawing.Color.LimeGreen;
+            this.vaga8.CorOcupado = System.Drawing.Color.Salmon;
+            this.vaga8.Location = new System.Drawing.Point(423, 390);
+            this.vaga8.Name = "vaga8";
+            this.vaga8.NumeroVaga = null;
+            this.vaga8.Size = new System.Drawing.Size(95, 140);
+            this.vaga8.TabIndex = 8;
+            this.vaga8.Vaga = null;
+            this.vaga8.Veiculo = null;
+            this.vaga8.Click += new System.EventHandler(this.vaga1_Click);
+            // 
+            // vaga7
+            // 
+            this.vaga7.CorLivre = System.Drawing.Color.LimeGreen;
+            this.vaga7.CorOcupado = System.Drawing.Color.Salmon;
+            this.vaga7.Location = new System.Drawing.Point(543, 390);
+            this.vaga7.Name = "vaga7";
+            this.vaga7.NumeroVaga = null;
+            this.vaga7.Size = new System.Drawing.Size(95, 140);
+            this.vaga7.TabIndex = 7;
+            this.vaga7.Vaga = null;
+            this.vaga7.Veiculo = null;
+            this.vaga7.Click += new System.EventHandler(this.vaga1_Click);
+            // 
+            // vaga6
+            // 
+            this.vaga6.CorLivre = System.Drawing.Color.LimeGreen;
+            this.vaga6.CorOcupado = System.Drawing.Color.Salmon;
+            this.vaga6.Location = new System.Drawing.Point(639, 222);
+            this.vaga6.Name = "vaga6";
+            this.vaga6.NumeroVaga = null;
+            this.vaga6.Size = new System.Drawing.Size(140, 95);
+            this.vaga6.TabIndex = 6;
+            this.vaga6.Vaga = null;
+            this.vaga6.Veiculo = null;
+            this.vaga6.Click += new System.EventHandler(this.vaga1_Click);
+            // 
+            // vaga5
+            // 
+            this.vaga5.CorLivre = System.Drawing.Color.LimeGreen;
+            this.vaga5.CorOcupado = System.Drawing.Color.Salmon;
+            this.vaga5.Location = new System.Drawing.Point(542, 12);
+            this.vaga5.Name = "vaga5";
+            this.vaga5.NumeroVaga = null;
+            this.vaga5.Size = new System.Drawing.Size(95, 140);
+            this.vaga5.TabIndex = 5;
+            this.vaga5.Vaga = null;
+            this.vaga5.Veiculo = null;
+            this.vaga5.Click += new System.EventHandler(this.vaga1_Click);
+            // 
+            // vaga4
+            // 
+            this.vaga4.CorLivre = System.Drawing.Color.LimeGreen;
+            this.vaga4.CorOcupado = System.Drawing.Color.Salmon;
+            this.vaga4.Location = new System.Drawing.Point(423, 12);
+            this.vaga4.Name = "vaga4";
+            this.vaga4.NumeroVaga = null;
+            this.vaga4.Size = new System.Drawing.Size(95, 140);
+            this.vaga4.TabIndex = 4;
+            this.vaga4.Vaga = null;
+            this.vaga4.Veiculo = null;
+            this.vaga4.Click += new System.EventHandler(this.vaga1_Click);
+            // 
+            // vaga3
+            // 
+            this.vaga3.CorLivre = System.Drawing.Color.LimeGreen;
+            this.vaga3.CorOcupado = System.Drawing.Color.Salmon;
+            this.vaga3.Location = new System.Drawing.Point(303, 12);
+            this.vaga3.Name = "vaga3";
+            this.vaga3.NumeroVaga = null;
+            this.vaga3.Size = new System.Drawing.Size(95, 140);
+            this.vaga3.TabIndex = 3;
+            this.vaga3.Vaga = null;
+            this.vaga3.Veiculo = null;
+            this.vaga3.Click += new System.EventHandler(this.vaga1_Click);
+            // 
+            // vaga2
+            // 
+            this.vaga2.CorLivre = System.Drawing.Color.LimeGreen;
+            this.vaga2.CorOcupado = System.Drawing.Color.Salmon;
+            this.vaga2.Location = new System.Drawing.Point(183, 12);
+            this.vaga2.Name = "vaga2";
+            this.vaga2.NumeroVaga = null;
+            this.vaga2.Size = new System.Drawing.Size(95, 140);
+            this.vaga2.TabIndex = 2;
+            this.vaga2.Vaga = null;
+            this.vaga2.Veiculo = null;
+            this.vaga2.Click += new System.EventHandler(this.vaga1_Click);
+            // 
+            // vaga1
+            // 
+            this.vaga1.CorLivre = System.Drawing.Color.LimeGreen;
+            this.vaga1.CorOcupado = System.Drawing.Color.Salmon;
+            this.vaga1.Location = new System.Drawing.Point(63, 12);
+            this.vaga1.Name = "vaga1";
+            this.vaga1.NumeroVaga = null;
+            this.vaga1.Size = new System.Drawing.Size(95, 140);
+            this.vaga1.TabIndex = 1;
+            this.vaga1.Vaga = null;
+            this.vaga1.Veiculo = null;
+            this.vaga1.Click += new System.EventHandler(this.vaga1_Click);
+            // 
+            // ucVagas1
+            // 
+            this.ucVagas1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucVagas1.Location = new System.Drawing.Point(0, 0);
+            this.ucVagas1.Name = "ucVagas1";
+            this.ucVagas1.Size = new System.Drawing.Size(788, 604);
+            this.ucVagas1.TabIndex = 3;
+            this.ucVagas1.Load += new System.EventHandler(this.ucVagas1_Load);
+            this.ucVagas1.Click += new System.EventHandler(this.panel3_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(333, 222);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FormOcupaListar
             // 
@@ -253,16 +320,17 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private ucVagas ucVagas1;
-        private System.Windows.Forms.Panel pnlVaga6;
-        private System.Windows.Forms.Panel pnlVaga11;
-        private System.Windows.Forms.Panel pnlVaga10;
-        private System.Windows.Forms.Panel pnlVaga9;
-        private System.Windows.Forms.Panel pnlVaga8;
-        private System.Windows.Forms.Panel pnlVaga7;
-        private System.Windows.Forms.Panel pnlVaga5;
-        private System.Windows.Forms.Panel pnlVaga4;
-        private System.Windows.Forms.Panel pnlVaga2;
-        private System.Windows.Forms.Panel pnlVaga3;
-        private System.Windows.Forms.Panel pnlVaga1;
+        private ucVagasItem vaga6;
+        private ucVagasItem vaga11;
+        private ucVagasItem vaga10;
+        private ucVagasItem vaga9;
+        private ucVagasItem vaga8;
+        private ucVagasItem vaga7;
+        private ucVagasItem vaga5;
+        private ucVagasItem vaga4;
+        private ucVagasItem vaga3;
+        private ucVagasItem vaga2;
+        private ucVagasItem vaga1;
+        private System.Windows.Forms.Button button1;
     }
 }
