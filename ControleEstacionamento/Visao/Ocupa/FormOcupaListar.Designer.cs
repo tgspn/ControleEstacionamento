@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormOcupaListar));
             this.panel1 = new System.Windows.Forms.Panel();
             this.ucVagas1 = new ControleEstacionamento.ucVagas();
             this.label1 = new System.Windows.Forms.Label();
@@ -50,7 +51,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(788, 604);
+            this.panel1.Size = new System.Drawing.Size(788, 605);
             this.panel1.TabIndex = 7;
             // 
             // ucVagas1
@@ -58,7 +59,7 @@
             this.ucVagas1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ucVagas1.Location = new System.Drawing.Point(0, 0);
             this.ucVagas1.Name = "ucVagas1";
-            this.ucVagas1.Size = new System.Drawing.Size(788, 604);
+            this.ucVagas1.Size = new System.Drawing.Size(788, 605);
             this.ucVagas1.TabIndex = 3;
             this.ucVagas1.Load += new System.EventHandler(this.ucVagas1_Load);
             // 
@@ -90,7 +91,7 @@
             listViewItem1});
             this.listView1.Location = new System.Drawing.Point(0, 0);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(788, 604);
+            this.listView1.Size = new System.Drawing.Size(788, 605);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
@@ -98,7 +99,7 @@
             // 
             this.panel2.Controls.Add(this.btnFechar);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 556);
+            this.panel2.Location = new System.Drawing.Point(0, 557);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(788, 48);
             this.panel2.TabIndex = 8;
@@ -112,19 +113,21 @@
             this.btnFechar.TabIndex = 6;
             this.btnFechar.Text = "Fechar";
             this.btnFechar.UseVisualStyleBackColor = true;
+            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
             // FormOcupaListar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(788, 604);
+            this.ClientSize = new System.Drawing.Size(788, 605);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(804, 643);
             this.MinimumSize = new System.Drawing.Size(804, 643);
             this.Name = "FormOcupaListar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Gerenciamento de Vagas";
+            this.Text = "PARKING [Gerenciamento de Vagas]";
             this.Load += new System.EventHandler(this.FormOcupaListar_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

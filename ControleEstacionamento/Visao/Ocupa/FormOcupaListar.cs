@@ -68,5 +68,10 @@ namespace ControleEstacionamento.Visao.Ocupa
             Controlers.VagaControler vagaControler = new Controlers.VagaControler();
             ucVagas1.AdicionarVagas(vagaControler.Listar());
         }
+
+        private void btnFechar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormOcupaFechamento));
             this.lblVeiculo = new System.Windows.Forms.Label();
             this.lblVaga = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
@@ -79,11 +80,14 @@
             // 
             this.btnSalvarFuncionario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSalvarFuncionario.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnSalvarFuncionario.Location = new System.Drawing.Point(493, 16);
+            this.btnSalvarFuncionario.Image = ((System.Drawing.Image)(resources.GetObject("btnSalvarFuncionario.Image")));
+            this.btnSalvarFuncionario.Location = new System.Drawing.Point(493, 12);
             this.btnSalvarFuncionario.Name = "btnSalvarFuncionario";
-            this.btnSalvarFuncionario.Size = new System.Drawing.Size(75, 23);
+            this.btnSalvarFuncionario.Size = new System.Drawing.Size(75, 36);
             this.btnSalvarFuncionario.TabIndex = 12;
             this.btnSalvarFuncionario.Text = "Finalizar";
+            this.btnSalvarFuncionario.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSalvarFuncionario.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSalvarFuncionario.UseVisualStyleBackColor = true;
             this.btnSalvarFuncionario.Click += new System.EventHandler(this.btnSalvarFuncionario_Click);
             // 
@@ -91,11 +95,14 @@
             // 
             this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(574, 16);
+            this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
+            this.btnCancelar.Location = new System.Drawing.Point(574, 12);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(75, 36);
             this.btnCancelar.TabIndex = 13;
             this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
@@ -112,9 +119,11 @@
             // 
             // ptbLogo
             // 
+            this.ptbLogo.Image = global::ControleEstacionamento.Properties.Resources.logo;
             this.ptbLogo.Location = new System.Drawing.Point(12, 12);
             this.ptbLogo.Name = "ptbLogo";
             this.ptbLogo.Size = new System.Drawing.Size(100, 59);
+            this.ptbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ptbLogo.TabIndex = 6;
             this.ptbLogo.TabStop = false;
             // 
@@ -136,7 +145,7 @@
             this.groupBox1.Controls.Add(this.lblVaga);
             this.groupBox1.Location = new System.Drawing.Point(110, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(413, 132);
+            this.groupBox1.Size = new System.Drawing.Size(413, 122);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             // 
@@ -164,12 +173,12 @@
             this.panel3.Controls.Add(this.btnSalvarFuncionario);
             this.panel3.Controls.Add(this.btnCancelar);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 233);
+            this.panel3.Location = new System.Drawing.Point(0, 223);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(661, 51);
+            this.panel3.Size = new System.Drawing.Size(661, 61);
             this.panel3.TabIndex = 16;
             // 
-            // FormOcupaCrud
+            // FormOcupaFechamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -177,8 +186,10 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Name = "FormOcupaCrud";
-            this.Text = "Cadastro Ocupa";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "FormOcupaFechamento";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "PARKING [Fechar]";
             this.Load += new System.EventHandler(this.FormFuncionarioCrud_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

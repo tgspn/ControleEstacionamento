@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormVagaListar));
             this.lblBuscarVeiculo = new System.Windows.Forms.Label();
             this.txtBuscarVeiculo = new System.Windows.Forms.TextBox();
             this.btnAdicionarVeiculo = new System.Windows.Forms.Button();
@@ -66,41 +67,52 @@
             // 
             // btnAdicionarVeiculo
             // 
+            this.btnAdicionarVeiculo.Image = ((System.Drawing.Image)(resources.GetObject("btnAdicionarVeiculo.Image")));
             this.btnAdicionarVeiculo.Location = new System.Drawing.Point(12, 3);
             this.btnAdicionarVeiculo.Name = "btnAdicionarVeiculo";
             this.btnAdicionarVeiculo.Size = new System.Drawing.Size(75, 42);
             this.btnAdicionarVeiculo.TabIndex = 2;
             this.btnAdicionarVeiculo.Text = "Adicionar";
+            this.btnAdicionarVeiculo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAdicionarVeiculo.UseVisualStyleBackColor = true;
             this.btnAdicionarVeiculo.Click += new System.EventHandler(this.btnAdicionar_Click);
             // 
             // btnDetalhesVeiculo
             // 
+            this.btnDetalhesVeiculo.Image = ((System.Drawing.Image)(resources.GetObject("btnDetalhesVeiculo.Image")));
             this.btnDetalhesVeiculo.Location = new System.Drawing.Point(93, 3);
             this.btnDetalhesVeiculo.Name = "btnDetalhesVeiculo";
             this.btnDetalhesVeiculo.Size = new System.Drawing.Size(75, 42);
             this.btnDetalhesVeiculo.TabIndex = 3;
             this.btnDetalhesVeiculo.Text = "Detalhes";
+            this.btnDetalhesVeiculo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDetalhesVeiculo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDetalhesVeiculo.UseVisualStyleBackColor = true;
             this.btnDetalhesVeiculo.Click += new System.EventHandler(this.btnDetalhesVeiculo_Click);
             // 
             // btnEditarVeiculo
             // 
+            this.btnEditarVeiculo.Image = ((System.Drawing.Image)(resources.GetObject("btnEditarVeiculo.Image")));
             this.btnEditarVeiculo.Location = new System.Drawing.Point(174, 3);
             this.btnEditarVeiculo.Name = "btnEditarVeiculo";
             this.btnEditarVeiculo.Size = new System.Drawing.Size(75, 42);
             this.btnEditarVeiculo.TabIndex = 4;
             this.btnEditarVeiculo.Text = "Editar";
+            this.btnEditarVeiculo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEditarVeiculo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEditarVeiculo.UseVisualStyleBackColor = true;
             this.btnEditarVeiculo.Click += new System.EventHandler(this.btnEditarVeiculo_Click);
             // 
             // btnExcluirVeiculo
             // 
+            this.btnExcluirVeiculo.Image = ((System.Drawing.Image)(resources.GetObject("btnExcluirVeiculo.Image")));
             this.btnExcluirVeiculo.Location = new System.Drawing.Point(255, 3);
             this.btnExcluirVeiculo.Name = "btnExcluirVeiculo";
             this.btnExcluirVeiculo.Size = new System.Drawing.Size(75, 42);
             this.btnExcluirVeiculo.TabIndex = 5;
             this.btnExcluirVeiculo.Text = "Excluir";
+            this.btnExcluirVeiculo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnExcluirVeiculo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnExcluirVeiculo.UseVisualStyleBackColor = true;
             this.btnExcluirVeiculo.Click += new System.EventHandler(this.btnExcluirVeiculo_Click);
             // 
@@ -165,11 +177,14 @@
             // btnBuscarVeiculo
             // 
             this.btnBuscarVeiculo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBuscarVeiculo.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarVeiculo.Image")));
             this.btnBuscarVeiculo.Location = new System.Drawing.Point(780, 19);
             this.btnBuscarVeiculo.Name = "btnBuscarVeiculo";
             this.btnBuscarVeiculo.Size = new System.Drawing.Size(75, 23);
             this.btnBuscarVeiculo.TabIndex = 2;
             this.btnBuscarVeiculo.Text = "Buscar";
+            this.btnBuscarVeiculo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscarVeiculo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBuscarVeiculo.UseVisualStyleBackColor = true;
             // 
             // FormVagaListar
@@ -180,9 +195,10 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormVagaListar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Lista de Vagas";
+            this.Text = "PARKING [Lista de Vagas]";
             this.Load += new System.EventHandler(this.FormVagaListar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).EndInit();
             this.panel1.ResumeLayout(false);
