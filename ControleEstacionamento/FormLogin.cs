@@ -20,7 +20,14 @@ namespace ControleEstacionamento
         private bool Validar()
         {
             if (txtUser.Text == "admin" && txtPasswd.Text == "admin")
+            {
+                Configuracao.CurrentFuncionario = new Modelos.FuncionarioModelo()
+                {
+                    Id=0,
+                    Nome="Admin"                    
+                };
                 return true;
+            }
             else
             {
                 var usuario = controler.Logar(new Modelos.UsuarioModelo() { Usuario = txtUser.Text, Senha = txtPasswd.Text });

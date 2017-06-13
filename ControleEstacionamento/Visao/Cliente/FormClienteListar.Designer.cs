@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormClienteListar));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.txtBuscarCliente = new System.Windows.Forms.TextBox();
@@ -63,11 +64,14 @@
             // btnBuscarCliente
             // 
             this.btnBuscarCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBuscarCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarCliente.Image")));
             this.btnBuscarCliente.Location = new System.Drawing.Point(639, 27);
             this.btnBuscarCliente.Name = "btnBuscarCliente";
             this.btnBuscarCliente.Size = new System.Drawing.Size(75, 23);
             this.btnBuscarCliente.TabIndex = 5;
             this.btnBuscarCliente.Text = "Buscar";
+            this.btnBuscarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscarCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBuscarCliente.UseVisualStyleBackColor = true;
             // 
             // txtBuscarCliente
@@ -176,44 +180,55 @@
             // btnAdicionarCliente
             // 
             this.btnAdicionarCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnAdicionarCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnAdicionarCliente.Image")));
             this.btnAdicionarCliente.Location = new System.Drawing.Point(10, 18);
             this.btnAdicionarCliente.Name = "btnAdicionarCliente";
             this.btnAdicionarCliente.Size = new System.Drawing.Size(75, 47);
             this.btnAdicionarCliente.TabIndex = 7;
             this.btnAdicionarCliente.Text = "Adicionar";
+            this.btnAdicionarCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAdicionarCliente.UseVisualStyleBackColor = true;
             this.btnAdicionarCliente.Click += new System.EventHandler(this.btnAdicionar_Click);
             // 
             // btnDetalhesCliente
             // 
             this.btnDetalhesCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnDetalhesCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnDetalhesCliente.Image")));
             this.btnDetalhesCliente.Location = new System.Drawing.Point(90, 18);
             this.btnDetalhesCliente.Name = "btnDetalhesCliente";
             this.btnDetalhesCliente.Size = new System.Drawing.Size(75, 47);
             this.btnDetalhesCliente.TabIndex = 8;
             this.btnDetalhesCliente.Text = "Detalhes";
+            this.btnDetalhesCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDetalhesCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDetalhesCliente.UseVisualStyleBackColor = true;
             this.btnDetalhesCliente.Click += new System.EventHandler(this.btnDetalhesVeiculo_Click);
             // 
             // btnExcluirCliente
             // 
             this.btnExcluirCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnExcluirCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnExcluirCliente.Image")));
             this.btnExcluirCliente.Location = new System.Drawing.Point(252, 18);
             this.btnExcluirCliente.Name = "btnExcluirCliente";
             this.btnExcluirCliente.Size = new System.Drawing.Size(75, 47);
             this.btnExcluirCliente.TabIndex = 10;
             this.btnExcluirCliente.Text = "Excluir";
+            this.btnExcluirCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnExcluirCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnExcluirCliente.UseVisualStyleBackColor = true;
             this.btnExcluirCliente.Click += new System.EventHandler(this.btnExcluirVeiculo_Click);
             // 
             // btnEditarCliente
             // 
             this.btnEditarCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnEditarCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnEditarCliente.Image")));
             this.btnEditarCliente.Location = new System.Drawing.Point(171, 18);
             this.btnEditarCliente.Name = "btnEditarCliente";
             this.btnEditarCliente.Size = new System.Drawing.Size(75, 47);
             this.btnEditarCliente.TabIndex = 9;
             this.btnEditarCliente.Text = "Editar";
+            this.btnEditarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEditarCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEditarCliente.UseVisualStyleBackColor = true;
             this.btnEditarCliente.Click += new System.EventHandler(this.btnEditarVeiculo_Click);
             // 
@@ -225,8 +240,10 @@
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormClienteListar";
-            this.Text = "Lista de Clientes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "PARKING [Lista de Clientes]";
             this.Load += new System.EventHandler(this.FormClienteListar_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
