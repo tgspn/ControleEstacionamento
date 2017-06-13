@@ -69,5 +69,15 @@ namespace ControleEstacionamento.Visao.Admin.Usuario
             this.Close();
 
         }
+
+        private void dgvFuncionario_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            foreach (DataGridViewColumn item in ((DataGridView)sender).Columns)
+            {
+                if (item.Name == "Id")
+                    item.Visible = false;
+                item.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
+        }
     }
 }

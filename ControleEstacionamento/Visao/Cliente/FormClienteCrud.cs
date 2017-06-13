@@ -55,9 +55,7 @@ namespace ControleEstacionamento.Visao.Cliente
         {
             if (!string.IsNullOrEmpty(txtNome.Text))
                 if (!string.IsNullOrEmpty(txtCpf.Text))
-                    if (!string.IsNullOrEmpty(txtEndereco.Text))
-                        if (!string.IsNullOrEmpty(txtCelular.Text))
-                            return true;
+                    return true;
 
             return false;
         }
