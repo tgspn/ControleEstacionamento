@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormVagaListar));
             this.lblBuscarVeiculo = new System.Windows.Forms.Label();
-            this.txtBuscarVeiculo = new System.Windows.Forms.TextBox();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
             this.btnAdicionarVeiculo = new System.Windows.Forms.Button();
             this.btnDetalhesVeiculo = new System.Windows.Forms.Button();
             this.btnEditarVeiculo = new System.Windows.Forms.Button();
@@ -40,7 +40,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnFecharVeiculo = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnBuscarVeiculo = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -56,14 +56,14 @@
             this.lblBuscarVeiculo.TabIndex = 0;
             this.lblBuscarVeiculo.Text = "Buscar:";
             // 
-            // txtBuscarVeiculo
+            // txtBuscar
             // 
-            this.txtBuscarVeiculo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBuscarVeiculo.Location = new System.Drawing.Point(62, 21);
-            this.txtBuscarVeiculo.Name = "txtBuscarVeiculo";
-            this.txtBuscarVeiculo.Size = new System.Drawing.Size(712, 20);
-            this.txtBuscarVeiculo.TabIndex = 1;
+            this.txtBuscar.Location = new System.Drawing.Point(62, 21);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(712, 20);
+            this.txtBuscar.TabIndex = 1;
             // 
             // btnAdicionarVeiculo
             // 
@@ -165,8 +165,8 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.txtBuscarVeiculo);
-            this.panel3.Controls.Add(this.btnBuscarVeiculo);
+            this.panel3.Controls.Add(this.txtBuscar);
+            this.panel3.Controls.Add(this.btnBuscar);
             this.panel3.Controls.Add(this.lblBuscarVeiculo);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
@@ -174,18 +174,19 @@
             this.panel3.Size = new System.Drawing.Size(867, 60);
             this.panel3.TabIndex = 7;
             // 
-            // btnBuscarVeiculo
+            // btnBuscar
             // 
-            this.btnBuscarVeiculo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBuscarVeiculo.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarVeiculo.Image")));
-            this.btnBuscarVeiculo.Location = new System.Drawing.Point(780, 19);
-            this.btnBuscarVeiculo.Name = "btnBuscarVeiculo";
-            this.btnBuscarVeiculo.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscarVeiculo.TabIndex = 2;
-            this.btnBuscarVeiculo.Text = "Buscar";
-            this.btnBuscarVeiculo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBuscarVeiculo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnBuscarVeiculo.UseVisualStyleBackColor = true;
+            this.btnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
+            this.btnBuscar.Location = new System.Drawing.Point(780, 19);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar.TabIndex = 2;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscarVeiculo_Click);
             // 
             // FormVagaListar
             // 
@@ -212,7 +213,7 @@
         #endregion
 
         private System.Windows.Forms.Label lblBuscarVeiculo;
-        private System.Windows.Forms.TextBox txtBuscarVeiculo;
+        private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Button btnAdicionarVeiculo;
         private System.Windows.Forms.Button btnDetalhesVeiculo;
         private System.Windows.Forms.Button btnEditarVeiculo;
@@ -221,7 +222,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button btnBuscarVeiculo;
+        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnFecharVeiculo;
     }
 }

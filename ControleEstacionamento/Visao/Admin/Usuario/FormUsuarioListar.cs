@@ -79,5 +79,10 @@ namespace ControleEstacionamento.Visao.Admin.Usuario
                 item.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
         }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            controler.BuscarPorNomeLike(txtBuscar.Text);
+        }
     }
 }

@@ -134,5 +134,15 @@ namespace ControleEstacionamento.DAO
         {
             this.conexao.Dispose();
         }
+        public List<VagaModelo> ListarPorNro(string nro)
+        {
+            if (nro == null)
+                return null;
+
+            var command = conexao.Command;
+            command.CommandText = $"SELECT * FROM VAGA WHERE NRO LIKE @nro";
+            command.Parameters.AddWithValue("@nro", nro);
+            return Ler();
+        }
     }
 }
