@@ -94,5 +94,10 @@ namespace ControleEstacionamento.Visao.Ocupa
 
             };
         }
+
+        private void btnFechar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

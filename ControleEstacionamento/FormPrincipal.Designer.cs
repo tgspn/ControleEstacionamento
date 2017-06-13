@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.arquivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,7 +45,6 @@
             this.tsbCliente = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.usuáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -70,15 +70,22 @@
             this.arquivoToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.arquivoToolStripMenuItem.Text = "Arquivo";
             // 
+            // usuáriosToolStripMenuItem
+            // 
+            this.usuáriosToolStripMenuItem.Name = "usuáriosToolStripMenuItem";
+            this.usuáriosToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.usuáriosToolStripMenuItem.Text = "Usuários";
+            this.usuáriosToolStripMenuItem.Click += new System.EventHandler(this.usuáriosToolStripMenuItem_Click);
+            // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(116, 6);
             // 
             // sairToolStripMenuItem
             // 
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
@@ -146,7 +153,7 @@
             this.tsbVeiculo.Image = ((System.Drawing.Image)(resources.GetObject("tsbVeiculo.Image")));
             this.tsbVeiculo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbVeiculo.Name = "tsbVeiculo";
-            this.tsbVeiculo.Size = new System.Drawing.Size(70, 22);
+            this.tsbVeiculo.Size = new System.Drawing.Size(71, 22);
             this.tsbVeiculo.Text = "Veículos";
             this.tsbVeiculo.Click += new System.EventHandler(this.tsbVeiculo_Click);
             // 
@@ -164,7 +171,7 @@
             this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(57, 22);
+            this.toolStripButton2.Size = new System.Drawing.Size(58, 22);
             this.toolStripButton2.Text = "Vagas";
             this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
@@ -177,13 +184,6 @@
             this.toolStripButton1.Text = "Gerenciamento de vagas";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
-            // usuáriosToolStripMenuItem
-            // 
-            this.usuáriosToolStripMenuItem.Name = "usuáriosToolStripMenuItem";
-            this.usuáriosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.usuáriosToolStripMenuItem.Text = "Usuários";
-            this.usuáriosToolStripMenuItem.Click += new System.EventHandler(this.usuáriosToolStripMenuItem_Click);
-            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -191,6 +191,7 @@
             this.ClientSize = new System.Drawing.Size(573, 418);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormPrincipal";
