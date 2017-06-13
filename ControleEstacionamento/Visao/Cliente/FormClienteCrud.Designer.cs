@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormClienteCrud));
             this.txtEndereco = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.lblEndereco = new System.Windows.Forms.Label();
@@ -170,11 +171,14 @@
             // 
             this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(348, 12);
+            this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
+            this.btnCancelar.Location = new System.Drawing.Point(348, 6);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(75, 33);
             this.btnCancelar.TabIndex = 32;
             this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
@@ -182,11 +186,14 @@
             // 
             this.btnSalvarCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSalvarCliente.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnSalvarCliente.Location = new System.Drawing.Point(266, 12);
+            this.btnSalvarCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnSalvarCliente.Image")));
+            this.btnSalvarCliente.Location = new System.Drawing.Point(266, 7);
             this.btnSalvarCliente.Name = "btnSalvarCliente";
-            this.btnSalvarCliente.Size = new System.Drawing.Size(75, 23);
+            this.btnSalvarCliente.Size = new System.Drawing.Size(75, 32);
             this.btnSalvarCliente.TabIndex = 31;
             this.btnSalvarCliente.Text = "Salvar";
+            this.btnSalvarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSalvarCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSalvarCliente.UseVisualStyleBackColor = true;
             this.btnSalvarCliente.Click += new System.EventHandler(this.btnSalvarCliente_Click);
             // 
@@ -203,9 +210,11 @@
             // 
             // ptbLogo
             // 
+            this.ptbLogo.Image = global::ControleEstacionamento.Properties.Resources.logo;
             this.ptbLogo.Location = new System.Drawing.Point(12, 12);
             this.ptbLogo.Name = "ptbLogo";
             this.ptbLogo.Size = new System.Drawing.Size(100, 59);
+            this.ptbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ptbLogo.TabIndex = 7;
             this.ptbLogo.TabStop = false;
             // 
@@ -227,8 +236,10 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormClienteCrud";
-            this.Text = "Cadastro Cliente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "PARKING [Cadastro Cliente]";
             this.Load += new System.EventHandler(this.FormClienteCrud_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
