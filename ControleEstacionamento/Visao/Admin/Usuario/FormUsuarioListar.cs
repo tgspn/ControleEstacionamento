@@ -69,5 +69,10 @@ namespace ControleEstacionamento.Visao.Admin.Usuario
             this.Close();
 
         }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            controler.BuscarPorNomeLike(txtBuscar.Text);
+        }
     }
 }
