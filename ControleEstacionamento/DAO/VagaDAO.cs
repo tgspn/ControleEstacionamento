@@ -40,10 +40,11 @@ namespace ControleEstacionamento.DAO
         {
 
             var command = conexao.Command;
-            command.CommandText = $"INSERT INTO {tableName} (nro, acessibilidade) VALUES (@nro,@acessibilidade)";
+            command.CommandText = $"INSERT INTO {tableName} (nro, acessibilidade, valor_hora) VALUES (@nro,@acessibilidade,@preco)";
             command.Parameters.Clear();
             command.Parameters.AddWithValue("@nro", model.NumeroVaga);
             command.Parameters.AddWithValue("@acessibilidade", model.TemAcessibilidade);
+            command.Parameters.AddWithValue("@preco", model.Preco);
 
 
             command.ExecuteNonQuery();
@@ -98,7 +99,7 @@ namespace ControleEstacionamento.DAO
             return Ler();
         }
 
-
+        
         public List<VagaModelo> Ler()
         {
             try
@@ -113,6 +114,7 @@ namespace ControleEstacionamento.DAO
                         NumeroVaga = reader.GetString("nro"),
                         Id = reader.GetInt32("id"),
                         TemAcessibilidade = reader.GetBoolean("acessibilidade"),
+                        //Preco = reader.GetDecimal("Preco"),
                         
                     });
                 }

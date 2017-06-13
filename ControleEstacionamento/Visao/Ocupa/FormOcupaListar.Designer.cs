@@ -151,6 +151,7 @@
             this.vaga7.TabIndex = 7;
             this.vaga7.Vaga = null;
             this.vaga7.Veiculo = null;
+            this.vaga7.Load += new System.EventHandler(this.vaga7_Load);
             this.vaga7.Click += new System.EventHandler(this.vaga1_Click);
             // 
             // vaga6

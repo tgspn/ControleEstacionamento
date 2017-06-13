@@ -29,9 +29,9 @@ namespace ControleEstacionamento.DAO
             var command = conexao.Command;
             command.CommandText = $"UPDATE {tableName} SET id_funcionario=@id_func, id_veiculo=@id_veiculo, id_vaga=@id_vaga, dh_entrada=@dh_entrada, dh_saida=@dh_saida";
             command.Parameters.Clear();
-            command.Parameters.AddWithValue("@id_func", model.Funcionario);
-            command.Parameters.AddWithValue("@id_veiculo", model.Veiculo);
-            command.Parameters.AddWithValue("@id_vaga", model.Vaga);
+            command.Parameters.AddWithValue("@id_func", model.Funcionario.Id);
+            command.Parameters.AddWithValue("@id_veiculo", model.Veiculo.Id);
+            command.Parameters.AddWithValue("@id_vaga", model.Vaga.Id);
             command.Parameters.AddWithValue("@dh_entrada", model.dhEntrada);
             command.Parameters.AddWithValue("@dh_saida", model.dhSaida);
 
@@ -48,9 +48,9 @@ namespace ControleEstacionamento.DAO
             var command = conexao.Command;
             command.CommandText = $"INSERT INTO {tableName} (id_funcionario, id_veiculo, id_vaga, dh_entrada, dh_saida) VALUES (@id_func, @id_veiculo, @id_vaga, @dh_entrada, @dh_saida)";
             command.Parameters.Clear();
-            command.Parameters.AddWithValue("@id_func", 1);
-            command.Parameters.AddWithValue("@id_veiculo", model.Veiculo);
-            command.Parameters.AddWithValue("@id_vaga", model.Vaga);
+            command.Parameters.AddWithValue("@id_func", model.Funcionario.Id);
+            command.Parameters.AddWithValue("@id_veiculo", model.Veiculo.Id);
+            command.Parameters.AddWithValue("@id_vaga", model.Vaga.Id);
             command.Parameters.AddWithValue("@dh_entrada", model.dhEntrada);
             command.Parameters.AddWithValue("@dh_saida", model.dhSaida);
 
@@ -60,7 +60,16 @@ namespace ControleEstacionamento.DAO
             return model;
         }
 
+        public DateTime PegarHoraEntrada(OcupaModelo model/*, DateTime tempo_decorrido*/) {
+            var command = conexao.Command;
+            //  command.CommandText = $"select sec_to_time(time_to_sec(dh_entrada) - time_to_sec(dh_saida)) valor from {tableName} where id_vaga = @vaga";
+            command.CommandText = $"select dh_entrada  from {tableName} where id_vaga = @vaga";
+            command.Parameters.AddWithValue("@vaga", model.Vaga.Id);
 
+            return Convert.ToDateTime(command.ExecuteScalar());
+            //tempo_decorrido = Convert.ToDateTime(command.ExecuteScalar());
+            //return tempo_decorrido; 
+        }
         public List<OcupaModelo> ListarPorId(params int[] id)
         {
             if (id == null || id.Length == 0)

@@ -13,28 +13,40 @@ namespace ControleEstacionamento.Visao.Ocupa
 {
     public partial class FormOcupaFechamento : Form
     {
-        public FormOcupaFechamento()
+        public FormOcupaFechamento(VagaModelo vaga)
         {
             InitializeComponent();
+            ocupaControler = new Controlers.OcupaController();
+            this.vaga = vaga;
         }
         OcupaModelo ocupa = new OcupaModelo();
+        Controlers.OcupaController ocupaControler;
+        private VagaModelo vaga;
+
         private void btnSalvarFuncionario_Click(object sender, EventArgs e)
         {
             this.Close();
         }
         private bool GetInfo() {
-            if(ocupa == null) {
+            if (ocupa == null) {
                 ocupa = new OcupaModelo();
+
+                try {
+                    ocupa.dhSaida = System.DateTime.Now;
+                    
+                    label1.Text = ocupaControler.TempoTotal(ocupa).ToString();
+                    int valor = Convert.ToInt32(ocupaControler.TempoTotal(ocupa));
+
+                    decimal valor_total = valor * ocupa.Vaga.Preco;
+                    label2.Text = valor_total.ToString();
+                    return true;
+                }
+                catch {
+                   
+                }
             }
-            try {
-                ocupa.dhSaida = System.DateTime.Now;
-                return true;
-            }
-            catch (Exception erro) {
-                MessageBox.Show("Erro - " + erro);
-                return false;
-            }
-            
+            return false;
+
         }
         private void FormFuncionarioCrud_Load(object sender, EventArgs e)
         {

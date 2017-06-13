@@ -11,6 +11,6 @@ namespace ControleEstacionamento.Modelos
         public int Id { get; set; }
         public string NumeroVaga { get;  set; }
         public bool TemAcessibilidade { get;  set; }
-        public double Preco { get; set; }
+        public decimal Preco { get; set; }
     }
 }

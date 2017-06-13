@@ -35,17 +35,17 @@ namespace ControleEstacionamento.Visao.Ocupa {
         }
 
         private void pictureBox1_Click(object sender, EventArgs e) {
-            if (label1.Text == "Livre") {
-                //new FormOcupaLancamento().ShowDialog();
-                pictureBox1.Image = Properties.Resources.num1_red;
-                pictureBox1.Update();
-                label1.Text = "Ocupado";
-            }
-            else {
-                new FormOcupaFechamento().ShowDialog();
-                pictureBox1.Image = Properties.Resources.num1;
-                label1.Text = "Livre";
-            }
+            //if (label1.Text == "Livre") {
+            //    //new FormOcupaLancamento().ShowDialog();
+            //    pictureBox1.Image = Properties.Resources.num1_red;
+            //    pictureBox1.Update();
+            //    label1.Text = "Ocupado";
+            //}
+            //else {
+            //    new FormOcupaFechamento().ShowDialog();
+            //    pictureBox1.Image = Properties.Resources.num1;
+            //    label1.Text = "Livre";
+            //}
         }
 
         private void ucVagas1_Load(object sender, EventArgs e) {
@@ -70,9 +70,10 @@ namespace ControleEstacionamento.Visao.Ocupa {
 
         private void vaga1_Click(object sender, EventArgs e) {
             var vagaItem = ((ucVagasItem)sender);
+            var vaga = vagaItem.Vaga;
             if (vagaItem.Veiculo == null)//Não tem veículo na vaga
                 {
-                var vaga = vagaItem.Vaga;
+               
                 var form = new Visao.Ocupa.FormOcupaLancamento(vaga);
                 if (form.ShowDialog() == DialogResult.OK) {
                     vagaItem.Veiculo = form.Veiculo;
@@ -80,7 +81,7 @@ namespace ControleEstacionamento.Visao.Ocupa {
             }
             else {
 
-                var form = new FormOcupaFechamento();
+                var form = new FormOcupaFechamento(vaga);
                 form.ShowDialog();
                 vagaItem.LiberarVaga();
 
@@ -104,6 +105,10 @@ namespace ControleEstacionamento.Visao.Ocupa {
         }
 
         private void vaga1_Load(object sender, EventArgs e) {
+
+        }
+
+        private void vaga7_Load(object sender, EventArgs e) {
 
         }
 
